@@ -1,0 +1,110 @@
+{
+  "appId": "com.harnessproject.app",
+  "appName": "HARNESS",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "url": "https://www.theharnessproject.org",
+    "cleartext": true,
+    "allowNavigation": [
+      "theharnessproject.org",
+      "*.theharnessproject.org"
+    ]
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "launchAutoHide": true,
+      "backgroundColor": "#FFFFFF",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": false,
+      "androidSpinnerStyle": "large",
+      "iosSpinnerStyle": "small",
+      "spinnerColor": "#00BDBD",
+      "splashFullScreen": true,
+      "splashImmersive": true
+    },
+    "StatusBar": {
+      "style": "LIGHT",
+      "backgroundColor": "#00BDBD"
+    },
+    "Keyboard": {
+      "resize": "body",
+      "style": "DARK",
+      "resizeOnFullScreen": true
+    },
+    "PushNotifications": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    },
+    "LocalNotifications": {
+      "smallIcon": "ic_stat_icon_config_sample",
+      "iconColor": "#00BDBD",
+      "sound": "beep.wav"
+    },
+    "Haptics": {
+      "enabled": true
+    },
+    "Share": {
+      "enabled": true
+    },
+    "Camera": {
+      "enabled": true
+    },
+    "Geolocation": {
+      "enabled": false
+    }
+  },
+  "cordova": {
+    "preferences": {
+      "ScrollEnabled": "true",
+      "BackupWebStorage": "local",
+      "AllowInlineMediaPlayback": "true",
+      "DisallowOverscroll": "true",
+      "EnableViewportScale": "false",
+      "MediaPlaybackRequiresUserAction": "false",
+      "SuppressesIncrementalRendering": "false",
+      "SuppressesLongPressGesture": "false",
+      "Fullscreen": "false",
+      "AndroidLaunchMode": "singleTop",
+      "AutoHideSplashScreen": "true",
+      "FadeSplashScreen": "true",
+      "FadeSplashScreenDuration": "300",
+      "ShowSplashScreenSpinner": "false"
+    }
+  },
+  "ios": {
+    "contentInset": "always",
+    "scheme": "HARNESS",
+    "limitsNavigationsToAppBoundDomains": true,
+    "scrollEnabled": true,
+    "allowsLinkPreview": false
+  },
+  "android": {
+    "buildOptions": {
+      "keystorePath": "harness-release-key.keystore",
+      "keystorePassword": "",
+      "keystoreAlias": "harness",
+      "keystoreAliasPassword": "",
+      "releaseType": "APK"
+    },
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  },
+  "packageJson": {
+    "name": "harness-app",
+    "version": "1.0.0",
+    "description": "HARNESS - Fearless. Protected. Empowered. Interactive SafER sex education toolkit.",
+    "author": "Christopher Zacharie",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/harnessproject/app"
+    },
+    "bugs": {
+      "url": "https://github.com/harnessproject/app/issues"
+    },
+    "homepage": "https://www.theharnessproject.org"
+  }
+}
