@@ -1,0 +1,295 @@
+/* ===== HARNESS Project - Transparent Headers & Logos Stylesheet ===== */
+/* This stylesheet makes all headers and logos transparent where they have white backgrounds */
+/* Created: 2026-01-22 */
+
+/* === GLOBAL HEADER TRANSPARENCY === */
+
+/* Main navigation bars with white backgrounds */
+nav:not([style*="gradient"]),
+.harness-nav,
+.app-header,
+header {
+    background: transparent !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Scrolled navigation with semi-transparent white */
+nav.scrolled,
+.harness-nav.scrolled,
+.app-header.scrolled {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Navigation containers */
+.nav-container,
+.header-content {
+    background: transparent !important;
+}
+
+/* === LOGO TRANSPARENCY === */
+
+/* Make ALL logo images transparent - remove any white backgrounds */
+.logo-img,
+.nav-logo-img,
+.header-logo,
+.sidebar-logo,
+.mobile-nav-logo,
+.nav-logo img,
+.header-logo img,
+img[src*="logo"],
+img[src*="LOGO"],
+img[alt*="HARNESS"],
+img[alt*="harness"],
+img[src*="harness-logo"],
+img[src*="harness-app-logo"],
+img[src*="harness-curriculum-logo"],
+img[src*="harness-toolkit-logo"],
+img[src*="harness-workshops-logo"],
+img[src*="harness-blog-logo"],
+img[src*="harness-main-logo"],
+img[src*="harness-hero-logo"],
+img[src*="harness-nav-logo"] {
+    /* Remove any white background */
+    background: transparent !important;
+    background-color: transparent !important;
+    /* Add subtle shadow for visibility */
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    /* Mix blend mode to remove white backgrounds */
+    mix-blend-mode: multiply;
+}
+
+/* For logos on dark backgrounds, use normal blend mode */
+.dark-bg img[src*="logo"],
+.gradient-bg img[src*="logo"] {
+    mix-blend-mode: normal;
+}
+
+/* Navigation logos specifically */
+nav img[src*="logo"],
+.harness-universal-nav img,
+.harness-nav img {
+    background: transparent !important;
+    mix-blend-mode: multiply;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* App header logo */
+.app-header img[src*="logo"],
+header img[src*="logo"] {
+    background: transparent !important;
+    mix-blend-mode: multiply;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* === HEADER SECTIONS === */
+
+/* Various header classes across the site */
+.about-header,
+.visual-library-header,
+.lube-header,
+.alt-header,
+.achievements-header,
+.daily-rituals-header,
+.favorites-header,
+.condom-plan-header,
+.legal-header,
+.puzzle-header,
+.kc-header,
+.guide-header,
+.affirmation-header,
+.daily-affirmations-header {
+    background: transparent !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/* === EDUCATOR SECTION === */
+
+/* Educator navigation */
+.navbar {
+    background: transparent !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-logo,
+.nav-menu {
+    background: transparent !important;
+}
+
+/* === CARD & SECTION HEADERS === */
+
+.section-header,
+.category-header,
+.card-header,
+.pillar-header,
+.favorite-header,
+.resource-modal-header,
+.visual-list-header,
+.feature-header,
+.toolkit-header,
+.certificate-header {
+    background: transparent !important;
+}
+
+/* === MOBILE SIDEBAR === */
+
+.mobile-sidebar,
+.sidebar-header,
+.sidebar-content {
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* === DROPDOWN MENUS === */
+
+.dropdown-content {
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* === EBOOK READER === */
+
+.sidebar-header {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/* === ENHANCED LOGO SHADOWS === */
+
+/* Add subtle shadows to hero/main logos for better visibility */
+.hero-logo,
+.main-logo,
+.splash-logo,
+img[src*="hero-logo"],
+img[src*="main-logo"],
+img[src*="splash-logo"] {
+    background: transparent !important;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+    mix-blend-mode: multiply;
+}
+
+/* Large hero logos on landing pages */
+.hero img[src*="logo"],
+.hero-section img[src*="logo"],
+.splash-screen img[src*="logo"] {
+    background: transparent !important;
+    mix-blend-mode: multiply;
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.2));
+}
+
+/* === WORKSHOP PAGE LOGO === */
+
+.logo-container {
+    background: transparent !important;
+}
+
+.logo-container img,
+img[src*="workshops-logo"] {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    background: transparent !important;
+}
+
+/* === FALLBACK FOR INLINE STYLES === */
+
+/* Override inline white backgrounds */
+[style*="background: white"],
+[style*="background: #fff"],
+[style*="background: #ffffff"],
+[style*="background: rgb(255, 255, 255)"],
+[style*="background:white"],
+[style*="background:#fff"],
+[style*="background:#ffffff"] {
+    background: transparent !important;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+/* === PRESERVE IMPORTANT WHITE BACKGROUNDS === */
+
+/* Keep white backgrounds for content cards and modals */
+.journey-card,
+.value-card,
+.modal-content,
+.card,
+.content-card,
+input,
+textarea,
+select,
+button {
+    background: white !important;
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+
+@media (max-width: 768px) {
+    /* Ensure mobile headers remain semi-transparent */
+    nav,
+    .harness-nav,
+    .app-header,
+    header {
+        background: rgba(255, 255, 255, 0.90) !important;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+    
+    /* Mobile sidebar with better transparency */
+    .mobile-sidebar {
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+    }
+}
+
+/* === BROWSER COMPATIBILITY === */
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(20px)) {
+    nav:not([style*="gradient"]),
+    .harness-nav,
+    .app-header,
+    header {
+        background: rgba(255, 255, 255, 0.95) !important;
+    }
+}
+
+/* === ACCESSIBILITY === */
+
+/* Ensure sufficient contrast for text */
+nav,
+.harness-nav,
+.app-header,
+header {
+    color: #333;
+}
+
+/* Make sure links remain readable */
+nav a,
+.harness-nav a,
+.app-header a,
+header a {
+    color: inherit;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* === PRINT STYLES === */
+
+@media print {
+    /* Remove transparency for printing */
+    nav,
+    .harness-nav,
+    .app-header,
+    header,
+    .logo-img,
+    .nav-logo-img {
+        background: white !important;
+        backdrop-filter: none !important;
+        filter: none !important;
+    }
+}
