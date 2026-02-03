@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - HARNESS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Bree Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F5F7FA 40%, #E8ECEF 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .offline-container {
+            max-width: 600px;
+            text-align: center;
+            background: white;
+            padding: 48px 32px;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+        }
+        
+        .offline-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 24px;
+            background: linear-gradient(135deg, #00BDBD 0%, #00A8A8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+        
+        h1 {
+            font-size: 32px;
+            color: #2C3E50;
+            margin-bottom: 16px;
+        }
+        
+        p {
+            font-size: 18px;
+            color: #7F8C8D;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        
+        .offline-features {
+            background: #F5F7FA;
+            border-radius: 16px;
+            padding: 24px;
+            margin: 32px 0;
+            text-align: left;
+        }
+        
+        .offline-features h2 {
+            font-size: 20px;
+            color: #2C3E50;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 12px 16px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 12px;
+            color: #2C3E50;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: #00BDBD;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .retry-btn {
+            background: #00BDBD;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .retry-btn:hover {
+            background: #00A8A8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,189,189,0.3);
+        }
+        
+        .retry-btn:active {
+            transform: translateY(0);
+        }
+        
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 8px 16px;
+            background: #FFF3E0;
+            color: #F57C00;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .status-indicator::before {
+            content: "⚠️";
+            font-size: 16px;
+        }
+        
+        .status-indicator.online {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+        
+        .status-indicator.online::before {
+            content: "✓";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #2E7D32;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+        }
+        
+        @media (max-width: 480px) {
+            .offline-container {
+                padding: 32px 24px;
+            }
+            
+            .offline-icon {
+                width: 100px;
+                height: 100px;
+                font-size: 52px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
+            
+            .retry-btn {
+                width: 100%;
+                padding: 14px 24px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">
+            📡
+        </div>
+        
+        <h1>You're Offline</h1>
+        
+        <p>
+            No internet connection detected. Don't worry – HARNESS works offline too!
+        </p>
+        
+        <div class="offline-features">
+            <h2>Available Offline:</h2>
+            <ul class="feature-list">
+                <li>View saved agreements</li>
+                <li>Explore the MATCH framework</li>
+                <li>Browse cached resources</li>
+                <li>Read saved infographics</li>
+                <li>Access your favorites</li>
+                <li>Review your progress</li>
+            </ul>
+        </div>
+        
+        <button class="retry-btn" onclick="retryConnection()">
+            <span>🔄</span>
+            <span>Try Again</span>
+        </button>
+        
+        <div class="status-indicator" id="status">
+            Offline Mode Active
+        </div>
+    </div>
+    
+    <script>
+        // Check online status
+        function updateOnlineStatus() {
+            const status = document.getElementById('status');
+            
+            if (navigator.onLine) {
+                status.textContent = 'Back Online!';
+                status.classList.add('online');
+                
+                // Auto-redirect after 2 seconds
+                setTimeout(() => {
+                    window.location.href = '/app.html';
+                }, 2000);
+            } else {
+                status.textContent = 'Offline Mode Active';
+                status.classList.remove('online');
+            }
+        }
+        
+        // Retry connection
+        function retryConnection() {
+            const btn = document.querySelector('.retry-btn');
+            btn.textContent = 'Checking...';
+            btn.disabled = true;
+            
+            // Check connection
+            fetch('/app.html', { method: 'HEAD', cache: 'no-cache' })
+                .then(() => {
+                    // Online!
+                    btn.innerHTML = '<span>✓</span><span>Connected!</span>';
+                    setTimeout(() => {
+                        window.location.href = '/app.html';
+                    }, 1000);
+                })
+                .catch(() => {
+                    // Still offline
+                    btn.innerHTML = '<span>🔄</span><span>Try Again</span>';
+                    btn.disabled = false;
+                    
+                    // Show temporary message
+                    const status = document.getElementById('status');
+                    status.textContent = 'Still Offline - Try Again Later';
+                    setTimeout(() => {
+                        status.textContent = 'Offline Mode Active';
+                    }, 3000);
+                });
+        }
+        
+        // Listen for online/offline events
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+        
+        // Check status on load
+        updateOnlineStatus();
+        
+        // Auto-check every 10 seconds
+        setInterval(() => {
+            if (!navigator.onLine) {
+                fetch('/app.html', { method: 'HEAD', cache: 'no-cache' })
+                    .then(() => {
+                        // Connection restored
+                        updateOnlineStatus();
+                    })
+                    .catch(() => {
+                        // Still offline
+                    });
+            }
+        }, 10000);
+    </script>
+</body>
+</html>

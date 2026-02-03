@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - The HARNESS Project</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Thank you for your purchase! Your HARNESS Visual Toolkit is ready for download.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/images/harness-project-icon-transparent.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/transparent-headers.css">
+    
+    <!-- Scripts -->
+    <script src="js/harness-global.js" defer></script>
+    <script src="js/ecommerce-system.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Bree Serif', serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .confirmation-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .success-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .success-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+            animation: bounce 0.5s ease-out;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .success-header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 40px 30px;
+        }
+        
+        .order-info {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #00BDBD 0%, #DD0E6E 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            margin-top: 15px;
+            transition: transform 0.2s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,189,189,0.3);
+        }
+        
+        .order-items {
+            margin-bottom: 30px;
+        }
+        
+        .order-item {
+            display: flex;
+            gap: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .item-image {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .item-details {
+            flex: 1;
+        }
+        
+        .item-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .item-includes {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .item-includes ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .next-steps {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .next-steps h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        .next-steps ol {
+            margin-left: 20px;
+        }
+        
+        .next-steps li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .support-section {
+            text-align: center;
+            padding: 30px;
+            background: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .support-section a {
+            color: #00BDBD;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="success-header">
+            <div class="success-icon">✅</div>
+            <h1>Order Confirmed!</h1>
+            <p>Thank you for your purchase. Your order has been successfully processed.</p>
+        </div>
+        
+        <div class="content">
+            <div class="order-info">
+                <div class="info-row">
+                    <strong>Order ID:</strong>
+                    <span id="orderId">Loading...</span>
+                </div>
+                <div class="info-row">
+                    <strong>Date:</strong>
+                    <span id="orderDate">Loading...</span>
+                </div>
+                <div class="info-row">
+                    <strong>Email:</strong>
+                    <span id="customerEmail">Loading...</span>
+                </div>
+                <div class="info-row">
+                    <strong>Total:</strong>
+                    <span id="orderTotal" style="color: #00BDBD; font-size: 1.2em; font-weight: 600;">Loading...</span>
+                </div>
+            </div>
+            
+            <div class="download-section">
+                <h2 style="margin-bottom: 15px;">🎉 Your Files Are Ready!</h2>
+                <p>Click the button below to download the complete HARNESS Visual Toolkit.</p>
+                <a href="#" id="downloadLink" class="download-btn" onclick="handleDownload(event)">
+                    📥 Download Visual Toolkit (ZIP)
+                </a>
+                <p style="margin-top: 20px; font-size: 0.9em; color: #666;">
+                    <strong>Note:</strong> This download link will be valid for 30 days. We'll also send a copy to your email.
+                </p>
+            </div>
+            
+            <div class="order-items" id="orderItems">
+                <!-- Order items will be dynamically inserted -->
+            </div>
+            
+            <div class="next-steps">
+                <h3>📋 Next Steps</h3>
+                <ol>
+                    <li><strong>Download your files</strong> using the button above</li>
+                    <li><strong>Extract the ZIP file</strong> to access all 59 infographics</li>
+                    <li><strong>Review the Usage License</strong> included in your download</li>
+                    <li><strong>Read the Implementation Guide</strong> for tips on using the toolkit</li>
+                    <li><strong>Start teaching!</strong> Use the infographics in your sexual health education programs</li>
+                </ol>
+            </div>
+            
+            <div class="support-section">
+                <h3 style="margin-bottom: 15px;">Need Help?</h3>
+                <p>If you have any questions or need assistance, please contact us:</p>
+                <p style="margin-top: 15px;">
+                    📧 <a href="mailto:support@theharnessproject.org">support@theharnessproject.org</a>
+                </p>
+                <p style="margin-top: 10px;">
+                    We typically respond within 24 hours.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function getOrderIdFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('orderId');
+        }
+        
+        function loadOrderDetails() {
+            const orderId = getOrderIdFromURL();
+            
+            if (!orderId) {
+                alert('Order not found. Redirecting to homepage...');
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Get order from localStorage
+            const orders = harnessStore.getOrders();
+            const order = orders.find(o => o.orderId === orderId);
+            
+            if (!order) {
+                alert('Order not found. Redirecting to homepage...');
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Display order details
+            document.getElementById('orderId').textContent = order.orderId;
+            document.getElementById('orderDate').textContent = new Date(order.date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('customerEmail').textContent = order.customer.email;
+            document.getElementById('orderTotal').textContent = '$' + order.total.toFixed(2);
+            
+            // Set download link
+            const downloadLink = harnessStore.generateDownloadLink(order.orderId);
+            document.getElementById('downloadLink').href = downloadLink;
+            
+            // Display order items
+            const orderItemsDiv = document.getElementById('orderItems');
+            orderItemsDiv.innerHTML = order.items.map(item => `
+                <div class="order-item">
+                    <img src="${item.image}" alt="${item.name}" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">${item.name}</div>
+                        <div style="color: #666; margin-bottom: 5px;">Quantity: ${item.quantity}</div>
+                        <div style="color: #00BDBD; font-size: 1.1em; font-weight: 600;">$${(item.price * item.quantity).toFixed(2)}</div>
+                        
+                        ${item.files ? `
+                            <div class="item-includes">
+                                <strong>📦 Includes:</strong>
+                                <ul>
+                                    ${item.files.map(file => `<li>${file}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            `).join('');
+            
+            // Send confirmation email (simulated)
+            harnessStore.sendConfirmationEmail(order);
+        }
+        
+        function handleDownload(event) {
+            // Track download
+            console.log('Download initiated');
+            
+            // In production, this would track analytics
+            if (window.gtag) {
+                gtag('event', 'download', {
+                    'event_category': 'ecommerce',
+                    'event_label': 'visual_toolkit'
+                });
+            }
+            
+            // Show download started notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #4CAF50;
+                color: white;
+                padding: 20px 30px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+                z-index: 10000;
+            `;
+            notification.textContent = '✓ Download started! Check your downloads folder.';
+            document.body.appendChild(notification);
+            
+            setTimeout(() => notification.remove(), 5000);
+        }
+        
+        // Load order details on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadOrderDetails();
+        });
+    </script>
+</body>
+</html>
