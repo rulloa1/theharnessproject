@@ -17,9 +17,6 @@
     <link rel="stylesheet" href="css/transparent-headers.css">
     
     <!-- Scripts -->
-    <script src="js/harness-global.js" defer></script>
-    <script src="js/ecommerce-system.js"></script>
-    
     <style>
         * {
             margin: 0;
@@ -324,9 +321,8 @@
         
         function handleDownload(event) {
             // Track download
-            console.log('Download initiated');
-            
-            // In production, this would track analytics
+            // console.log removed
+// In production, this would track analytics
             if (window.gtag) {
                 gtag('event', 'download', {
                     'event_category': 'ecommerce',

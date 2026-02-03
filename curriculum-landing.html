@@ -283,7 +283,8 @@
             document.documentElement.setAttribute('lang', 'en');
         }
 
-        console.log('[HARNESS SEO] Meta tags injected for:', getCurrentPath());
+        // console.log removed
+);
     }
 
     // Add structured data (Schema.org JSON-LD)
@@ -326,8 +327,8 @@
         script.textContent = JSON.stringify(structuredData, null, 2);
         document.head.appendChild(script);
 
-        console.log('[HARNESS SEO] Structured data added');
-    }
+        // console.log removed
+}
 
     // Initialize SEO
     function initSEO() {
@@ -423,8 +424,8 @@
     function ensureNavigation() {
         // Check if navigation already exists
         if (document.querySelector('nav') || document.querySelector('.harness-nav')) {
-            console.log('[HARNESS] Navigation already exists');
-            return;
+            // console.log removed
+return;
         }
 
         const pathPrefix = getPathPrefix();
@@ -488,8 +489,8 @@
         // Initialize navigation JavaScript
         initNavigationJS();
 
-        console.log('[HARNESS] Navigation injected | Path:', pathPrefix, '| Logo:', logoPath);
-    }
+        // console.log removed
+}
 
     function addNavigationStyles() {
         const style = document.createElement('style');
@@ -968,8 +969,8 @@ Modal')) {
     function ensureFooter() {
         // Check if footer already exists
         if (document.querySelector('footer') || document.querySelector('.harness-footer')) {
-            console.log('[HARNESS] Footer already exists');
-            return;
+            // console.log removed
+return;
         }
 
         const pathPrefix = getPathPrefix();
@@ -1009,8 +1010,8 @@ Modal')) {
 
         document.body.insertAdjacentHTML('beforeend', footerHTML);
         addFooterStyles();
-        console.log('[HARNESS] Footer injected');
-    }
+        // console.log removed
+}
 
     function addFooterStyles() {
         const style = document.createElement('style');

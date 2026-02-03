@@ -1,0 +1,91 @@
+WEBSITE ISSUES REPORT
+======================================================================
+
+Total Issue Categories: 4
+Total Issues: 73
+
+
+DUPLICATE IDS (1)
+----------------------------------------------------------------------
+  ebook-complete.html → closing
+
+MISSING IMAGES (46)
+----------------------------------------------------------------------
+  HARNESS-Facilitator-Guide-Complete.html → ${logoPath}
+  HARNESS-Facilitator-Guide-Complete.html → ${logoPath}
+  HARNESS-Facilitator-Guide-Complete.html → ${headerAvatar}
+  HARNESS-Facilitator-Guide-Complete.html → ${welcomeAvatar}
+  HARNESS-Facilitator-Guide-Complete.html → ${avatarSrc}
+  HARNESS-Facilitator-Guide-Complete.html → ${LIL_Z_AVATARS.getAvatar('cool')}
+  about.html → ${logoPath}
+  about.html → ${logoPath}
+  about.html → ${headerAvatar}
+  about.html → ${welcomeAvatar}
+  about.html → ${avatarSrc}
+  about.html → ${LIL_Z_AVATARS.getAvatar('cool')}
+  app-diagnostic.html → images/harness-app-splash-logo.png
+  app-fixed.html → images/harness-app-splash-logo.png
+  app-fixed.html → images/harness-app-logo-transparent.png
+  app-landing-test.html → images/harness-app-splash-logo.png
+  app-test-no-affirmations.html → images/harness-app-splash-logo.png
+  app-test-no-affirmations.html → images/harness-app-logo-transparent.png
+  app.html → images/harness-app-logo-new.png
+  app.html → images/harness-app-logo-new.png
+  checkout.html → ${item.image}
+  curriculum-landing.html → ${logoPath}
+  curriculum-landing.html → ${logoPath}
+  educator-package-complete.html → images/harness-curriculum-logo-transparent.png
+  index.html → images/harness-project-hero-logo-main.png
+  index.html → images/harness-shield-symbol.png
+  order-confirmation.html → ${item.image}
+  participant-companion.html → ${logoPath}
+  participant-companion.html → ${logoPath}
+  pricing.html → ${logoPath}
+  pricing.html → ${logoPath}
+  pricing.html → ${headerAvatar}
+  pricing.html → ${welcomeAvatar}
+  pricing.html → ${avatarSrc}
+  pricing.html → ${LIL_Z_AVATARS.getAvatar('cool')}
+  toolkit-mobile.html → ${resource.image}
+  toolkit-mobile.html → ${resource.image}
+  toolkit.html → ${logoPath}
+  toolkit.html → ${logoPath}
+  toolkit.html → ${imageSrc}
+  toolkit.html → ${resource.image}
+  toolkit.html → ${resource.image}
+  toolkit.html → ${headerAvatar}
+  toolkit.html → ${welcomeAvatar}
+  toolkit.html → ${avatarSrc}
+  toolkit.html → ${LIL_Z_AVATARS.getAvatar('cool')}
+
+MISSING JS FILES (18)
+----------------------------------------------------------------------
+  HARNESS-Facilitator-Guide-Complete.html → js/seo-optimizer.js
+  HARNESS-Facilitator-Guide-Complete.html → js/harness-global.js
+  HARNESS-Facilitator-Guide-Complete.html → ../js/harness-global.js
+  about.html → js/seo-optimizer.js
+  about.html → js/harness-global.js
+  about.html → ../js/harness-global.js
+  curriculum-landing.html → js/seo-optimizer.js
+  curriculum-landing.html → js/harness-global.js
+  curriculum-landing.html → ../js/harness-global.js
+  participant-companion.html → js/seo-optimizer.js
+  participant-companion.html → js/harness-global.js
+  participant-companion.html → ../js/harness-global.js
+  pricing.html → js/seo-optimizer.js
+  pricing.html → js/harness-global.js
+  pricing.html → ../js/harness-global.js
+  toolkit.html → js/seo-optimizer.js
+  toolkit.html → js/harness-global.js
+  toolkit.html → ../js/harness-global.js
+
+TODO COMMENTS (8)
+----------------------------------------------------------------------
+  HARNESS-Facilitator-Guide-Complete.html → 79 TODO/FIXME comments
+  about.html → 16 TODO/FIXME comments
+  contact.html → 1 TODO/FIXME comments
+  ebook-complete.html → 77 TODO/FIXME comments
+  participant-companion.html → 106 TODO/FIXME comments
+  pricing.html → 52 TODO/FIXME comments
+  toolkit-mobile.html → 143 TODO/FIXME comments
+  toolkit.html → 122 TODO/FIXME comments

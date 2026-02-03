@@ -140,20 +140,14 @@
     </div>
 
     <!-- Core Scripts Only (avoiding the problematic ones) -->
-    <script src="js/app.js"></script>
-    <script src="js/views.js"></script>
-    <script src="js/library-data.js" onerror="console.warn('library-data.js failed to load')"></script>
-    <script src="js/data.js" onerror="console.warn('data.js failed to load')"></script>
-    
     <!-- Additional scripts loaded after core functionality works -->
     <script>
         // Fallback navigation if main scripts don't load
         if (typeof navigateTo === 'undefined') {
             console.warn('Main navigation not loaded, using fallback');
             window.navigateTo = function(view) {
-                console.log('Fallback navigation to:', view);
-                
-                // Update active state
+                // console.log removed
+// Update active state
                 document.querySelectorAll('.nav-item').forEach(item => {
                     item.classList.remove('active');
                 });

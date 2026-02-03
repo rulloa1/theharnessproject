@@ -69,20 +69,8 @@
     <link rel="stylesheet" href="css/mobile-enhancements.css">
     
     <!-- Scripts -->
-    <script src="js/seo-optimizer.js"></script>
-    <script src="js/accessibility-enhancements.js" defer></script>
-    <script src="js/schema-structured-data.js" defer></script>
-    <script src="js/lazy-loading.js" defer></script>
     <!-- Note: harness-global.js NOT included - app.html has custom app header -->
-    <script src="js/pwa-installer.js" defer></script>
-    <script src="js/mobile-gestures.js" defer></script>
-    <script src="js/mobile-ui.js" defer></script>
-    
     <!-- Universal Components Loader -->
-    <script src="js/universal-components-loader.js" defer></script>
-    <script src="js/offline-manager.js" defer></script>
-    <script src="js/push-notifications.js" defer></script>
-    
     <style>
         /* App Logo Special Effects */
         .logo-container img {
@@ -327,19 +315,6 @@
         </nav>
     </div>
 
-    <script src="js/app.js" defer></script>
-    <script src="js/data.js" defer></script>
-    <script src="js/library-data.js" defer></script>
-    <script src="js/daily-affirmations.js" defer></script>
-    <script src="js/views.js" defer></script>
-    <script src="js/lil-z-companion.js" defer></script>
-    <script src="js/match-puzzle-chain.js" defer></script>
-    <script src="js/emergency-guide.js" defer></script>
-    <script src="js/personalized-agreements.js" defer></script>
-    <script src="js/lube-recommender.js" defer></script>
-    <script src="js/achievements.js" defer></script>
-    <script src="js/about.js" defer></script>
-    
     <!-- Service Worker Registration -->
     <script>
         // Register service worker for PWA functionality
@@ -347,9 +322,8 @@
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/service-worker.js')
                     .then((registration) => {
-                        console.log('ServiceWorker registration successful:', registration.scope);
-                        
-                        // Check for updates every hour
+                        // console.log removed
+// Check for updates every hour
                         setInterval(() => {
                             registration.update();
                         }, 60 * 60 * 1000);
@@ -361,26 +335,11 @@
             
             // Listen for service worker updates
             navigator.serviceWorker.addEventListener('controllerchange', () => {
-                console.log('ServiceWorker updated - reloading page');
-                window.location.reload();
+                // console.log removed
+window.location.reload();
             });
         }
     </script>
-    <script src="js/newsletter.js" defer></script>
-    <script src="js/quote-cards.js" defer></script>
-    <script src="js/favorites.js" defer></script>
-    <script src="js/visual-library.js" defer></script>
-    <script src="js/knowledge-center.js" defer></script>
-    <script src="js/visual-library-ritual-cards.js" defer></script>
-    <script src="js/visual-library-config.js" defer></script>
-    <script src="js/visual-library-free-samples.js" defer></script>
-    <script src="js/condom-plan.js" defer></script>
-    <script src="js/agreement-builder-simple.js" defer></script>
-    <script src="js/library-infographics-filter.js" defer></script>
-    <script src="js/library-complete-integration.js" defer></script>
-    <script src="js/companion.js" defer></script>
-    <script src="js/fearless-quick-start.js" defer></script>
-    
     <script>
         // Toggle Header Menu
         function toggleHeaderMenu() {

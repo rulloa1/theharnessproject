@@ -1,0 +1,337 @@
+/* ===== MATCH Certificate of Completion Styles ===== */
+
+/* Certificate Container */
+.match-certificate {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.certificate-border {
+    border: 8px double var(--color-teal);
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%);
+    box-shadow: 0 20px 60px rgba(0, 168, 168, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative corner elements */
+.certificate-border::before,
+.certificate-border::after {
+    content: '✨';
+    position: absolute;
+    font-size: 32px;
+    opacity: 0.3;
+}
+
+.certificate-border::before {
+    top: 20px;
+    left: 20px;
+}
+
+.certificate-border::after {
+    bottom: 20px;
+    right: 20px;
+}
+
+.certificate-content {
+    padding: 40px;
+    text-align: center;
+}
+
+/* Certificate Header */
+.certificate-header {
+    margin-bottom: 32px;
+    border-bottom: 2px solid var(--color-gold);
+    padding-bottom: 24px;
+}
+
+.certificate-seal {
+    font-size: 80px;
+    margin-bottom: 16px;
+    animation: sealPulse 2s ease-in-out infinite;
+}
+
+@keyframes sealPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.certificate-title {
+    font-family: 'Bree Serif', serif;
+    font-size: 42px;
+    color: var(--color-teal);
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.certificate-subtitle {
+    font-family: 'Bree Serif', serif;
+    font-size: 20px;
+    color: var(--color-gray);
+    margin: 0;
+    font-style: italic;
+}
+
+/* Certificate Body */
+.certificate-body {
+    margin: 32px 0;
+}
+
+.certificate-presented {
+    font-size: 18px;
+    color: var(--color-text-secondary);
+    margin: 0 0 16px 0;
+    font-style: italic;
+}
+
+.certificate-name {
+    font-family: 'Bree Serif', serif;
+    font-size: 36px;
+    color: var(--color-text);
+    margin: 0 0 24px 0;
+    background: linear-gradient(90deg, var(--color-teal), var(--color-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding: 8px 0;
+}
+
+.certificate-achievement {
+    font-size: 18px;
+    color: var(--color-text-secondary);
+    margin: 0 0 12px 0;
+}
+
+.certificate-program {
+    font-family: 'Bree Serif', serif;
+    font-size: 32px;
+    color: var(--color-magenta);
+    margin: 0 0 16px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.certificate-description {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    margin: 0 0 32px 0;
+    line-height: 1.6;
+}
+
+/* Stage Badges */
+.certificate-stages {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 32px 0;
+    flex-wrap: wrap;
+}
+
+.stage-badge {
+    background: linear-gradient(135deg, var(--color-teal), var(--color-gold));
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 168, 168, 0.2);
+    animation: badgeFloat 3s ease-in-out infinite;
+}
+
+.stage-badge:nth-child(1) { animation-delay: 0s; }
+.stage-badge:nth-child(2) { animation-delay: 0.2s; }
+.stage-badge:nth-child(3) { animation-delay: 0.4s; }
+.stage-badge:nth-child(4) { animation-delay: 0.6s; }
+.stage-badge:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Values Section */
+.certificate-values {
+    margin: 32px 0;
+    padding: 20px;
+    background: rgba(0, 168, 168, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 168, 168, 0.2);
+}
+
+.values-label {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin: 0 0 8px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.values-list {
+    font-family: 'Bree Serif', serif;
+    font-size: 18px;
+    color: var(--color-teal);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Date */
+.certificate-date {
+    margin: 24px 0;
+}
+
+.certificate-date p {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* Motto */
+.certificate-motto {
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 2px solid var(--color-gold);
+}
+
+.certificate-motto p {
+    font-family: 'Bree Serif', serif;
+    font-size: 20px;
+    color: var(--color-magenta);
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Certificate Actions */
+.certificate-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+/* Confetti Animation */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    top: -10px;
+    z-index: 10000;
+    animation: confettiFall linear forwards;
+    pointer-events: none;
+}
+
+@keyframes confettiFall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .match-certificate {
+        padding: 12px;
+    }
+    
+    .certificate-content {
+        padding: 24px 20px;
+    }
+    
+    .certificate-seal {
+        font-size: 60px;
+    }
+    
+    .certificate-title {
+        font-size: 28px;
+    }
+    
+    .certificate-subtitle {
+        font-size: 16px;
+    }
+    
+    .certificate-name {
+        font-size: 28px;
+    }
+    
+    .certificate-program {
+        font-size: 24px;
+    }
+    
+    .certificate-description {
+        font-size: 14px;
+    }
+    
+    .certificate-stages {
+        gap: 8px;
+    }
+    
+    .stage-badge {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+    
+    .certificate-motto p {
+        font-size: 16px;
+    }
+    
+    .certificate-actions {
+        flex-direction: column;
+    }
+    
+    .certificate-actions button {
+        width: 100%;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .match-certificate {
+        max-width: 100%;
+    }
+    
+    .certificate-border {
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+    
+    .certificate-actions {
+        display: none;
+    }
+    
+    .modal-close {
+        display: none;
+    }
+    
+    .confetti {
+        display: none;
+    }
+    
+    /* Ensure colors print */
+    .certificate-title,
+    .certificate-name,
+    .certificate-program,
+    .stage-badge {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}
+
+/* Animation for certificate entrance */
+@keyframes certificateEntrance {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.match-certificate {
+    animation: certificateEntrance 0.5s ease-out;
+}

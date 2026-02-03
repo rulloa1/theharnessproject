@@ -900,7 +900,8 @@ This ensures visual consistency and professional appearance across all pages.
             document.documentElement.setAttribute('lang', 'en');
         }
 
-        console.log('[HARNESS SEO] Meta tags injected for:', getCurrentPath());
+        // console.log removed
+);
     }
 
     // Add structured data (Schema.org JSON-LD)
@@ -943,8 +944,8 @@ This ensures visual consistency and professional appearance across all pages.
         script.textContent = JSON.stringify(structuredData, null, 2);
         document.head.appendChild(script);
 
-        console.log('[HARNESS SEO] Structured data added');
-    }
+        // console.log removed
+}
 
     // Initialize SEO
     function initSEO() {
@@ -1040,8 +1041,8 @@ This ensures visual consistency and professional appearance across all pages.
     function ensureNavigation() {
         // Check if navigation already exists
         if (document.querySelector('nav') || document.querySelector('.harness-nav')) {
-            console.log('[HARNESS] Navigation already exists');
-            return;
+            // console.log removed
+return;
         }
 
         const pathPrefix = getPathPrefix();
@@ -1105,8 +1106,8 @@ This ensures visual consistency and professional appearance across all pages.
         // Initialize navigation JavaScript
         initNavigationJS();
 
-        console.log('[HARNESS] Navigation injected | Path:', pathPrefix, '| Logo:', logoPath);
-    }
+        // console.log removed
+}
 
     function addNavigationStyles() {
         const style = document.createElement('style');
@@ -1585,8 +1586,8 @@ Modal')) {
     function ensureFooter() {
         // Check if footer already exists
         if (document.querySelector('footer') || document.querySelector('.harness-footer')) {
-            console.log('[HARNESS] Footer already exists');
-            return;
+            // console.log removed
+return;
         }
 
         const pathPrefix = getPathPrefix();
@@ -1626,8 +1627,8 @@ Modal')) {
 
         document.body.insertAdjacentHTML('beforeend', footerHTML);
         addFooterStyles();
-        console.log('[HARNESS] Footer injected');
-    }
+        // console.log removed
+}
 
     function addFooterStyles() {
         const style = document.createElement('style');
@@ -1912,8 +1913,8 @@ function checkImageAltText() {
             const src = img.getAttribute('src') || '';
             const filename = src.split('/').pop().split('.')[0];
             img.setAttribute('alt', filename.replace(/-/g, ' '));
-            console.log(`Added placeholder alt text to: ${src}`);
-        });
+            // console.log removed
+});
     }
 }
 
@@ -1936,8 +1937,8 @@ function checkHeadingHierarchy() {
     if (issues.length > 0) {
         console.warn('[ACCESSIBILITY] Heading hierarchy issues:', issues);
     } else {
-        console.log('[ACCESSIBILITY] ✅ Heading hierarchy is correct');
-    }
+        // console.log removed
+}
 }
 
 // ===== INITIALIZE ALL ACCESSIBILITY ENHANCEMENTS =====
@@ -1950,7 +1951,7 @@ function initAccessibilityEnhancements() {
     checkImageAltText();
     checkHeadingHierarchy();
     
-    console.log('[ACCESSIBILITY] ✅ All accessibility enhancements initialized');
+    // console.log removed
 }
 
 // Auto-initialize on DOMContentLoaded
@@ -2139,7 +2140,7 @@ function initSchemaMarkup() {
         insertSchema(faqSchema, 'schema-faq');
     }
     
-    console.log('[SEO] ✅ Schema.org structured data inserted');
+    // console.log removed
 }
 
 // ===== GENERATE BREADCRUMBS FROM CURRENT PATH =====
@@ -2229,8 +2230,8 @@ window.HARNESS_Schema = {
             }
         });
 
-        console.log(`✅ Lazy loading initialized: ${lazyImagesCount} images will lazy load, ${images.length - lazyImagesCount} will load eagerly`);
-    }
+        // console.log removed
+}
 
     /**
      * Add lazy loading to dynamically added images
@@ -2265,8 +2266,8 @@ window.HARNESS_Schema = {
             subtree: true
         });
 
-        console.log('✅ Dynamic image observer activated');
-    }
+        // console.log removed
+}
 
     /**
      * Add responsive images hint
@@ -3350,8 +3351,7 @@ const LIL_Z_VERSION = {
 
 // Auto-check on load
 LIL_Z_VERSION.checkForUpdates();
-console.log('🐾 Lil Z Companion - Loaded! Version:', LIL_Z_VERSION.version);
-
+// console.log removed
 // ===== LIL Z AVATAR LIBRARY =====
 // Multiple expressive bitmoji avatars for different contexts
 const LIL_Z_AVATARS = {
@@ -3727,9 +3727,8 @@ const LIL_Z_KNOWLEDGE = {
 function generateLilZResponse(question) {
     const lowerQuestion = question.toLowerCase();
     
-    console.log('🐾 Generating response for:', question);
-    
-    // Validate question
+    // console.log removed
+// Validate question
     if (!question || typeof question !== 'string') {
         console.error('🐾 Invalid question:', question);
         return getDefaultResponse();
@@ -3755,22 +3754,22 @@ function generateLilZResponse(question) {
                 
                 const topicWords = response.topic.toLowerCase().split(' ');
                 if (topicWords.some(word => lowerQuestion.includes(word))) {
-                    console.log('🐾 Found matching response:', response.topic);
-                    return `<strong>${response.topic}</strong><br><br>${response.answer}`;
+                    // console.log removed
+return `<strong>${response.topic}</strong><br><br>${response.answer}`;
                 }
             }
             // Return first response if no specific match
             const firstResponse = data.responses[0];
             if (firstResponse && firstResponse.topic && firstResponse.answer) {
-                console.log('🐾 Using first response from category:', category);
-                return `<strong>${firstResponse.topic}</strong><br><br>${firstResponse.answer}`;
+                // console.log removed
+return `<strong>${firstResponse.topic}</strong><br><br>${firstResponse.answer}`;
             }
         }
     }
     
     // Default helpful response
-    console.log('🐾 Using default response');
-    return getDefaultResponse();
+    // console.log removed
+return getDefaultResponse();
 }
 
 function getDefaultResponse() {
@@ -3807,9 +3806,8 @@ function openLilZChat(context = 'general') {
         welcomeAvatar = LIL_Z_AVATARS.getAvatar('teaching');
     }
     
-    console.log('🐾 Opening Lil Z chat with context:', context);
-    
-    const chatHTML = `
+    // console.log removed
+const chatHTML = `
         <div class="lil-z-chat-companion">
             <div class="lil-z-chat-header">
                 <div class="lil-z-avatar">
@@ -3951,7 +3949,8 @@ function addLilZMessage(message, type) {
         }
     }
     
-    console.log('🐾 Adding message:', { type, messagePreview: message.substring(0, 50) });
+    // console.log removed
+});
     
     const messageDiv = document.createElement('div');
     messageDiv.className = `lil-z-message ${type}-message fade-in`;
@@ -3972,8 +3971,8 @@ function addLilZMessage(message, type) {
 function addLilZFloatingButton() {
     const existingButton = document.getElementById('lil-z-float-btn');
     if (existingButton) {
-        console.log('🐾 Lil Z floating button already exists');
-        return; // Don't add duplicate
+        // console.log removed
+return; // Don't add duplicate
     }
     
     const floatingBtn = document.createElement('div');
@@ -3986,7 +3985,7 @@ function addLilZFloatingButton() {
     floatingBtn.onclick = () => openLilZChat('general');
     
     document.body.appendChild(floatingBtn);
-    console.log('🐾 Lil Z floating button added to page');
+    // console.log removed
 }
 
 // ===== LIL Z STYLES =====

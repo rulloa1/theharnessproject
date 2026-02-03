@@ -131,21 +131,20 @@
     </div>
 
     <script>
-        console.log('✅ HARNESS App Debug - Page loaded');
-        
-        function startApp() {
-            console.log('🚀 Starting app...');
-            document.getElementById('splash-screen').classList.add('hidden');
+        // console.log removed
+function startApp() {
+            // console.log removed
+document.getElementById('splash-screen').classList.add('hidden');
             document.getElementById('app').classList.add('active');
-            console.log('✅ App started successfully');
-        }
+            // console.log removed
+}
         
         // Auto-hide splash after 3 seconds if user doesn't click
         setTimeout(() => {
             const splash = document.getElementById('splash-screen');
             if (!splash.classList.contains('hidden')) {
-                console.log('⏰ Auto-starting app after 3 seconds');
-                startApp();
+                // console.log removed
+startApp();
             }
         }, 3000);
     </script>

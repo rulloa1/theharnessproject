@@ -314,43 +314,41 @@
     </div>
 
     <script>
-        console.log('🚀 HARNESS App Diagnostic - Starting...');
-        
-        // Test 1: Check if splash screen is visible
+        // console.log removed
+// Test 1: Check if splash screen is visible
         window.addEventListener('DOMContentLoaded', () => {
-            console.log('✅ Test 1: DOM loaded');
-            console.log('✅ Test 2: Splash screen active:', document.getElementById('splash-screen').classList.contains('active'));
+            // console.log removed
+// console.log removed
+.classList.contains('active'));
         });
         
         // Test 2: Onboarding function
         function startOnboarding() {
-            console.log('✅ Test 3: startOnboarding() called');
+            // console.log removed
+called');
             const splash = document.getElementById('splash-screen');
             const onboarding = document.getElementById('onboarding');
             
             splash.classList.remove('active');
-            console.log('✅ Test 4: Splash screen hidden');
-            
-            setTimeout(() => {
+            // console.log removed
+setTimeout(() => {
                 onboarding.classList.add('active');
-                console.log('✅ Test 5: Onboarding screen shown');
-            }, 300);
+                // console.log removed
+}, 300);
         }
         
         // Test 3: Journey selection
         function selectJourney(journey) {
-            console.log('✅ Test 6: Journey selected:', journey);
-            const onboarding = document.getElementById('onboarding');
+            // console.log removed
+const onboarding = document.getElementById('onboarding');
             const mainApp = document.getElementById('main-app');
             
             onboarding.classList.remove('active');
-            console.log('✅ Test 7: Onboarding hidden');
-            
-            setTimeout(() => {
+            // console.log removed
+setTimeout(() => {
                 mainApp.classList.add('active');
-                console.log('✅ Test 8: Main app shown');
-                
-                // Check image loading
+                // console.log removed
+// Check image loading
                 const img = document.querySelector('img');
                 if (img.complete && img.naturalHeight !== 0) {
                     document.getElementById('image-status').innerHTML = '<span class="status-ok">✓</span> Images: <strong>Loading successfully</strong>';
@@ -360,7 +358,7 @@
             }, 300);
         }
         
-        console.log('✅ All diagnostic functions loaded');
-    </script>
+        // console.log removed
+</script>
 </body>
 </html>

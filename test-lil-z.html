@@ -177,8 +177,6 @@
     </div>
 
     <!-- Load Lil Z Companion -->
-    <script src="js/lil-z-companion.js"></script>
-    
     <!-- Test Script -->
     <script>
         // Define createModal function if not already defined
@@ -212,8 +210,8 @@
         function testOpenLilZ() {
             try {
                 openLilZChat('general');
-                console.log('✅ Lil Z opened successfully!');
-            } catch (error) {
+                // console.log removed
+} catch (error) {
                 console.error('❌ Error opening Lil Z:', error);
                 alert('Error opening Lil Z: ' + error.message);
             }
@@ -257,10 +255,10 @@
             // Check floating button
             const floatingBtn = document.getElementById('lil-z-float-btn');
             if (floatingBtn) {
-                console.log('✅ Floating button added successfully!');
-            } else {
-                console.log('⚠️ Floating button not found - may load shortly');
-            }
+                // console.log removed
+} else {
+                // console.log removed
+}
         }, 500);
     </script>
 </body>

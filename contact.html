@@ -13,14 +13,7 @@
     <link rel="stylesheet" href="css/transparent-headers.css">
     
     <!-- Scripts -->
-    <script src="js/seo-optimizer.js"></script>
-    <script src="js/harness-global.js" defer></script>
-    <script src="js/accessibility-enhancements.js" defer></script>
-    <script src="js/schema-structured-data.js" defer></script>
-    <script src="js/lazy-loading.js" defer></script>
-    
     <!-- Universal Components Loader -->
-    <script src="js/universal-components-loader.js" defer></script>
     <style>
         :root {
             --primary-cyan: #00B0BD;
@@ -380,9 +373,8 @@ function handleContactSubmit(event) {
     };
 
     // TODO: Implement actual form submission (email service, backend, etc.)
-    console.log('Form submitted:', formData);
-    
-    alert('Thank you for your message! We\'ll get back to you within 24-48 hours.');
+    // console.log removed
+alert('Thank you for your message! We\'ll get back to you within 24-48 hours.');
     document.getElementById('contactForm').reset();
     
     return false;
