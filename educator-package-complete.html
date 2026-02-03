@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARNESS Complete Educator Package | Curriculum, Ebook & Workshops</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            font-family: 'Bree Serif', serif;
+            font-size: 3.5em;
+            color: white;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        .header .subtitle {
+            font-size: 1.5em;
+            color: #f0f0f0;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .header .logo {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Stats Dashboard */
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: 700;
+            color: #00BDBD;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* Category Navigation */
+        .category-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .category-btn {
+            padding: 12px 25px;
+            background: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #333;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background: linear-gradient(135deg, #00BDBD, #DD0E6E);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Section Headers */
+        .section-header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .section-header h2 {
+            font-family: 'Bree Serif', serif;
+            font-size: 2.5em;
+            color: #00BDBD;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.2em;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Resource Grid */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        .resource-icon {
+            background: linear-gradient(135deg, #00BDBD, #DD0E6E);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            font-size: 4em;
+        }
+
+        .resource-content {
+            padding: 30px;
+        }
+
+        .resource-title {
+            font-family: 'Bree Serif', serif;
+            font-size: 1.6em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .resource-type {
+            display: inline-block;
+            background: #F6CC00;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .resource-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .resource-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .resource-features li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px solid #eee;
+        }
+
+        .resource-features li:before {
+            content: "✓ ";
+            color: #00BDBD;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .resource-link {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #00BDBD, #DD0E6E);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .resource-link:first-of-type {
+            margin-top: 0;
+        }
+
+        .resource-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Package Highlights */
+        .package-highlights {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .package-highlights h3 {
+            font-family: 'Bree Serif', serif;
+            font-size: 2em;
+            color: #DD0E6E;
+            margin-bottom: 20px;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .highlight-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #00BDBD;
+        }
+
+        .highlight-item strong {
+            color: #00BDBD;
+            font-size: 1.1em;
+        }
+
+        /* Price Card */
+        .price-card {
+            background: linear-gradient(135deg, #00BDBD, #DD0E6E);
+            color: white;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        .price-card h3 {
+            font-family: 'Bree Serif', serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 4em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .price-description {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #DD0E6E;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 40px;
+            font-size: 1.1em;
+        }
+
+        .footer a {
+            color: #F6CC00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="images/harness-curriculum-logo-transparent.png" alt="HARNESS Curriculum Logo" class="logo">
+            <h1>Complete Educator Package</h1>
+            <p class="subtitle">Everything You Need to Teach Fearless Sexual Health Education</p>
+        </div>
+
+        <!-- Stats Dashboard -->
+        <div class="stats-dashboard">
+            <div class="stat-card">
+                <div class="stat-number">13</div>
+                <div class="stat-label">Complete Lesson Plans</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">13</div>
+                <div class="stat-label">Chapter Ebook</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">Workshop Formats</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">7</div>
+                <div class="stat-label">Interactive Worksheets</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">21</div>
+                <div class="stat-label">Presentation Slides</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">71</div>
+                <div class="stat-label">Visual Infographics</div>
+            </div>
+        </div>
+
+        <!-- Package Overview -->
+        <div class="package-highlights">
+            <h3>📦 What's Included in the Complete Package</h3>
+            <p style="font-size: 1.2em; color: #666; margin-bottom: 20px;">Everything you need to deliver world-class sexual health education - from a single workshop to a full semester course.</p>
+            
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <strong>✅ Complete Curriculum</strong><br>
+                    12 ready-to-use lesson plans (60-90 min each) aligned with the MATCH Framework
+                </div>
+                <div class="highlight-item">
+                    <strong>📖 Interactive Ebook</strong><br>
+                    "Fearless, Aware, and Protected" - 12 comprehensive chapters with interactive navigation
+                </div>
+                <div class="highlight-item">
+                    <strong>🎓 Workshop Formats</strong><br>
+                    90-minute, half-day, and full-day workshop agendas with detailed timelines
+                </div>
+                <div class="highlight-item">
+                    <strong>📊 Presentation Slides</strong><br>
+                    21 professional slide decks for all lesson plans and workshop formats
+                </div>
+                <div class="highlight-item">
+                    <strong>📝 Interactive Worksheets</strong><br>
+                    7 fillable worksheets with auto-save, print-ready for participants
+                </div>
+                <div class="highlight-item">
+                    <strong>🎨 Visual Infographics</strong><br>
+                    71 professional infographics covering all aspects of sexual health
+                </div>
+                <div class="highlight-item">
+                    <strong>📚 Facilitator's Guide</strong><br>
+                    Complete guide with teaching tips, discussion prompts, and activity instructions
+                </div>
+                <div class="highlight-item">
+                    <strong>🛠️ Bonus Resources</strong><br>
+                    Conversation scripts, assessment tools, handouts, and local resource templates
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Navigation -->
+        <div class="category-nav">
+            <button class="category-btn active" onclick="filterCategory('all')">All Resources</button>
+            <button class="category-btn" onclick="filterCategory('curriculum')">Curriculum</button>
+            <button class="category-btn" onclick="filterCategory('ebook')">Ebook</button>
+            <button class="category-btn" onclick="filterCategory('workshops')">Workshops</button>
+            <button class="category-btn" onclick="filterCategory('worksheets')">Worksheets</button>
+            <button class="category-btn" onclick="filterCategory('presentations')">Presentations</button>
+            <button class="category-btn" onclick="filterCategory('visuals')">Visuals</button>
+        </div>
+
+        <!-- CURRICULUM SECTION -->
+        <div class="section-header" data-category="curriculum">
+            <h2>📚 Complete Curriculum (12 Lesson Plans)</h2>
+            <p>Each lesson plan includes: Learning objectives, key concepts, materials lists, opening activities, core content, discussion questions, interactive activities, and closing reflections. Ready to use immediately!</p>
+        </div>
+
+        <div class="resources-grid" data-category="curriculum">
+            <!-- Lesson Plan 1 -->
+            <div class="resource-card">
+                <div class="resource-icon">📖</div>
+                <div class="resource-content">
+                    <div class="resource-type">Lesson Plan</div>
+                    <h3 class="resource-title">Chapter 1: Mindset of Protection</h3>
+                    <p class="resource-description">Introduction to owning your sexual health and the FEARLESS philosophy.</p>
+                    <ul class="resource-features">
+                        <li>Duration: 60-90 minutes</li>
+                        <li>Interactive activities included</li>
+                        <li>Discussion prompts provided</li>
+                        <li>MATCH framework introduction</li>
+                    </ul>
+                    <a href="curriculum/CURRICULUM-INDEX.html#chapter1" class="resource-link" target="_blank">📖 View Lesson Plan</a>
+                    <a href="HARNESS-Facilitator-Guide-Complete.html#chapter1" class="resource-link" style="background: #F6CC00; color: #333;" target="_blank">📄 Full Facilitator Guide</a>
+                    <a href="presentations/index.html" class="resource-link" style="background: #DD0E6E;" target="_blank">📊 Presentation Slides</a>
+                    <a href="ebook-complete.html#chapter1" class="resource-link" style="background: #00BDBD;" target="_blank">📚 Ebook Chapter</a>
+                </div>
+            </div>
+
+            <!-- Lesson Plan 2 -->
+            <div class="resource-card">
+                <div class="resource-icon">💬</div>
+                <div class="resource-content">
+                    <div class="resource-type">Lesson Plan</div>
+                    <h3 class="resource-title">Chapter 2: Communication</h3>
+                    <p class="resource-description">Teaching confident sexual health conversations and overcoming fear.</p>
+                    <ul class="resource-features">
+                        <li>Duration: 60-90 minutes</li>
+                        <li>Role-play scenarios included</li>
+                        <li>Conversation scripts provided</li>
+                        <li>Practice activities</li>
+                    </ul>
+                    <a href="curriculum/CURRICULUM-INDEX.html#chapter2" class="resource-link">📖 View Lesson Plan</a>
+                    <a href="HARNESS-Facilitator-Guide-Complete.html#chapter2" class="resource-link" style="background: #F6CC00; color: #333;">📄 Full Facilitator Guide</a>
+                    <a href="presentations/index.html" class="resource-link" style="background: #DD0E6E;">📊 Presentation Slides</a>
+                    <a href="ebook-complete.html#chapter2" class="resource-link" style="background: #00BDBD;">📚 Ebook Chapter</a>
+                </div>
+            </div>
+
+            <!-- Lesson Plan 3 -->
+            <div class="resource-card">
+                <div class="resource-icon">🛡️</div>
+                <div class="resource-content">
+                    <div class="resource-type">Lesson Plan</div>
+                    <h3 class="resource-title">Chapter 3: Condoms - The Frontline</h3>
+                    <p class="resource-description">Comprehensive guide to barrier methods and proper condom use.</p>
+                    <ul class="resource-features">
+                        <li>Duration: 60-90 minutes</li>
+                        <li>Hands-on demonstration</li>
+                        <li>DO/DON'T checklists</li>
+                        <li>Emergency protocols</li>
+                    </ul>
+                    <a href="curriculum/chapter-03-condoms-the-frontline.html" class="resource-link">View Lesson Plan</a>
+                    <a href="HARNESS-Facilitator-Guide-Complete.html#chapter3" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📄 Full Guide</a>
+                    <a href="presentations/index.html" class="resource-link" style="background: #DD0E6E; margin-top: 10px;">📊 Slides</a>
+                </div>
+            </div>
+
+            <!-- Lesson Plan 4 -->
+            <div class="resource-card">
+                <div class="resource-icon">👅</div>
+                <div class="resource-content">
+                    <div class="resource-type">Lesson Plan</div>
+                    <h3 class="resource-title">Chapter 4: SafER Oral Pleasure</h3>
+                    <p class="resource-description">Dental dams, risk reduction, and pleasure without compromising safety.</p>
+                    <ul class="resource-features">
+                        <li>Duration: 60-90 minutes</li>
+                        <li>Dental dam demo included</li>
+                        <li>Risk continuum activity</li>
+                        <li>Pleasure-focused approach</li>
+                    </ul>
+                    <a href="curriculum/chapter-04-safer-oral-pleasure.html" class="resource-link">View Lesson Plan</a>
+                    <a href="HARNESS-Facilitator-Guide-Complete.html#chapter4" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📄 Full Guide</a>
+                    <a href="presentations/index.html" class="resource-link" style="background: #DD0E6E; margin-top: 10px;">📊 Slides</a>
+                </div>
+            </div>
+
+            <!-- Lesson Plan 5 -->
+            <div class="resource-card">
+                <div class="resource-icon">💧</div>
+                <div class="resource-content">
+                    <div class="resource-type">Lesson Plan</div>
+                    <h3 class="resource-title">Chapter 5: Lube and Toys</h3>
+                    <p class="resource-description">Understanding lubricants, compatibility, and safer sex toy use.</p>
+                    <ul class="resource-features">
+                        <li>Duration: 60-90 minutes</li>
+                        <li>Lube types comparison</li>
+                        <li>Compatibility chart</li>
+                        <li>Toy safety guidelines</li>
+                    </ul>
+                    <a href="curriculum/chapter-05-lube-and-toys.html" class="resource-link">View Lesson Plan</a>
+                    <a href="HARNESS-Facilitator-Guide-Complete.html#chapter5" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📄 Full Guide</a>
+                    <a href="presentations/index.html" class="resource-link" style="background: #DD0E6E; margin-top: 10px;">📊 Slides</a>
+                </div>
+            </div>
+
+            <!-- Lesson Plan 6 -->
+            <div class="resource-card">
+                <div class="resource-icon">💊</div>
+                <div class="resource-content">
+                    <div class="resource-type">Lesson Plan</div>
+                    <h3 class="resource-title">Chapter 6: PrEP - Pre-Exposure Prophylaxis</h3>
+                    <p class="resource-description">Comprehensive PrEP education including access, adherence, and efficacy.</p>
+                    <ul class="resource-features">
+                        <li>Duration: 60-90 minutes</li>
+                        <li>PrEP eligibility assessment</li>
+                        <li>Medication options review</li>
+                        <li>Access resources provided</li>
+                    </ul>
+                    <a href="curriculum/chapter-06-prep-prevention.html" class="resource-link">View Lesson Plan</a>
+                    <a href="HARNESS-Facilitator-Guide-Complete.html#chapter6" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📄 Full Guide</a>
+                    <a href="presentations/index.html" class="resource-link" style="background: #DD0E6E; margin-top: 10px;">📊 Slides</a>
+                </div>
+            </div>
+
+            <!-- Lesson Plan 7 -->
+            <div class="resource-card">
+                <div class="resource-icon">🚨</div>
+                <div class="resource-content">
+                    <div class="resource-type">Lesson Plan</div>
+                    <h3 class="resource-title">Chapter 7: PEP - Post-Exposure Prophylaxis</h3>
+                    <p class="resource-description">Emergency HIV prevention within 72 hours of exposure.</p>
+                    <ul class="resource-features">
+                        <li>Duration: 60-90 minutes</li>
+                        <li>72-hour window emphasis</li>
+                        <li>Emergency action plan</li>
+                        <li>Local PEP providers list</li>
+                    </ul>
+                    <a href="curriculum/chapter-07-pep-emergency.html" class="resource-link">View Lesson Plan</a>
+                    <a href="HARNESS-Facilitator-Guide-Complete.html#chapter7" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📄 Full Guide</a>
+                    <a href="presentations/index.html" class="resource-link" style="background: #DD0E6E; margin-top: 10px;">📊 Slides</a>
+                </div>
+            </div>
+
+            <!-- Chapters 8-12 Combined -->
+            <div class="resource-card">
+                <div class="resource-icon">📋</div>
+                <div class="resource-content">
+                    <div class="resource-type">Lesson Plans (5)</div>
+                    <h3 class="resource-title">Chapters 8-12: Advanced Topics</h3>
+                    <p class="resource-description">Testing, ART, Status Neutrality, Doxy-PEP, and MATCH Framework.</p>
+                    <ul class="resource-features">
+                        <li>5 complete lesson plans</li>
+                        <li>Testing schedules & windows</li>
+                        <li>Status neutrality framework</li>
+                        <li>MATCH comprehensive guide</li>
+                    </ul>
+                    <a href="curriculum/chapters-08-12-COMPLETE.html" class="resource-link">View Lesson Plans</a>
+                    <a href="HARNESS-Facilitator-Guide-Complete.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📄 Full Guide</a>
+                    <a href="presentations/index.html" class="resource-link" style="background: #DD0E6E; margin-top: 10px;">📊 Slides</a>
+                </div>
+            </div>
+
+            <!-- Curriculum Index -->
+            <div class="resource-card">
+                <div class="resource-icon">🗂️</div>
+                <div class="resource-content">
+                    <div class="resource-type">Master Index</div>
+                    <h3 class="resource-title">Complete Curriculum Index</h3>
+                    <p class="resource-description">Master guide with all 12 lesson plans, learning objectives, and curriculum overview.</p>
+                    <ul class="resource-features">
+                        <li>All 13 chapters indexed</li>
+                        <li>Learning objectives mapped</li>
+                        <li>Estimated time for each</li>
+                        <li>MATCH framework alignment</li>
+                    </ul>
+                    <a href="curriculum/CURRICULUM-INDEX.html" class="resource-link">View Full Index</a>
+                    <a href="HARNESS-Facilitator-Guide-Complete.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📄 Facilitator Guide</a>
+                    <a href="participant-companion.html" class="resource-link" style="background: #00BDBD; margin-top: 10px;">👥 Participant Guide</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- EBOOK SECTION -->
+        <div class="section-header" data-category="ebook">
+            <h2>📖 Interactive Ebook: "Fearless, Aware, and Protected"</h2>
+            <p>Complete 12-chapter interactive ebook with all the bells and whistles - interactive elements, embedded resources, beautiful formatting, and printable PDFs.</p>
+        </div>
+
+        <div class="resources-grid" data-category="ebook">
+            <!-- Complete Ebook -->
+            <div class="resource-card">
+                <div class="resource-icon">📕</div>
+                <div class="resource-content">
+                    <div class="resource-type">Complete Ebook</div>
+                    <h3 class="resource-title">Full Interactive Edition</h3>
+                    <p class="resource-description">The complete "Fearless, Aware, and Protected" ebook with interactive features, embedded videos, and beautiful design.</p>
+                    <ul class="resource-features">
+                        <li>12 comprehensive chapters</li>
+                        <li>5 major parts</li>
+                        <li>Interactive table of contents</li>
+                        <li>Beautiful HARNESS branding</li>
+                        <li>Mobile-responsive design</li>
+                        <li>Print-friendly formatting</li>
+                    </ul>
+                    <a href="ebook-complete.html" class="resource-link">Read Ebook</a>
+                    <a href="curriculum/CURRICULUM-INDEX.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">🎯 Lesson Plans</a>
+                    <a href="infographic-gallery.html" class="resource-link" style="background: #DD0E6E; margin-top: 10px;">🎨 Infographics</a>
+                </div>
+            </div>
+
+            <!-- Part 1 -->
+            <div class="resource-card">
+                <div class="resource-icon">🧠</div>
+                <div class="resource-content">
+                    <div class="resource-type">Ebook Section</div>
+                    <h3 class="resource-title">Part I: Mindset of Protection</h3>
+                    <p class="resource-description">Chapters 1-2: Building the fearless mindset and communication foundations.</p>
+                    <ul class="resource-features">
+                        <li>Owning your health</li>
+                        <li>Overcoming fear & shame</li>
+                        <li>Communication essentials</li>
+                        <li>Conversation scripts</li>
+                    </ul>
+                    <a href="ebook-complete.html#part1" class="resource-link">Read Part I</a>
+                    <a href="curriculum/CURRICULUM-INDEX.html#chapter1" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">🎯 Lessons 1-2</a>
+                    <a href="worksheets/fearless-foundations-interactive.html" class="resource-link" style="background: #00BDBD; margin-top: 10px;">📋 Worksheet</a>
+                </div>
+            </div>
+
+            <!-- Part 2 -->
+            <div class="resource-card">
+                <div class="resource-icon">🛡️</div>
+                <div class="resource-content">
+                    <div class="resource-type">Ebook Section</div>
+                    <h3 class="resource-title">Part II: Barrier Methods</h3>
+                    <p class="resource-description">Chapters 3-5: Condoms, oral sex protection, lubricants, and safer sex toys.</p>
+                    <ul class="resource-features">
+                        <li>Complete condom guide</li>
+                        <li>Dental dam instructions</li>
+                        <li>Lube compatibility</li>
+                        <li>Sex toy safety</li>
+                    </ul>
+                    <a href="ebook-complete.html#part2" class="resource-link">Read Part II</a>
+                    <a href="curriculum/chapter-03-condoms-the-frontline.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">🎯 Lessons 3-5</a>
+                    <a href="infographic-gallery.html#barriers" class="resource-link" style="background: #00BDBD; margin-top: 10px;">🎨 Barrier Infographics</a>
+                </div>
+            </div>
+
+            <!-- Part 3 -->
+            <div class="resource-card">
+                <div class="resource-icon">💊</div>
+                <div class="resource-content">
+                    <div class="resource-type">Ebook Section</div>
+                    <h3 class="resource-title">Part III: Medical Shields</h3>
+                    <p class="resource-description">Chapters 6-9: PrEP, PEP, Doxy-PEP, and Testing as empowerment.</p>
+                    <ul class="resource-features">
+                        <li>PrEP comprehensive guide</li>
+                        <li>PEP emergency protocol</li>
+                        <li>Doxy-PEP for bacterial STIs</li>
+                        <li>Testing strategies</li>
+                    </ul>
+                    <a href="ebook-complete.html#part3" class="resource-link">Read Part III</a>
+                    <a href="curriculum/chapter-06-prep-prevention.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">🎯 Lessons 6-7</a>
+                    <a href="infographic-gallery.html#prep" class="resource-link" style="background: #00BDBD; margin-top: 10px;">🎨 PrEP/PEP Graphics</a>
+                </div>
+            </div>
+
+            <!-- Part 4 -->
+            <div class="resource-card">
+                <div class="resource-icon">🔬</div>
+                <div class="resource-content">
+                    <div class="resource-type">Ebook Section</div>
+                    <h3 class="resource-title">Part IV: Real Talk</h3>
+                    <p class="resource-description">Chapters 10-11: Pleasures, kinks, fetishes, and harm reduction in action.</p>
+                    <ul class="resource-features">
+                        <li>Exploring pleasures safely</li>
+                        <li>Kinks & fetishes</li>
+                        <li>Harm reduction principles</li>
+                        <li>Gray areas navigation</li>
+                    </ul>
+                    <a href="ebook-complete.html#part4" class="resource-link">Read Part IV</a>
+                    <a href="curriculum/chapters-08-12-COMPLETE.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">🎯 Lessons 8-11</a>
+                    <a href="infographic-gallery.html#testing" class="resource-link" style="background: #00BDBD; margin-top: 10px;">🎨 Testing Graphics</a>
+                </div>
+            </div>
+
+            <!-- Part 5 -->
+            <div class="resource-card">
+                <div class="resource-icon">🧩</div>
+                <div class="resource-content">
+                    <div class="resource-type">Ebook Section</div>
+                    <h3 class="resource-title">Part V: Your Perfect MATCH</h3>
+                    <p class="resource-description">Chapter 12: Piecing together your personal safer sex plan.</p>
+                    <ul class="resource-features">
+                        <li>M: Medications (PrEP, PEP, etc.)</li>
+                        <li>A: Awareness (testing, status)</li>
+                        <li>T: Tools (condoms, barriers)</li>
+                        <li>C: Communication (consent)</li>
+                        <li>H: Habits (routines, self-care)</li>
+                    </ul>
+                    <a href="ebook-complete.html#part5" class="resource-link">Read Part V</a>
+                    <a href="worksheets/match-framework-interactive.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📋 MATCH Planner</a>
+                    <a href="curriculum/chapters-08-12-COMPLETE.html#chapter12" class="resource-link" style="background: #00BDBD; margin-top: 10px;">🎯 Lesson 12</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- WORKSHOPS SECTION -->
+        <div class="section-header" data-category="workshops">
+            <h2>🎓 Workshop Formats (3 Options)</h2>
+            <p>Flexible delivery options from 90 minutes to a full day. Each format includes detailed agendas, time blocks, activities, and facilitator tips.</p>
+        </div>
+
+        <div class="resources-grid" data-category="workshops">
+            <!-- 90-Minute Workshop -->
+            <div class="resource-card">
+                <div class="resource-icon">⚡</div>
+                <div class="resource-content">
+                    <div class="resource-type">Workshop Format</div>
+                    <h3 class="resource-title">90-Minute Workshop: The Essentials</h3>
+                    <p class="resource-description">High-level overview of safER sex mindset, communication, and MATCH framework introduction.</p>
+                    <ul class="resource-features">
+                        <li>Duration: 90 minutes</li>
+                        <li>Ideal for: Lunch & learns, intro sessions</li>
+                        <li>Core topics covered: 5</li>
+                        <li>Activities included: 3</li>
+                        <li>Complete agenda with timing</li>
+                    </ul>
+                    <a href="workshops/HARNESS-Workshop-Formats-ALL.html#90min" class="resource-link">View Format</a>
+                    <a href="presentations/90-minute-workshop-slides.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📊 Slides (25+)</a>
+                    <a href="participant-companion.html" class="resource-link" style="background: #00BDBD; margin-top: 10px;">👥 Participant Guide</a>
+                </div>
+            </div>
+
+            <!-- Half-Day Workshop -->
+            <div class="resource-card">
+                <div class="resource-icon">🌅</div>
+                <div class="resource-content">
+                    <div class="resource-type">Workshop Format</div>
+                    <h3 class="resource-title">Half-Day Workshop: Core Concepts</h3>
+                    <p class="resource-description">Comprehensive 4-hour workshop covering all 5 parts of the ebook with hands-on activities.</p>
+                    <ul class="resource-features">
+                        <li>Duration: 4 hours (half-day)</li>
+                        <li>Ideal for: Professional development</li>
+                        <li>All 13 chapters covered</li>
+                        <li>Hands-on practice included</li>
+                        <li>Q&A and reflection time</li>
+                    </ul>
+                    <a href="workshops/HARNESS-Workshop-Formats-ALL.html#halfday" class="resource-link">View Format</a>
+                    <a href="presentations/half-day-workshop-slides.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📊 Slides (50+)</a>
+                    <a href="participant-companion.html" class="resource-link" style="background: #00BDBD; margin-top: 10px;">👥 Participant Guide</a>
+                </div>
+            </div>
+
+            <!-- Full-Day Workshop -->
+            <div class="resource-card">
+                <div class="resource-icon">☀️</div>
+                <div class="resource-content">
+                    <div class="resource-type">Workshop Format</div>
+                    <h3 class="resource-title">Full-Day Workshop: Deep Dive</h3>
+                    <p class="resource-description">Comprehensive 7-hour intensive with extensive practice, role-plays, and MATCH framework certification.</p>
+                    <ul class="resource-features">
+                        <li>Duration: 7 hours (full-day)</li>
+                        <li>Ideal for: Educator training, certification</li>
+                        <li>Deep dive into all topics</li>
+                        <li>Multiple practice sessions</li>
+                        <li>MATCH certification option</li>
+                    </ul>
+                    <a href="workshops/HARNESS-Workshop-Formats-ALL.html#fullday" class="resource-link">View Format</a>
+                    <a href="presentations/full-day-workshop-slides.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📊 Slides (100+)</a>
+                    <a href="participant-companion.html" class="resource-link" style="background: #00BDBD; margin-top: 10px;">👥 Participant Guide</a>
+                </div>
+            </div>
+
+            <!-- Workshop Master Guide -->
+            <div class="resource-card">
+                <div class="resource-icon">📋</div>
+                <div class="resource-content">
+                    <div class="resource-type">Master Guide</div>
+                    <h3 class="resource-title">Complete Workshop Guide</h3>
+                    <p class="resource-description">All three workshop formats in one comprehensive document with facilitator tips and adaptations.</p>
+                    <ul class="resource-features">
+                        <li>All 3 formats combined</li>
+                        <li>Facilitator preparation tips</li>
+                        <li>Material lists included</li>
+                        <li>Timing guidelines</li>
+                        <li>Adaptation suggestions</li>
+                    </ul>
+                    <a href="workshops/HARNESS-Workshop-Formats-ALL.html" class="resource-link">View Master Guide</a>
+                    <a href="HARNESS-Facilitator-Guide-Complete.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📄 Facilitator Guide</a>
+                    <a href="presentations/index.html" class="resource-link" style="background: #00BDBD; margin-top: 10px;">📊 All Slides</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- WORKSHEETS SECTION -->
+        <div class="section-header" data-category="worksheets">
+            <h2>📝 Interactive Worksheets & Handouts</h2>
+            <p>Fillable, auto-saving worksheets for participants. Print-ready PDFs also available.</p>
+        </div>
+
+        <div class="resources-grid" data-category="worksheets">
+            <!-- Fearless Foundations -->
+            <div class="resource-card">
+                <div class="resource-icon">🌟</div>
+                <div class="resource-content">
+                    <div class="resource-type">Interactive Worksheet</div>
+                    <h3 class="resource-title">Fearless Foundations Worksheet</h3>
+                    <p class="resource-description">Personal reflection and goal-setting worksheet for sexual health journey.</p>
+                    <ul class="resource-features">
+                        <li>Fillable online form</li>
+                        <li>Auto-saves every 30 seconds</li>
+                        <li>Print-friendly version</li>
+                        <li>Covers: Values, goals, fears</li>
+                    </ul>
+                    <a href="worksheets/fearless-foundations-interactive.html" class="resource-link">Open Worksheet</a>
+                    <a href="worksheets/fearless-foundations-printable.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">🖨️ Print Version</a>
+                </div>
+            </div>
+
+            <!-- MATCH Framework -->
+            <div class="resource-card">
+                <div class="resource-icon">🧩</div>
+                <div class="resource-content">
+                    <div class="resource-type">Interactive Worksheet</div>
+                    <h3 class="resource-title">MATCH Framework Planner</h3>
+                    <p class="resource-description">Complete MATCH assessment and personal action plan builder.</p>
+                    <ul class="resource-features">
+                        <li>All 5 MATCH components</li>
+                        <li>Personal action planning</li>
+                        <li>Resource links included</li>
+                        <li>Progress tracking</li>
+                    </ul>
+                    <a href="worksheets/match-framework-interactive.html" class="resource-link">Open Worksheet</a>
+                    <a href="ebook-complete.html#part5" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📖 Chapter 12</a>
+                </div>
+            </div>
+
+            <!-- Quick Start Guide -->
+            <div class="resource-card">
+                <div class="resource-icon">🚀</div>
+                <div class="resource-content">
+                    <div class="resource-type">Interactive Worksheet</div>
+                    <h3 class="resource-title">Quick Start Guide Worksheet</h3>
+                    <p class="resource-description">Immediate action steps for getting started with safer sex practices.</p>
+                    <ul class="resource-features">
+                        <li>Quick assessment tool</li>
+                        <li>Prioritized action steps</li>
+                        <li>Resource checklist</li>
+                        <li>30-day challenge</li>
+                    </ul>
+                    <a href="worksheets/quick-start-guide-interactive.html" class="resource-link">Open Worksheet</a>
+                    <a href="app.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📱 In App</a>
+                </div>
+            </div>
+
+            <!-- Boundary Setting -->
+            <div class="resource-card">
+                <div class="resource-icon">🚧</div>
+                <div class="resource-content">
+                    <div class="resource-type">Interactive Worksheet</div>
+                    <h3 class="resource-title">Boundary Setting Worksheet</h3>
+                    <p class="resource-description">Personal boundary identification and communication practice tool.</p>
+                    <ul class="resource-features">
+                        <li>Boundary identification</li>
+                        <li>Communication scripts</li>
+                        <li>Practice scenarios</li>
+                        <li>Reflection prompts</li>
+                    </ul>
+                    <a href="worksheets/boundary-setting-worksheet.html" class="resource-link">Open Worksheet</a>
+                    <a href="app.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📱 In App</a>
+                </div>
+            </div>
+
+            <!-- Sexual Health Communication Agreement -->
+            <div class="resource-card">
+                <div class="resource-icon">🤝</div>
+                <div class="resource-content">
+                    <div class="resource-type">Interactive Worksheet</div>
+                    <h3 class="resource-title">Sexual Health Communication Agreement</h3>
+                    <p class="resource-description">Template for creating clear agreements with partners about sexual health.</p>
+                    <ul class="resource-features">
+                        <li>Partner agreement template</li>
+                        <li>Testing commitment</li>
+                        <li>Boundary documentation</li>
+                        <li>Digital signatures</li>
+                    </ul>
+                    <a href="worksheets/sexual-health-communication-agreement.html" class="resource-link">Open Worksheet</a>
+                    <a href="app.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📱 In App</a>
+                </div>
+            </div>
+
+            <!-- Partner Communication Agreement -->
+            <div class="resource-card">
+                <div class="resource-icon">💬</div>
+                <div class="resource-content">
+                    <div class="resource-type">Interactive Worksheet</div>
+                    <h3 class="resource-title">Partner Communication Agreement</h3>
+                    <p class="resource-description">Collaborative agreement builder for partners to discuss and document expectations.</p>
+                    <ul class="resource-features">
+                        <li>Joint completion tool</li>
+                        <li>Discussion prompts</li>
+                        <li>Commitment tracking</li>
+                        <li>Review schedule builder</li>
+                    </ul>
+                    <a href="worksheets/partner-communication-agreement.html" class="resource-link">Open Worksheet</a>
+                    <a href="app.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📱 In App</a>
+                </div>
+            </div>
+
+            <!-- SafER Sex Cantina -->
+            <div class="resource-card">
+                <div class="resource-icon">🌮</div>
+                <div class="resource-content">
+                    <div class="resource-type">PDF Handout</div>
+                    <h3 class="resource-title">SafER Sex Cantina Guide</h3>
+                    <p class="resource-description">Creative visual guide using restaurant menu metaphor for prevention choices.</p>
+                    <ul class="resource-features">
+                        <li>Menu-style presentation</li>
+                        <li>Prevention "dishes"</li>
+                        <li>Fun, engaging format</li>
+                        <li>Print-ready PDF</li>
+                    </ul>
+                    <a href="resources/SafER-Sex-Cantina.pdf" class="resource-link" target="_blank">Download PDF</a>
+                    <a href="app.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📱 Interactive Version</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRESENTATIONS SECTION -->
+        <div class="section-header" data-category="presentations">
+            <h2>📊 Presentation Slides</h2>
+            <p>Professional slide decks for all lesson plans and workshop formats. Fully editable and print-ready.</p>
+        </div>
+
+        <div class="resources-grid" data-category="presentations">
+            <!-- 90-Minute Slides -->
+            <div class="resource-card">
+                <div class="resource-icon">🎤</div>
+                <div class="resource-content">
+                    <div class="resource-type">Presentation Slides</div>
+                    <h3 class="resource-title">90-Minute Workshop Slides</h3>
+                    <p class="resource-description">Complete slide deck for the 90-minute workshop format with speaker notes.</p>
+                    <ul class="resource-features">
+                        <li>25+ slides</li>
+                        <li>Speaker notes included</li>
+                        <li>HARNESS branded</li>
+                        <li>Print-ready handouts</li>
+                    </ul>
+                    <a href="presentations/90-minute-workshop-slides.html" class="resource-link">View Slides</a>
+                    <a href="workshops/HARNESS-Workshop-Formats-ALL.html#90min" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📝 Agenda</a>
+                </div>
+            </div>
+
+            <!-- Half-Day Slides -->
+            <div class="resource-card">
+                <div class="resource-icon">📽️</div>
+                <div class="resource-content">
+                    <div class="resource-type">Presentation Slides</div>
+                    <h3 class="resource-title">Half-Day Workshop Slides</h3>
+                    <p class="resource-description">Comprehensive 4-hour presentation with all activities and discussion prompts.</p>
+                    <ul class="resource-features">
+                        <li>50+ slides</li>
+                        <li>Activity instructions</li>
+                        <li>Discussion prompts</li>
+                        <li>Breakout session guides</li>
+                    </ul>
+                    <a href="presentations/half-day-workshop-slides.html" class="resource-link">View Slides</a>
+                    <a href="workshops/HARNESS-Workshop-Formats-ALL.html#halfday" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📝 Agenda</a>
+                </div>
+            </div>
+
+            <!-- Full-Day Slides -->
+            <div class="resource-card">
+                <div class="resource-icon">🎬</div>
+                <div class="resource-content">
+                    <div class="resource-type">Presentation Slides</div>
+                    <h3 class="resource-title">Full-Day Workshop Slides</h3>
+                    <p class="resource-description">Complete 7-hour intensive presentation with all components of HARNESS curriculum.</p>
+                    <ul class="resource-features">
+                        <li>100+ slides</li>
+                        <li>All 13 chapters covered</li>
+                        <li>MATCH framework deep-dive</li>
+                        <li>Certification materials</li>
+                    </ul>
+                    <a href="presentations/full-day-workshop-slides.html" class="resource-link">View Slides</a>
+                    <a href="workshops/HARNESS-Workshop-Formats-ALL.html#fullday" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📝 Agenda</a>
+                </div>
+            </div>
+
+            <!-- Presentations Index -->
+            <div class="resource-card">
+                <div class="resource-icon">🗂️</div>
+                <div class="resource-content">
+                    <div class="resource-type">Master Index</div>
+                    <h3 class="resource-title">All Presentation Slides</h3>
+                    <p class="resource-description">Complete index of all 21 slide decks with navigation and quick access.</p>
+                    <ul class="resource-features">
+                        <li>21 total slide decks</li>
+                        <li>Organized by chapter</li>
+                        <li>Quick navigation</li>
+                        <li>Download all option</li>
+                    </ul>
+                    <a href="presentations/index.html" class="resource-link">View All Slides</a>
+                    <a href="curriculum/CURRICULUM-INDEX.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">🎯 All Lessons</a>
+                    <a href="workshops/HARNESS-Workshop-Formats-ALL.html" class="resource-link" style="background: #00BDBD; margin-top: 10px;">🎓 Workshops</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISUALS SECTION -->
+        <div class="section-header" data-category="visuals">
+            <h2>🎨 Visual Infographics & Resources</h2>
+            <p>71 professional infographics covering all aspects of sexual health education. Print-ready and classroom-ready.</p>
+        </div>
+
+        <div class="resources-grid" data-category="visuals">
+            <!-- Infographic Gallery -->
+            <div class="resource-card">
+                <div class="resource-icon">🖼️</div>
+                <div class="resource-content">
+                    <div class="resource-type">Visual Gallery</div>
+                    <h3 class="resource-title">Complete Infographic Collection</h3>
+                    <p class="resource-description">All 71 infographics in one interactive gallery with categories and descriptions.</p>
+                    <ul class="resource-features">
+                        <li>71 total infographics</li>
+                        <li>8 categories</li>
+                        <li>High-resolution downloads</li>
+                        <li>Print-ready formats</li>
+                    </ul>
+                    <a href="infographic-gallery.html" class="resource-link">Browse Gallery</a>
+                    <a href="MASTER_INFOGRAPHIC_DOCUMENT.md" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">📄 Catalog</a>
+                    <a href="toolkit.html" class="resource-link" style="background: #00BDBD; margin-top: 10px;">🎯 Toolkit</a>
+                </div>
+            </div>
+
+            <!-- New Metaphor Infographics -->
+            <div class="resource-card">
+                <div class="resource-icon">🗺️</div>
+                <div class="resource-content">
+                    <div class="resource-type">Infographic Set</div>
+                    <h3 class="resource-title">15 NEW Metaphor Designs</h3>
+                    <p class="resource-description">Creative metaphor-driven infographics: Roadmap, Compass, Dashboard, Blueprint, and more.</p>
+                    <ul class="resource-features">
+                        <li>15 unique designs</li>
+                        <li>Metaphor-driven approach</li>
+                        <li>3:4 format</li>
+                        <li>Stored locally (21 MB)</li>
+                    </ul>
+                    <a href="infographic-gallery.html#metaphor" class="resource-link">View Designs</a>
+                    <a href="images/infographics/" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">💾 Download All</a>
+                </div>
+            </div>
+
+            <!-- Master Infographic Document -->
+            <div class="resource-card">
+                <div class="resource-icon">📄</div>
+                <div class="resource-content">
+                    <div class="resource-type">Master Document</div>
+                    <h3 class="resource-title">Complete Infographic Catalog</h3>
+                    <p class="resource-description">50+ page comprehensive catalog with all 71 infographics, descriptions, and usage guides.</p>
+                    <ul class="resource-features">
+                        <li>50+ pages</li>
+                        <li>All infographics documented</li>
+                        <li>Categories & metaphors</li>
+                        <li>Usage guidelines</li>
+                    </ul>
+                    <a href="MASTER_INFOGRAPHIC_DOCUMENT.md" class="resource-link">View Catalog</a>
+                    <a href="infographic-gallery.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">🖼️ Gallery</a>
+                </div>
+            </div>
+
+            <!-- Visual Toolkit -->
+            <div class="resource-card">
+                <div class="resource-icon">🎨</div>
+                <div class="resource-content">
+                    <div class="resource-type">Toolkit Package</div>
+                    <h3 class="resource-title">Visual Toolkit (56 Items)</h3>
+                    <p class="resource-description">Web library of 56 additional infographics with descriptions and key topics.</p>
+                    <ul class="resource-features">
+                        <li>56 web infographics</li>
+                        <li>Organized by category</li>
+                        <li>Downloadable JPGs</li>
+                        <li>12 MB total</li>
+                    </ul>
+                    <a href="images/web-infographics/" class="resource-link">Browse Toolkit</a>
+                    <a href="toolkit.html" class="resource-link" style="background: #F6CC00; color: #333; margin-top: 10px;">👁️ View Toolkit</a>
+                    <a href="infographic-gallery.html" class="resource-link" style="background: #00BDBD; margin-top: 10px;">🖼️ Gallery</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRICING SECTION -->
+        <div class="price-card">
+            <h3>💰 Complete Educator Package</h3>
+            <div class="price">$299</div>
+            <p class="price-description">One-time purchase • Lifetime access • Free updates</p>
+            <p style="font-size: 1.2em; margin-bottom: 30px;">Everything you need to teach fearless sexual health education from a single workshop to a full semester course.</p>
+            
+            <a href="#contact" class="cta-button">Get Complete Package</a>
+            
+            <p style="margin-top: 30px; font-size: 1.1em;">
+                ✅ 12 Complete Lesson Plans<br>
+                ✅ 13-Chapter Interactive Ebook<br>
+                ✅ 3 Workshop Formats<br>
+                ✅ 7 Interactive Worksheets<br>
+                ✅ 21 Presentation Slides<br>
+                ✅ 71 Visual Infographics<br>
+                ✅ Facilitator's Guide<br>
+                ✅ Lifetime Support
+            </p>
+        </div>
+
+        <!-- BONUS SECTION -->
+        <div class="package-highlights">
+            <h3>🎁 Bonus Materials Included</h3>
+            <div class="highlights-grid">
+                <div class="highlight-item">
+                    <strong>📞 Conversation Scripts</strong><br>
+                    Ready-to-use dialogue templates for teaching communication skills
+                </div>
+                <div class="highlight-item">
+                    <strong>📋 Assessment Tools</strong><br>
+                    Pre/post tests, knowledge checks, and evaluation forms
+                </div>
+                <div class="highlight-item">
+                    <strong>🗂️ Resource Templates</strong><br>
+                    Customizable handouts for local testing sites and PrEP providers
+                </div>
+                <div class="highlight-item">
+                    <strong>🎯 Activity Guides</strong><br>
+                    Step-by-step instructions for all interactive activities
+                </div>
+                <div class="highlight-item">
+                    <strong>💡 Facilitator Tips</strong><br>
+                    Teaching strategies, common questions, and troubleshooting
+                </div>
+                <div class="highlight-item">
+                    <strong>🎓 MATCH Certification</strong><br>
+                    Certificate templates for participants who complete full training
+                </div>
+                <div class="highlight-item">
+                    <strong>📱 Digital Assets</strong><br>
+                    Social media graphics, logos, and branding materials
+                </div>
+                <div class="highlight-item">
+                    <strong>🔄 Free Updates</strong><br>
+                    Lifetime access to updated materials and new resources
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>The HARNESS Project</strong></p>
+            <p>Fearless, Aware, and Protected</p>
+            <p>by Christopher Zacharie</p>
+            <p style="margin-top: 20px;">
+                <a href="contact.html">Contact Us</a> | 
+                <a href="about.html">About</a> | 
+                <a href="index.html">Home</a>
+            </p>
+            <p style="margin-top: 30px; font-size: 0.9em; opacity: 0.8;">
+                © 2024-2026 The HARNESS Project. All rights reserved.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function filterCategory(category) {
+            // Update button active state
+            const buttons = document.querySelectorAll('.category-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter content
+            const sections = document.querySelectorAll('[data-category]');
+            sections.forEach(section => {
+                if (category === 'all') {
+                    section.style.display = '';
+                } else {
+                    if (section.dataset.category === category) {
+                        section.style.display = '';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Make all resource links open in new tab
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.resource-link').forEach(link => {
+                // Don't add target blank to anchor links
+                if (!link.getAttribute('href').startsWith('#')) {
+                    link.setAttribute('target', '_blank');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

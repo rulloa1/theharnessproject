@@ -1,0 +1,58 @@
+# Robots.txt for The HARNESS Project
+# Updated: January 22, 2026
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.theharnessproject.org/sitemap.xml
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Disallow crawling of test and development pages
+Disallow: /test-*.html
+Disallow: /app-diagnostic.html
+Disallow: /app-fixed.html
+Disallow: /fix-verification.html
+Disallow: /test-scripts-individually.html
+Disallow: /test-navigation-complete.html
+Disallow: /original_app.html
+
+# Disallow crawling of component files (loaded via JS)
+Disallow: /components/
+
+# Allow crawling of CSS and JS for page rendering
+Allow: /css/
+Allow: /js/
+Allow: /images/
+
+# Crawl delay (optional, adjust as needed)
+# Crawl-delay: 1
+
+# Disallow scraping of PDF downloads
+# (They can be indexed, but we want users to come to the site)
+# Disallow: /*.pdf$
+
+# Allow indexing of all main content
+Allow: /index.html
+Allow: /app.html
+Allow: /about.html
+Allow: /pricing.html
+Allow: /toolkit.html
+Allow: /blog/
+Allow: /educator/
+Allow: /workshops/
+Allow: /interactive/
+Allow: /worksheets/
+Allow: /legal/

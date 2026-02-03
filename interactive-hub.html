@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Tools & Resources - HARNESS Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/transparent-headers.css">
+    <script src="js/seo-optimizer.js"></script>
+    <script src="js/harness-global.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Bree Serif', Georgia, serif;
+            background: #f5f5f5;
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #00BDBD 0%, #F6CC00 50%, #DD0E6E 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 1.5em;
+            opacity: 0.95;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section {
+            margin-bottom: 80px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.2em;
+            color: #666;
+        }
+        
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 3px solid transparent;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            border-color: #00BDBD;
+        }
+        
+        .tool-card.teal { border-left: 6px solid #00BDBD; }
+        .tool-card.gold { border-left: 6px solid #F6CC00; }
+        .tool-card.pink { border-left: 6px solid #EC4899; }
+        .tool-card.magenta { border-left: 6px solid #DD0E6E; }
+        
+        .tool-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        
+        .tool-title {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .tool-description {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .tool-features {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .tool-features li {
+            padding: 8px 0;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tool-features li::before {
+            content: '✓';
+            color: #00BDBD;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .tool-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin: 5px 5px 5px 0;
+        }
+        
+        .badge-new {
+            background: #00BDBD;
+            color: white;
+        }
+        
+        .badge-popular {
+            background: #F6CC00;
+            color: #333;
+        }
+        
+        .badge-essential {
+            background: #DD0E6E;
+            color: white;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 189, 189, 0.1), rgba(246, 204, 0, 0.1));
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 18px 45px;
+            font-size: 1.2em;
+            font-family: 'Bree Serif', Georgia, serif;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00BDBD, #00A8A8);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 189, 189, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #F6CC00, #E6BC00);
+            color: #333;
+            margin-left: 15px;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(246, 204, 0, 0.4);
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        footer p {
+            margin: 10px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .hero p {
+                font-size: 1.2em;
+            }
+            
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>🚀 Interactive Tools & Resources</h1>
+            <p>Empowering tools to build your SafER sex strategy</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Section 1: Calculators & Assessments -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">🧮 Calculators & Assessments</h2>
+                <p class="section-subtitle">Interactive tools to personalize your protection plan</p>
+            </div>
+            
+            <div class="tool-grid">
+                <div class="tool-card teal" onclick="window.location.href='interactive/risk-continuum.html'">
+                    <div class="tool-icon">📊</div>
+                    <div class="tool-title">Risk Continuum</div>
+                    <span class="tool-badge badge-new">NEW</span>
+                    <p class="tool-description">Visual guide to understanding relative risk levels for different sexual activities</p>
+                    <ul class="tool-features">
+                        <li>8 risk categories from No Risk to High Risk</li>
+                        <li>Visual color-coded spectrum</li>
+                        <li>Protection layer strategies</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card gold" onclick="alert('Test Frequency Calculator - Coming Soon!')">
+                    <div class="tool-icon">📅</div>
+                    <div class="tool-title">Testing Frequency Calculator</div>
+                    <span class="tool-badge badge-essential">ESSENTIAL</span>
+                    <p class="tool-description">Get personalized testing schedule recommendations based on your situation</p>
+                    <ul class="tool-features">
+                        <li>Based on CDC guidelines</li>
+                        <li>Accounts for risk factors</li>
+                        <li>Calendar reminders</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card pink" onclick="window.location.href='app.html'">
+                    <div class="tool-icon">💧</div>
+                    <div class="tool-title">Lube Selector</div>
+                    <span class="tool-badge badge-popular">POPULAR</span>
+                    <p class="tool-description">Find the perfect lubricant for your needs and activities</p>
+                    <ul class="tool-features">
+                        <li>Water-based, silicone, oil comparisons</li>
+                        <li>Compatibility checker</li>
+                        <li>Safety recommendations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 2: Planning Tools -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">🛡️ Planning Tools</h2>
+                <p class="section-subtitle">Build your personalized protection strategies</p>
+            </div>
+            
+            <div class="tool-grid">
+                <div class="tool-card teal" onclick="window.location.href='interactive/my-condom-plan.html'">
+                    <div class="tool-icon">🎯</div>
+                    <div class="tool-title">My Condom Plan</div>
+                    <span class="tool-badge badge-popular">POPULAR</span>
+                    <p class="tool-description">Create your personalized condom use strategy</p>
+                    <ul class="tool-features">
+                        <li>Step-by-step plan builder</li>
+                        <li>Emergency preparedness</li>
+                        <li>Auto-saves progress</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card gold" onclick="window.location.href='app.html'">
+                    <div class="tool-icon">🚀</div>
+                    <div class="tool-title">Fearless Quick Start Guide</div>
+                    <span class="tool-badge badge-new">NEW</span>
+                    <p class="tool-description">Your 10-minute roadmap to safer sex confidence</p>
+                    <ul class="tool-features">
+                        <li>7 essential sections</li>
+                        <li>Emergency protocols</li>
+                        <li>Conversation scripts</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card pink" onclick="window.location.href='interactive/safer-sex-cantina.html'">
+                    <div class="tool-icon">🌶️</div>
+                    <div class="tool-title">SafER Sex Cantina</div>
+                    <span class="tool-badge badge-popular">POPULAR</span>
+                    <p class="tool-description">Interactive menu-style guide to safer sex options</p>
+                    <ul class="tool-features">
+                        <li>Visual menu interface</li>
+                        <li>Multiple protection options</li>
+                        <li>Fun, engaging design</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 3: Emergency & Support -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">🆘 Emergency & Support</h2>
+                <p class="section-subtitle">Immediate help when you need it most</p>
+            </div>
+            
+            <div class="tool-grid">
+                <div class="tool-card magenta" onclick="window.location.href='interactive/sos-emergency-guide.html'">
+                    <div class="tool-icon">🚨</div>
+                    <div class="tool-title">SOS Emergency Guide</div>
+                    <span class="tool-badge badge-essential">ESSENTIAL</span>
+                    <p class="tool-description">What to do right now after potential exposure</p>
+                    <ul class="tool-features">
+                        <li>PEP access within 72 hours</li>
+                        <li>Emergency contacts</li>
+                        <li>Step-by-step protocols</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card teal" onclick="window.location.href='interactive/pocket-scripts.html'">
+                    <div class="tool-icon">📱</div>
+                    <div class="tool-title">Pocket Scripts</div>
+                    <span class="tool-badge badge-popular">POPULAR</span>
+                    <p class="tool-description">Ready-to-use conversation scripts for tough talks</p>
+                    <ul class="tool-features">
+                        <li>Status disclosure scripts</li>
+                        <li>Boundary-setting templates</li>
+                        <li>Testing conversations</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card gold" onclick="window.location.href='interactive/conversation-starters.html'">
+                    <div class="tool-icon">💬</div>
+                    <div class="tool-title">Conversation Starters</div>
+                    <p class="tool-description">Break the ice with sexual health conversations</p>
+                    <ul class="tool-features">
+                        <li>Natural opening lines</li>
+                        <li>Context-specific scripts</li>
+                        <li>Follow-up responses</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Section 4: Interactive Worksheets -->
+        <div class="section">
+            <div class="section-header">
+                <h2 class="section-title">📝 Interactive Worksheets</h2>
+                <p class="section-subtitle">Fillable forms that save your progress automatically</p>
+            </div>
+            
+            <div class="tool-grid">
+                <div class="tool-card teal" onclick="window.location.href='worksheets/boundary-setting-worksheet.html'">
+                    <div class="tool-icon">🛡️</div>
+                    <div class="tool-title">Boundary Setting Worksheet</div>
+                    <span class="tool-badge badge-new">NEW</span>
+                    <p class="tool-description">Explore and define your personal boundaries</p>
+                    <ul class="tool-features">
+                        <li>6 comprehensive sections</li>
+                        <li>Reflection prompts</li>
+                        <li>Print or complete online</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card pink" onclick="window.location.href='worksheets/sexual-health-communication-agreement.html'">
+                    <div class="tool-icon">💕</div>
+                    <div class="tool-title">Sexual Health Communication Agreement</div>
+                    <span class="tool-badge badge-new">NEW</span>
+                    <p class="tool-description">Collaborative agreement for partners</p>
+                    <ul class="tool-features">
+                        <li>Digital signatures</li>
+                        <li>Discussion topic checklist</li>
+                        <li>Email sharing option</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card gold" onclick="window.location.href='worksheets/partner-communication-agreement.html'">
+                    <div class="tool-icon">🤝</div>
+                    <div class="tool-title">Partner Communication Agreement</div>
+                    <span class="tool-badge badge-new">NEW</span>
+                    <p class="tool-description">Framework for open dialogue</p>
+                    <ul class="tool-features">
+                        <li>5 commitment statements</li>
+                        <li>Dual partner signatures</li>
+                        <li>Beautiful design</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card magenta" onclick="window.location.href='worksheets/fearless-foundations-interactive.html'">
+                    <div class="tool-icon">🔥</div>
+                    <div class="tool-title">Fearless Foundations</div>
+                    <p class="tool-description">Core worksheet for sexual health empowerment</p>
+                    <ul class="tool-features">
+                        <li>Interactive version</li>
+                        <li>Printable option available</li>
+                        <li>Comprehensive coverage</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card teal" onclick="window.location.href='worksheets/match-framework-interactive.html'">
+                    <div class="tool-icon">🧩</div>
+                    <div class="tool-title">MATCH Framework Worksheet</div>
+                    <p class="tool-description">Plan across all 5 MATCH dimensions</p>
+                    <ul class="tool-features">
+                        <li>Medications, Awareness, Tools, Communication, Habits</li>
+                        <li>Action plan builder</li>
+                        <li>Progress tracking</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card pink" onclick="window.location.href='worksheets/quick-start-guide-interactive.html'">
+                    <div class="tool-icon">⚡</div>
+                    <div class="tool-title">Quick Start Guide (Interactive)</div>
+                    <p class="tool-description">Fast-track your protection planning</p>
+                    <ul class="tool-features">
+                        <li>Quick completion</li>
+                        <li>Essential info only</li>
+                        <li>Beginner-friendly</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Ready to Build Your SafER Sex Strategy?</h2>
+            <p>Start with the HARNESS App for a personalized journey through all these tools</p>
+            <a href="index.html" class="btn btn-primary">🏠 Open HARNESS App</a>
+            <a href="toolkit.html" class="btn btn-secondary">📚 Browse Visual Toolkit</a>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p><strong>THE HARNESS PROJECT | TheHARNESSProject.com</strong></p>
+        <p>For educational purposes only. Not medical advice.</p>
+        <p>Consult healthcare provider for personal health decisions.</p>
+        <p>© 2025 Christopher Zacharie. All rights reserved. <strong>🔥HARNESS🔥</strong></p>
+    </footer>
+    
+    <script src="js/template-loader.js" defer></script>
+</body>
+</html>

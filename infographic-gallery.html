@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Infographic Gallery - HARNESS Project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/transparent-headers.css">
+    <script src="js/seo-optimizer.js"></script>
+    <script src="js/harness-global.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Bree Serif', Georgia, serif;
+            background: linear-gradient(135deg, #00BDBD 0%, #F6CC00 50%, #DD0E6E 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .logo-section {
+            margin-bottom: 30px;
+        }
+        
+        .harness-logo {
+            font-size: 4em;
+            margin-bottom: 10px;
+        }
+        
+        .brand-text {
+            font-size: 3em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #00BDBD, #F6CC00, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        h1 {
+            font-size: 3.5em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #00BDBD, #00A8A8);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .section {
+            margin: 60px 0;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #00BDBD, #00A8A8);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .section-header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #F6CC00;
+            color: #333;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .infographic-card {
+            background: #f8f8f8;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+        
+        .infographic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border-color: #00BDBD;
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #e0f7f7, #fff5e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            border-bottom: 3px solid #00BDBD;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-id {
+            background: #00BDBD;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .card-title {
+            font-size: 1.4em;
+            color: #333;
+            margin-bottom: 10px;
+            min-height: 60px;
+        }
+        
+        .card-category {
+            color: #EC4899;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        
+        .card-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .card-metaphor {
+            background: #fff;
+            border-left: 4px solid #F6CC00;
+            padding: 10px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .web-card {
+            border-left: 5px solid #00BDBD;
+        }
+        
+        .local-card {
+            border-left: 5px solid #F6CC00;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #DD0E6E, #B00B59);
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            margin: 60px 0;
+        }
+        
+        .download-section h2 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        
+        .download-section p {
+            font-size: 1.4em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .price {
+            font-size: 4em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .includes-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 30px auto;
+            font-size: 1.2em;
+        }
+        
+        .includes-list li {
+            margin: 15px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .includes-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-size: 1.5em;
+            color: #F6CC00;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #F6CC00;
+            color: #333;
+            padding: 20px 50px;
+            border-radius: 50px;
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            border-top: 2px solid #eee;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .stats {
+                gap: 20px;
+            }
+            
+            .stat-box {
+                padding: 15px 25px;
+            }
+            
+            .stat-number {
+                font-size: 2em;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-section">
+                <div class="harness-logo">🔥🛡️💡</div>
+                <div class="brand-text">THE HARNESS PROJECT</div>
+            </div>
+            <h1>Complete Infographic Gallery</h1>
+            <p style="font-size: 1.4em; color: #666; margin-top: 20px;">All 71 Professional Sexual Health Education Infographics</p>
+            
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-number">71</span>
+                    <span class="stat-label">Infographics</span>
+                </div>
+                <div class="stat-box" style="background: linear-gradient(135deg, #EC4899, #DD0E6E);">
+                    <span class="stat-number">18</span>
+                    <span class="stat-label">Ritual Cards</span>
+                </div>
+                <div class="stat-box" style="background: linear-gradient(135deg, #F6CC00, #E0B800);">
+                    <span class="stat-number">89</span>
+                    <span class="stat-label">Total Resources</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW METAPHOR INFOGRAPHICS SECTION -->
+        <div class="section">
+            <div class="section-header" style="background: linear-gradient(135deg, #F6CC00, #E0B800); color: #333;">
+                <h2>🆕 15 New Metaphor-Driven Infographics <span class="badge" style="background: #333; color: #F6CC00;">ADDED JAN 4, 2026</span></h2>
+                <p>Creative visual metaphors transform sexual health education</p>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Infographic 23 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">🗺️</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 23</span>
+                        <h3 class="card-title">Your Testing Roadmap</h3>
+                        <p class="card-category">📍 Testing & Prevention</p>
+                        <p class="card-description">Journey-style roadmap: starting point, annual checkpoints, quarterly stops, new partners, emergency detours. Window periods included.</p>
+                        <div class="card-metaphor">🧭 Metaphor: Journey/Travel Roadmap</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 24 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">🔄</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 24</span>
+                        <h3 class="card-title">Consent Checkpoint</h3>
+                        <p class="card-category">💬 Consent & Communication</p>
+                        <p class="card-description">Circular flow: before, during, changes, after, next time. Red flags when it's NOT consent.</p>
+                        <div class="card-metaphor">🔁 Metaphor: Circular Process Flow</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 25 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">💧</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 25</span>
+                        <h3 class="card-title">Lube Guide</h3>
+                        <p class="card-category">💦 Sexual Wellness</p>
+                        <p class="card-description">Water-based vs silicone-based vs oil-based. Pros, cons, best uses, pro tips.</p>
+                        <div class="card-metaphor">📊 Metaphor: Comparison Chart</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 26 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">🆘</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 26</span>
+                        <h3 class="card-title">Condom SOS</h3>
+                        <p class="card-category">🛡️ Barrier Methods</p>
+                        <p class="card-description">Emergency solutions: breakage, slippage, too tight, lost erection, allergies. Problem-solution grid.</p>
+                        <div class="card-metaphor">🚨 Metaphor: Emergency Grid</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 27 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">🍽️</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 27</span>
+                        <h3 class="card-title">HIV Medication Menu (YEZTUGO)</h3>
+                        <p class="card-category">💊 HIV Prevention</p>
+                        <p class="card-description">PrEP daily pills, Apretude injection, Lenacapavir/YEZTUGO 6-month, PEP emergency, ART/U=U. Efficacy rates.</p>
+                        <div class="card-metaphor">🍴 Metaphor: Restaurant Menu</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 28 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">🧭</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 28</span>
+                        <h3 class="card-title">The Disclosure Compass</h3>
+                        <p class="card-category">💬 Communication</p>
+                        <p class="card-description">Navigate status disclosure: timing (North), language (South), tone (East), follow-up (West).</p>
+                        <div class="card-metaphor">🧭 Metaphor: Navigation Compass</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 29 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">🚗</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 29</span>
+                        <h3 class="card-title">The Body's Warning Lights</h3>
+                        <p class="card-category">⚠️ Body Awareness</p>
+                        <p class="card-description">Car dashboard: STI symptoms as warning lights (discharge, sores, pain, rash, flu, no symptoms).</p>
+                        <div class="card-metaphor">🚗 Metaphor: Car Dashboard</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 30 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">📐</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 30</span>
+                        <h3 class="card-title">The Relationship Blueprint</h3>
+                        <p class="card-category">💑 Relationships</p>
+                        <p class="card-description">Blueprint layers: testing, safer sex, outside partners, communication, boundaries, updates.</p>
+                        <div class="card-metaphor">🏗️ Metaphor: Construction Blueprint</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 31 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">🗺️</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 31</span>
+                        <h3 class="card-title">The PrEP Treasure Map</h3>
+                        <p class="card-category">💊 HIV Prevention</p>
+                        <p class="card-description">Adventure map: insurance island, clinic cove, prescription port, medication mountain, monitoring checkpoint.</p>
+                        <div class="card-metaphor">🏴‍☠️ Metaphor: Treasure Map</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 32 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">🎒</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 32</span>
+                        <h3 class="card-title">Sexual Health Survival Kit</h3>
+                        <p class="card-category">🔧 Emergency Response</p>
+                        <p class="card-description">Essentials: barriers, lube, medications, testing info, emergency contacts, communication scripts.</p>
+                        <div class="card-metaphor">🏕️ Metaphor: Survival Kit</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 33 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">📅</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 33</span>
+                        <h3 class="card-title">Testing Window Calendar</h3>
+                        <p class="card-category">🧪 Testing</p>
+                        <p class="card-description">Garden growth: HIV seeds (18-45 days), chlamydia sprouts (1-2 weeks), syphilis blooms (3-6 weeks), herpes harvest (2-12 weeks).</p>
+                        <div class="card-metaphor">🌱 Metaphor: Garden Growth</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 34 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">🎮</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 34</span>
+                        <h3 class="card-title">Safer Sex Game Board</h3>
+                        <p class="card-category">🎯 Risk Assessment</p>
+                        <p class="card-description">Video game levels: Level 1 (condoms), Level 2 (testing), Level 3 (PrEP), Level 4 (communication), Level 5 (U=U), Boss Level (fearless).</p>
+                        <div class="card-metaphor">🕹️ Metaphor: Video Game</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 35 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">🌳</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 35</span>
+                        <h3 class="card-title">The Communication Tree</h3>
+                        <p class="card-category">💬 Communication</p>
+                        <p class="card-description">Tree: roots (self-awareness), trunk (honesty), branches (boundaries), leaves (listening), fruit (healthy relationships).</p>
+                        <div class="card-metaphor">🌲 Metaphor: Tree Growth</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 36 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">⚖️</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 36</span>
+                        <h3 class="card-title">Pleasure-Risk Scales</h3>
+                        <p class="card-category">⚖️ Risk & Pleasure</p>
+                        <p class="card-description">Balance scales: risk/pleasure for kissing, oral, anal, vaginal, toys, hands. Protection strategies for each.</p>
+                        <div class="card-metaphor">⚖️ Metaphor: Balance Scales</div>
+                    </div>
+                </div>
+
+                <!-- Infographic 37 -->
+                <div class="infographic-card local-card">
+                    <div class="card-image">🗺️</div>
+                    <div class="card-content">
+                        <span class="card-id">ID: 37</span>
+                        <h3 class="card-title">Body Literacy Map</h3>
+                        <p class="card-category">🧠 Body Knowledge</p>
+                        <p class="card-description">Topographic map: penile, vaginal, anal anatomy. Know your body, risks, protection points.</p>
+                        <div class="card-metaphor">🏔️ Metaphor: Topographic Map</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VISUAL LIBRARY SECTION -->
+        <div class="section">
+            <div class="section-header">
+                <h2>🌐 Visual Library Collection (56 Infographics)</h2>
+                <p>Web-based educational resources with comprehensive coverage</p>
+            </div>
+
+            <p style="text-align: center; font-size: 1.3em; color: #666; margin-bottom: 30px;">
+                The Visual Library contains 56 additional infographics covering Sexual Wellness, Harm Reduction, Barrier Methods, Consent & Communication, HIV Prevention, STI Testing, Relationships, and Empowerment. These are hosted online and integrated into the HARNESS app.
+            </p>
+
+            <div style="background: #f8f8f8; padding: 40px; border-radius: 20px; border-left: 6px solid #00BDBD;">
+                <h3 style="font-size: 2em; margin-bottom: 20px; color: #333;">📚 Category Breakdown:</h3>
+                <ul style="font-size: 1.2em; line-height: 2; color: #666;">
+                    <li>💦 <strong>Sexual Wellness:</strong> 6 infographics (Lube types, pleasure-centered approach, toy safety)</li>
+                    <li>🤝 <strong>Harm Reduction:</strong> 5 infographics (Safer choices, substance use, chemsex, overdose prevention)</li>
+                    <li>🛡️ <strong>Barrier Methods:</strong> 10 infographics (Condoms, dental dams, gloves, sizing, alternatives)</li>
+                    <li>💬 <strong>Consent & Communication:</strong> 8 infographics (FRIES model, disclosure, boundaries, check-ins)</li>
+                    <li>💊 <strong>HIV Prevention:</strong> 12 infographics (PrEP, PEP, U=U, ART, testing, living with HIV)</li>
+                    <li>🧪 <strong>STI Prevention & Testing:</strong> 7 infographics (Testing frequency, symptoms, treatment, stigma-busting)</li>
+                    <li>💑 <strong>Relationships:</strong> 4 infographics (Relationship styles, jealousy, agreements, conflict resolution)</li>
+                    <li>✊ <strong>Empowerment:</strong> 4 infographics (Sexual health rights, LGBTQ+ healthcare, young adults guide)</li>
+                </ul>
+                <p style="margin-top: 30px; font-size: 1.1em; color: #666; font-style: italic;">
+                    See the full catalog in <code>js/visual-library.js</code> with detailed descriptions and image URLs.
+                </p>
+            </div>
+        </div>
+
+        <!-- DOWNLOAD PACKAGE -->
+        <div class="download-section">
+            <h2>📦 Get The Complete Collection</h2>
+            <p>Download all 71 infographics + 18 ritual cards in one comprehensive package</p>
+            
+            <div class="price">$99</div>
+            <p style="opacity: 0.9;">One-time payment • Lifetime access</p>
+            
+            <ul class="includes-list">
+                <li><strong>71 Professional Infographics</strong> (15 new + 56 library)</li>
+                <li><strong>18 Self-Care Ritual Cards</strong></li>
+                <li><strong>High-Resolution Print-Ready Files</strong></li>
+                <li><strong>Lifetime Downloads & Updates</strong></li>
+                <li><strong>Personal or Educator License</strong></li>
+                <li><strong>89 Total Educational Resources</strong></li>
+            </ul>
+            
+            <a href="toolkit.html" class="cta-button">💎 Purchase Visual Toolkit</a>
+            
+            <p style="margin-top: 30px; font-size: 1.1em; opacity: 0.9;">
+                🆕 15 new metaphor-driven infographics added January 4, 2026!
+            </p>
+        </div>
+
+        <footer>
+            <p style="font-size: 1.2em; margin-bottom: 15px;"><strong>THE HARNESS PROJECT</strong></p>
+            <p>Fearless. Protected. Empowered.</p>
+            <p style="margin-top: 20px; font-size: 0.9em;">
+                All infographics © Christopher Zacharie / The HARNESS Project<br>
+                Unauthorized distribution prohibited.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

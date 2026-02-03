@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Lil Z Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Bree Serif', serif;
+            background: linear-gradient(135deg, #00BDBD, #FFB627);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .test-container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #00BDBD;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+        
+        .test-info {
+            background: #F5F7FA;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .test-info h3 {
+            color: #FFB627;
+            margin-bottom: 10px;
+        }
+        
+        .status {
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+        
+        .status.success {
+            background: #D4EDDA;
+            color: #155724;
+            border: 2px solid #28A745;
+        }
+        
+        .status.error {
+            background: #F8D7DA;
+            color: #721C24;
+            border: 2px solid #DC3545;
+        }
+        
+        .open-btn {
+            background: linear-gradient(135deg, #00BDBD, #FFB627);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-family: 'Bree Serif', serif;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .open-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal-content {
+            position: relative;
+            background: white;
+            border-radius: 16px;
+            max-width: 90%;
+            max-height: 90vh;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            z-index: 10001;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10002;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.2);
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Lil Z Companion Test</h1>
+        
+        <div class="test-info">
+            <h3>Status Check:</h3>
+            <div id="avatar-status" class="status">Checking avatar...</div>
+            <div id="script-status" class="status">Checking script...</div>
+            <div id="modal-status" class="status">Checking modal function...</div>
+        </div>
+        
+        <button class="open-btn" onclick="testOpenLilZ()">
+            🚀 Open Lil Z Chat
+        </button>
+        
+        <div class="test-info">
+            <h3>How to test:</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li>✅ Click the floating button (bottom-right)</li>
+                <li>✅ OR click the "Open Lil Z Chat" button above</li>
+                <li>✅ Try asking questions like "What is PrEP?"</li>
+                <li>✅ Check if Lil Z avatar loads correctly</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Load Lil Z Companion -->
+    <script src="js/lil-z-companion.js"></script>
+    
+    <!-- Test Script -->
+    <script>
+        // Define createModal function if not already defined
+        if (typeof createModal === 'undefined') {
+            function createModal(content, customClass) {
+                const modal = document.createElement('div');
+                modal.className = customClass || 'modal';
+                modal.innerHTML = `
+                    <div class="modal-overlay" onclick="closeModal()"></div>
+                    <div class="modal-content">
+                        <button class="modal-close" onclick="closeModal()">✕</button>
+                        ${content}
+                    </div>
+                `;
+                return modal;
+            }
+        }
+
+        // Define closeModal function if not already defined
+        if (typeof closeModal === 'undefined') {
+            function closeModal() {
+                const modal = document.querySelector('.modal');
+                if (modal) {
+                    modal.style.opacity = '0';
+                    setTimeout(() => modal.remove(), 300);
+                }
+            }
+        }
+
+        // Test function
+        function testOpenLilZ() {
+            try {
+                openLilZChat('general');
+                console.log('✅ Lil Z opened successfully!');
+            } catch (error) {
+                console.error('❌ Error opening Lil Z:', error);
+                alert('Error opening Lil Z: ' + error.message);
+            }
+        }
+
+        // Status checks
+        setTimeout(() => {
+            // Check avatar
+            const avatarStatus = document.getElementById('avatar-status');
+            const img = new Image();
+            img.onload = () => {
+                avatarStatus.textContent = '✅ Avatar image found!';
+                avatarStatus.className = 'status success';
+            };
+            img.onerror = () => {
+                avatarStatus.textContent = '❌ Avatar image NOT found';
+                avatarStatus.className = 'status error';
+            };
+            img.src = 'images/lil-z-avatar.png';
+            
+            // Check script
+            const scriptStatus = document.getElementById('script-status');
+            if (typeof openLilZChat !== 'undefined') {
+                scriptStatus.textContent = '✅ lil-z-companion.js loaded!';
+                scriptStatus.className = 'status success';
+            } else {
+                scriptStatus.textContent = '❌ lil-z-companion.js NOT loaded';
+                scriptStatus.className = 'status error';
+            }
+            
+            // Check modal
+            const modalStatus = document.getElementById('modal-status');
+            if (typeof createModal !== 'undefined') {
+                modalStatus.textContent = '✅ createModal() function available!';
+                modalStatus.className = 'status success';
+            } else {
+                modalStatus.textContent = '❌ createModal() NOT available';
+                modalStatus.className = 'status error';
+            }
+            
+            // Check floating button
+            const floatingBtn = document.getElementById('lil-z-float-btn');
+            if (floatingBtn) {
+                console.log('✅ Floating button added successfully!');
+            } else {
+                console.log('⚠️ Floating button not found - may load shortly');
+            }
+        }, 500);
+    </script>
+</body>
+</html>
