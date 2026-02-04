@@ -227,20 +227,8 @@ section > .container {
 
 /* ===== RESPONSIVE BREAKPOINTS ===== */
 
-/* Tablet (768px - 1024px) */
+/* Tablet & Mobile Navigation (max-width: 1024px) */
 @media (max-width: 1024px) {
-    .nav-links {
-        gap: 18px;
-    }
-    
-    .nav-links a {
-        font-size: 0.95rem;
-        padding: 6px 10px;
-    }
-}
-
-/* Mobile (max-width: 768px) */
-@media (max-width: 768px) {
     /* Hide desktop navigation */
     .desktop-only {
         display: none !important;
@@ -256,9 +244,9 @@ section > .container {
         padding: 12px 15px;
     }
     
-    /* Smaller logo on mobile */
+    /* Smaller logo on mobile/tablet */
     .nav-logo {
-        max-width: 200px;
+        max-width: 220px;
     }
     
     .nav-logo-img {
@@ -273,7 +261,7 @@ section > .container {
     /* Hero images smaller */
     .hero-logo,
     .hero-logo-spectacular {
-        max-width: min(450px, 90vw);
+        max-width: min(500px, 90vw);
         margin-bottom: 20px;
     }
     

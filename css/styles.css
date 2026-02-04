@@ -733,7 +733,7 @@ p {
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .values-grid {
         grid-template-columns: repeat(3, 1fr);
     }

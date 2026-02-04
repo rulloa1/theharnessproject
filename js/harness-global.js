@@ -339,7 +339,7 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .desktop-only {
         display: none !important;
     }
@@ -349,7 +349,7 @@
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .mobile-nav-sidebar,
     .mobile-nav-overlay {
         display: none;

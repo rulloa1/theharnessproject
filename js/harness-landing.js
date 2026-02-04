@@ -381,7 +381,7 @@
     document.head.appendChild(cursorStyle);
 
     // Enable cursor trail on desktop only
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 1024) {
         let throttle = false;
         document.addEventListener('mousemove', function (e) {
             if (!throttle) {
