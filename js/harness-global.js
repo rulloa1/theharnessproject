@@ -95,9 +95,8 @@
             <a href="${pathPrefix}index.html">Home</a>
             <a href="${pathPrefix}app.html">The App</a>
             <a href="${pathPrefix}about.html">About</a>
-            <a href="${pathPrefix}educator/index.html">Educators</a>
+            <a href="${pathPrefix}curriculum-landing.html">Educators</a>
             <a href="${pathPrefix}toolkit.html">Toolkit</a>
-            <a href="${pathPrefix}blog/index.html">Blog</a>
             <a href="${pathPrefix}pricing.html">Pricing</a>
             <button class="support-btn-nav" id="supportBtnDesktop" aria-label="Support HARNESS">❤️ Support Us</button>
         </div>
@@ -120,9 +119,8 @@
             <a href="${pathPrefix}index.html">🏠 Home</a>
             <a href="${pathPrefix}app.html">🛡️ The App</a>
             <a href="${pathPrefix}about.html">ℹ️ About</a>
-            <a href="${pathPrefix}educator/index.html">👨‍🏫 For Educators</a>
+            <a href="${pathPrefix}curriculum-landing.html">👨‍🏫 For Educators</a>
             <a href="${pathPrefix}toolkit.html">🎨 Visual Toolkit</a>
-            <a href="${pathPrefix}blog/index.html">📝 Blog</a>
             <a href="${pathPrefix}pricing.html">💰 Pricing</a>
             <button class="support-btn-mobile" id="supportBtnMobile" aria-label="Support HARNESS">❤️ Support Us</button>
         </div>
@@ -634,16 +632,13 @@
         <div class="footer-column">
             <h4>Resources</h4>
             <a href="${pathPrefix}app.html">Interactive App</a>
-            <a href="${pathPrefix}educator/index.html">Educator Hub</a>
+            <a href="${pathPrefix}curriculum-landing.html">Educator Hub</a>
             <a href="${pathPrefix}toolkit.html">Visual Toolkit</a>
-            <a href="${pathPrefix}blog/index.html">Blog</a>
         </div>
         <div class="footer-column">
-            <h4>Legal</h4>
-            <a href="${pathPrefix}legal/terms.html">Terms of Service</a>
-            <a href="${pathPrefix}legal/privacy.html">Privacy Policy</a>
-            <a href="${pathPrefix}legal/disclaimer.html">Medical Disclaimer</a>
-            <a href="${pathPrefix}legal/copyright.html">Copyright</a>
+            <h4>Company</h4>
+            <a href="${pathPrefix}about.html">About Us</a>
+            <a href="${pathPrefix}contact.html">Contact</a>
         </div>
         <div class="footer-column">
             <h4>Connect</h4>
