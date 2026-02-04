@@ -4,7 +4,7 @@
 
 /* === STANDARD LOGO SIZING SYSTEM === */
 
-/* HERO LOGOS - Main page banners (800px standard) */
+/* HERO LOGOS - Main page banners (250px standard) */
 .hero-logo,
 img[src*="hero-logo"],
 img[src*="landing-hero"],
@@ -15,7 +15,7 @@ img[src*="toolkit-logo"],
 img[src*="facilitators-guide-logo"],
 img[src*="participants-guide-logo"],
 img[src*="app-splash-logo"] {
-    width: 800px !important;
+    width: 250px !important;
     max-width: 90% !important;
     height: auto !important;
     display: block;
@@ -64,49 +64,49 @@ img[src*="footer-logo"] {
 
 /* Landing page hero logo */
 img[src*="harness-landing-hero-logo"] {
-    width: 800px !important;
+    width: 250px !important;
     max-width: 90% !important;
 }
 
 /* Curriculum logo (educator hub) */
 img[src*="harness-curriculum-logo"] {
-    width: 800px !important;
+    width: 250px !important;
     max-width: 90% !important;
 }
 
 /* Facilitator's Guide logo */
 img[src*="facilitators-guide-logo"] {
-    max-width: 800px !important;
+    max-width: 250px !important;
     width: 100% !important;
 }
 
 /* Participant's Guide logo */
 img[src*="participants-guide-logo"] {
-    max-width: 800px !important;
+    max-width: 250px !important;
     width: 100% !important;
 }
 
 /* Blog hero logo */
 img[src*="harness-blog-logo-final"] {
-    width: 800px !important;
+    width: 250px !important;
     max-width: 90% !important;
 }
 
 /* Workshops logo */
 img[src*="harness-workshops-logo"] {
-    width: 800px !important;
+    width: 250px !important;
     max-width: 90% !important;
 }
 
 /* Toolkit logo */
 img[src*="harness-toolkit-logo"] {
-    width: 800px !important;
+    width: 250px !important;
     max-width: 90% !important;
 }
 
 /* App splash screen logo */
 img[src*="harness-app-splash-logo"] {
-    max-width: 800px !important;
+    max-width: 250px !important;
     width: 90% !important;
 }
 
@@ -124,7 +124,7 @@ img[src*="harness-app-splash-logo"] {
     img[src*="facilitators-guide-logo"],
     img[src*="participants-guide-logo"],
     img[src*="app-splash-logo"] {
-        width: 400px !important;
+        width: 200px !important;
         max-width: 95% !important;
     }
     
@@ -155,7 +155,7 @@ img[src*="harness-app-splash-logo"] {
     img[src*="hero-logo"],
     img[src*="landing-hero"],
     img[src*="curriculum-logo"] {
-        width: 300px !important;
+        width: 150px !important;
         max-width: 95% !important;
     }
     
@@ -235,7 +235,7 @@ nav img[src*="logo"],
 /* === CONSISTENCY NOTES === */
 /*
 STANDARDIZED SIZES:
-- Hero/Main Logos: 800px (desktop), 400px (tablet), 300px (mobile)
+- Hero/Main Logos: 250px (desktop), 200px (tablet), 150px (mobile)
 - Navigation Logos: 60px height (desktop), 50px (tablet), 45px (mobile)
 - Header Logos: 50px height (desktop), 40px (tablet), 35px (mobile)
 - Footer Logos: 200px width (desktop), 150px (mobile)
