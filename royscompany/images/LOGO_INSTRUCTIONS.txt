@@ -1,0 +1,37 @@
+LOGO PLACEHOLDER - INSTRUCTIONS
+================================
+
+Please add your company logo here as: logo.png
+
+LOGO SPECIFICATIONS:
+-------------------
+- File name: logo.png
+- Recommended size: 200x200 pixels minimum (can be larger)
+- Format: PNG with transparent background
+- Aspect ratio: Square (1:1) or horizontal (2:1) works best
+- Color: Should work well on dark backgrounds (the site uses a dark theme)
+- Quality: High resolution for retina displays (2x or 3x recommended)
+
+USAGE:
+------
+The logo appears in:
+1. Navigation bar (top of every page) - 50px height
+2. Footer - 40px height
+3. Mobile menu sidebar - 40px height
+
+TIPS:
+-----
+- Use a transparent background (PNG)
+- If your logo has text, ensure it's readable at small sizes
+- The logo should look good in both light and dark contexts
+- Consider creating a version optimized for dark backgrounds
+- Test the logo at different screen sizes
+
+TEMPORARY PLACEHOLDER:
+----------------------
+Until you add your logo, the site will show:
+- Company name text: "Roy's Company"
+- Red gradient text effect
+- Professional typography
+
+Once you add logo.png to this folder, it will automatically appear throughout the site!

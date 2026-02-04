@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Roy's Company</title>
+    
+    <meta name="description" content="Transparent pricing for Roy's Company AI automation services. Choose the package that fits your business needs.">
+    
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/royscompany.css">
+    <script src="js/royscompany.js" defer></script>
+    
+    <style>
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            padding: 0 2rem;
+        }
+        
+        .pricing-card {
+            background: var(--color-secondary);
+            padding: 3rem 2.5rem;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255, 0, 0, 0.1);
+            transition: all var(--transition-base);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform var(--transition-base);
+        }
+        
+        .pricing-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 0, 0, 0.3);
+            box-shadow: var(--shadow-red-lg);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--color-primary);
+            background: linear-gradient(135deg, rgba(255, 0, 0, 0.05), rgba(255, 0, 0, 0.1));
+        }
+        
+        .pricing-badge {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: var(--color-light);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-description {
+            color: var(--color-grey-light);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .pricing-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-price span {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .pricing-period {
+            color: var(--color-grey-light);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .pricing-features li {
+            padding: 0.75rem 0;
+            color: var(--color-grey-light);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .pricing-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: var(--color-light);
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-red);
+        }
+        
+        .pricing-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-red-lg);
+        }
+        
+        .pricing-btn.secondary {
+            background: transparent;
+            border: 2px solid var(--color-primary);
+            box-shadow: none;
+        }
+        
+        .pricing-btn.secondary:hover {
+            background: var(--color-primary);
+        }
+        
+        .comparison-table {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            background: var(--color-secondary);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid rgba(255, 0, 0, 0.1);
+        }
+        
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--color-grey-dark);
+        }
+        
+        .comparison-table th {
+            background: var(--color-dark);
+            font-weight: 600;
+            color: var(--color-light);
+        }
+        
+        .comparison-table td {
+            color: var(--color-grey-light);
+        }
+        
+        .comparison-table .check {
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 968px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comparison-table {
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Roy's Company" class="logo-img">
+                <span class="logo-text">Roy's Company</span>
+            </a>
+            
+            <div class="nav-links desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="pricing.html" class="nav-link active">Pricing</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <button class="cta-btn-nav">Get Started</button>
+            </div>
+            
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <button class="mobile-close" id="mobileClose">&times;</button>
+            <div class="mobile-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+                <button class="cta-btn-mobile">Get Started</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section" style="min-height: 50vh;">
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">💰</span>
+                <span>Transparent Pricing</span>
+            </div>
+            
+            <h1 class="hero-title" style="font-size: 3.5rem;">
+                Simple, Honest
+                <span class="gradient-text">Pricing</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Choose the package that fits your needs. No hidden fees, no surprises. 
+                Scale up or down as your business grows.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Pricing Cards -->
+    <section class="services-preview">
+        <div class="pricing-grid">
+            <!-- Starter Package -->
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <p class="pricing-description">Perfect for small businesses starting their AI automation journey</p>
+                <div class="pricing-price">$5K<span>/project</span></div>
+                <p class="pricing-period">One-time payment</p>
+                
+                <ul class="pricing-features">
+                    <li>Basic AI Chatbot (1 language)</li>
+                    <li>Up to 1,000 conversations/month</li>
+                    <li>Email & chat support</li>
+                    <li>Standard integration (1 platform)</li>
+                    <li>Basic analytics dashboard</li>
+                    <li>30-day support included</li>
+                    <li>Source code included</li>
+                </ul>
+                
+                <button class="pricing-btn secondary" onclick="window.location.href='contact.html'">Get Started</button>
+            </div>
+            
+            <!-- Professional Package (Featured) -->
+            <div class="pricing-card featured">
+                <span class="pricing-badge">Most Popular</span>
+                <h3>Professional</h3>
+                <p class="pricing-description">Ideal for growing businesses ready to scale automation</p>
+                <div class="pricing-price">$15K<span>/project</span></div>
+                <p class="pricing-period">One-time payment</p>
+                
+                <ul class="pricing-features">
+                    <li>Advanced AI Chatbot (multi-language)</li>
+                    <li>Up to 10,000 conversations/month</li>
+                    <li>Priority support (24/7)</li>
+                    <li>Multiple integrations (up to 5)</li>
+                    <li>Advanced analytics & reporting</li>
+                    <li>Workflow automation (3 processes)</li>
+                    <li>90-day support & optimization</li>
+                    <li>Training for your team</li>
+                    <li>Source code & documentation</li>
+                </ul>
+                
+                <button class="pricing-btn" onclick="window.location.href='contact.html'">Get Started</button>
+            </div>
+            
+            <!-- Enterprise Package -->
+            <div class="pricing-card">
+                <h3>Enterprise</h3>
+                <p class="pricing-description">Custom solutions for large organizations with complex needs</p>
+                <div class="pricing-price">Custom</div>
+                <p class="pricing-period">Contact for quote</p>
+                
+                <ul class="pricing-features">
+                    <li>Fully custom AI solutions</li>
+                    <li>Unlimited conversations</li>
+                    <li>Dedicated account manager</li>
+                    <li>Unlimited integrations</li>
+                    <li>Custom analytics & BI tools</li>
+                    <li>Complete workflow automation</li>
+                    <li>1-year support & maintenance</li>
+                    <li>On-site training & workshops</li>
+                    <li>White-label options</li>
+                    <li>SLA guarantees (99.9% uptime)</li>
+                </ul>
+                
+                <button class="pricing-btn secondary" onclick="window.location.href='contact.html'">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Add-ons Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Add-Ons</span>
+                <h2 class="section-title">Enhance Your Package</h2>
+                <p class="section-subtitle">Additional services to complement your AI automation solution</p>
+            </div>
+            
+            <div class="services-grid" style="margin-top: 4rem;">
+                <div class="service-card">
+                    <h3>Ongoing Maintenance</h3>
+                    <div class="pricing-price" style="font-size: 2.5rem;">$500<span>/mo</span></div>
+                    <p>24/7 monitoring, updates, bug fixes, and performance optimization</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Additional Integrations</h3>
+                    <div class="pricing-price" style="font-size: 2.5rem;">$1K<span>/each</span></div>
+                    <p>Connect your AI to additional platforms, APIs, or databases</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Custom Training</h3>
+                    <div class="pricing-price" style="font-size: 2.5rem;">$2K<span>/day</span></div>
+                    <p>On-site or remote training sessions for your team</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Data Migration</h3>
+                    <div class="pricing-price" style="font-size: 2.5rem;">$3K<span>+</span></div>
+                    <p>Transfer existing data to your new AI system</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Comparison Table -->
+    <section class="services-preview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Compare Plans</span>
+                <h2 class="section-title">Feature Comparison</h2>
+            </div>
+            
+            <div class="comparison-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Starter</th>
+                            <th>Professional</th>
+                            <th>Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AI Chatbot</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Conversations/Month</td>
+                            <td>1,000</td>
+                            <td>10,000</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Multi-language Support</td>
+                            <td>—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>Workflow Automation</td>
+                            <td>—</td>
+                            <td>3 processes</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Integrations</td>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td>Analytics Dashboard</td>
+                            <td>Basic</td>
+                            <td>Advanced</td>
+                            <td>Custom BI</td>
+                        </tr>
+                        <tr>
+                            <td>Support</td>
+                            <td>Email & Chat</td>
+                            <td>24/7 Priority</td>
+                            <td>Dedicated Manager</td>
+                        </tr>
+                        <tr>
+                            <td>Training Included</td>
+                            <td>—</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓ On-site</td>
+                        </tr>
+                        <tr>
+                            <td>Source Code</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                            <td class="check">✓</td>
+                        </tr>
+                        <tr>
+                            <td>SLA Guarantee</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>99.9% Uptime</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Pricing FAQs</span>
+                <h2 class="section-title">Common Questions</h2>
+            </div>
+            
+            <div class="services-grid" style="grid-template-columns: 1fr; max-width: 900px; margin: 4rem auto 0;">
+                <div class="service-card">
+                    <h3>Do you offer payment plans?</h3>
+                    <p>Yes! We offer flexible payment plans for Professional and Enterprise packages. Contact us to discuss options that work for your budget.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>What happens after the project is completed?</h3>
+                    <p>You receive full ownership of the source code and all documentation. We offer optional maintenance packages to keep your system running smoothly.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Can I upgrade my package later?</h3>
+                    <p>Absolutely! You can upgrade at any time. We'll credit your initial investment toward the upgraded package.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Is there a money-back guarantee?</h3>
+                    <p>Yes! If you're not satisfied within the first 30 days, we'll refund 100% of your investment, no questions asked.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>What if I need something not listed?</h3>
+                    <p>We specialize in custom solutions. Contact us with your requirements and we'll create a tailored package just for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Get Started?</h2>
+            <p>Schedule a free consultation to discuss your project and get a custom quote</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary btn-large">Schedule Consultation</a>
+                <a href="services.html" class="btn btn-outline btn-large">View Services</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Roy's Company">
+                    <span>Roy's Company</span>
+                </div>
+                <p class="footer-description">
+                    Leading AI automation agency transforming businesses with intelligent solutions.
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html#chatbots">AI Chatbots</a></li>
+                    <li><a href="services.html#workflow">Workflow Automation</a></li>
+                    <li><a href="services.html#analytics">Data Analytics</a></li>
+                    <li><a href="services.html#custom">Custom Solutions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@royscompany.com">info@royscompany.com</a></li>
+                    <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="GitHub">gh</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Roy's Company. All rights reserved.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

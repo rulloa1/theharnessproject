@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Roy's Company</title>
+    
+    <meta name="description" content="Get in touch with Roy's Company for AI automation solutions. Schedule a consultation or reach out with questions.">
+    
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/royscompany.css">
+    <script src="js/royscompany.js" defer></script>
+    
+    <style>
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+        
+        .contact-form-wrapper {
+            background: var(--color-secondary);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 0, 0, 0.1);
+        }
+        
+        .contact-form-wrapper h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form-wrapper p {
+            color: var(--color-grey-light);
+            margin-bottom: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--color-dark);
+            border: 1px solid var(--color-grey-dark);
+            border-radius: var(--radius-md);
+            color: var(--color-light);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all var(--transition-fast);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            color: var(--color-light);
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-red);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-red-lg);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .info-card {
+            background: var(--color-secondary);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 0, 0, 0.1);
+            transition: all var(--transition-base);
+        }
+        
+        .info-card:hover {
+            border-color: rgba(255, 0, 0, 0.3);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-red);
+        }
+        
+        .info-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-card p {
+            color: var(--color-grey-light);
+            line-height: 1.8;
+        }
+        
+        .info-card a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        .info-card a:hover {
+            color: var(--color-primary-light);
+        }
+        
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    
+    <!-- Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Roy's Company" class="logo-img">
+                <span class="logo-text">Roy's Company</span>
+            </a>
+            
+            <div class="nav-links desktop-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+                <button class="cta-btn-nav">Get Started</button>
+            </div>
+            
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <button class="mobile-close" id="mobileClose">&times;</button>
+            <div class="mobile-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="contact.html">Contact</a>
+                <button class="cta-btn-mobile">Get Started</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section" style="min-height: 50vh;">
+        <div class="hero-background">
+            <div class="grid-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">📧</span>
+                <span>Get In Touch</span>
+            </div>
+            
+            <h1 class="hero-title" style="font-size: 3.5rem;">
+                Let's Build Something
+                <span class="gradient-text">Amazing Together</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                Have a project in mind? Want to learn more about our services? 
+                We're here to help transform your business with AI.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="services-preview">
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <h2>Send Us a Message</h2>
+                <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="john@company.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+1 (234) 567-890">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Interested In *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service...</option>
+                            <option value="chatbots">AI Chatbots</option>
+                            <option value="workflow">Workflow Automation</option>
+                            <option value="analytics">Data Analytics</option>
+                            <option value="custom">Custom AI Solutions</option>
+                            <option value="consulting">Consulting</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="budget">Estimated Budget</label>
+                        <select id="budget" name="budget">
+                            <option value="">Select budget range...</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="10k-25k">$10,000 - $25,000</option>
+                            <option value="25k-50k">$25,000 - $50,000</option>
+                            <option value="50k+">$50,000+</option>
+                            <option value="discuss">Let's Discuss</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Project Details *</label>
+                        <textarea id="message" name="message" required placeholder="Tell us about your project, goals, and timeline..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message →</button>
+                </form>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <div class="info-card">
+                    <span class="info-card-icon">📧</span>
+                    <h3>Email Us</h3>
+                    <p>
+                        General Inquiries:<br>
+                        <a href="mailto:info@royscompany.com">info@royscompany.com</a>
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        Sales & Partnerships:<br>
+                        <a href="mailto:sales@royscompany.com">sales@royscompany.com</a>
+                    </p>
+                </div>
+                
+                <div class="info-card">
+                    <span class="info-card-icon">📞</span>
+                    <h3>Call Us</h3>
+                    <p>
+                        Main Office:<br>
+                        <a href="tel:+1234567890">+1 (234) 567-890</a>
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        Available Monday - Friday<br>
+                        9:00 AM - 6:00 PM EST
+                    </p>
+                </div>
+                
+                <div class="info-card">
+                    <span class="info-card-icon">💬</span>
+                    <h3>Live Chat</h3>
+                    <p>
+                        Chat with our AI assistant or speak with a team member in real-time.
+                    </p>
+                    <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;">
+                        Start Chat
+                    </button>
+                </div>
+                
+                <div class="info-card">
+                    <span class="info-card-icon">🌐</span>
+                    <h3>Follow Us</h3>
+                    <p>Stay updated with our latest projects and AI insights</p>
+                    <div class="social-links" style="margin-top: 1rem;">
+                        <a href="#" aria-label="LinkedIn">in</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="#" aria-label="GitHub">gh</a>
+                        <a href="#" aria-label="YouTube">yt</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">FAQs</span>
+                <h2 class="section-title">Common Questions</h2>
+            </div>
+            
+            <div class="services-grid" style="grid-template-columns: 1fr; max-width: 900px; margin: 4rem auto 0;">
+                <div class="service-card">
+                    <h3>How long does a typical project take?</h3>
+                    <p>Most projects are completed within 4-12 weeks depending on complexity. We'll provide a detailed timeline during our initial consultation.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Do you offer ongoing support?</h3>
+                    <p>Yes! We provide 24/7 monitoring, maintenance, and support for all our AI solutions. Support packages are included with every project.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>What industries do you work with?</h3>
+                    <p>We've delivered solutions across healthcare, finance, e-commerce, SaaS, manufacturing, and more. Our AI systems are industry-agnostic.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Can you integrate with our existing systems?</h3>
+                    <p>Absolutely! We specialize in seamless integration with CRMs, databases, APIs, and third-party platforms to ensure minimal disruption.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Roy's Company">
+                    <span>Roy's Company</span>
+                </div>
+                <p class="footer-description">
+                    Leading AI automation agency transforming businesses with intelligent solutions.
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html#chatbots">AI Chatbots</a></li>
+                    <li><a href="services.html#workflow">Workflow Automation</a></li>
+                    <li><a href="services.html#analytics">Data Analytics</a></li>
+                    <li><a href="services.html#custom">Custom Solutions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Connect</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:info@royscompany.com">info@royscompany.com</a></li>
+                    <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn">in</a>
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                    <a href="#" aria-label="GitHub">gh</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Roy's Company. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Show success message (in production, send to backend)
+            alert('Thank you for your message! We\'ll get back to you within 24 hours.');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+    
+</body>
+</html>
