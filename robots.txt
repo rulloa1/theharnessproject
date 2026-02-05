@@ -20,17 +20,16 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-# Disallow crawling of test and development pages
+# Disallow crawling of test and development pages (if any remain)
 Disallow: /test-*.html
-Disallow: /app-diagnostic.html
-Disallow: /app-fixed.html
-Disallow: /fix-verification.html
-Disallow: /test-scripts-individually.html
-Disallow: /test-navigation-complete.html
-Disallow: /original_app.html
+Disallow: /*-debug.html
+Disallow: /*-test.html
 
 # Disallow crawling of component files (loaded via JS)
 Disallow: /components/
+
+# Disallow crawling of archived session logs
+Disallow: /archive/
 
 # Allow crawling of CSS and JS for page rendering
 Allow: /css/
