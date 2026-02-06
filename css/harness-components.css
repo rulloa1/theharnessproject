@@ -263,7 +263,7 @@
     color: #95a5a6;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .harness-universal-footer {
         padding: 40px 20px 20px;
         margin-top: 40px;
