@@ -59,6 +59,10 @@
 
     // Smart logo detection based on current page context
     function getContextualLogo(pathPrefix) {
+        // Fallback to available image since specific logos are missing
+        return `${pathPrefix}images/harness.png`;
+        
+        /* Original logic preserved for when images are restored
         const path = window.location.pathname.toLowerCase();
 
         // App pages → harness-app-logo.png
@@ -83,6 +87,7 @@
 
         // Default/Main site → harness-logo-nav.png
         return `${pathPrefix}images/harness-logo-nav.png`;
+        */
     }
 
     // === NAVIGATION COMPONENT ===
