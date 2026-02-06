@@ -1,0 +1,37 @@
+42:     <style>/* ================================
+846: </style>
+848:     <style>/* ===== HARNESS PROJECT - STANDARDIZED
+1093: </style>
+1101:     <style>/* latin-ext */
+1434: </style>
+1435:     <style>/*!
+1443: .fa-sr-only,.fa-sr-only-focusable:not(:focus),.sr-
+1446:     <script>/**
+1452:  * <script src="js/seo-optimizer.js">\x3c/script\x
+1790: </script>
+1791:     <script defer="">/**
+1798:  * <script src="js/harness-global.js" defer>\x3c/s
+1801:  * <script src="../js/harness-global.js" defer>\x3
+2519: </script>
+2520:     <script defer="">/**
+2794: </script>
+2795:     <script defer="">/**
+3010: </script>
+3011:     <script defer="">/**
+3139: </script>
+3142:     <script defer="">/**
+3284: </script>
+3286:     <script defer="">/**
+3374: </script>
+3376:     <style>
+3455:     </style>
+3829:     <script>/**
+4100: </script>
+4101:     <script>/**
+4183: </script>
+4184:     <script>/**
+4630: </script>
+4633:     <script>// ===== LIL Z - Universal Chat Compan
+5657: </script>
+5658:     <script>
+5694:     </script>
