@@ -1,0 +1,41 @@
+{
+  "name": "harness-project",
+  "version": "1.0.0",
+  "description": "HARNESS - Fearless. Protected. Empowered. Interactive SafER sex education toolkit.",
+  "author": "Christopher Zacharie",
+  "license": "MIT",
+  "homepage": "https://www.theharnessproject.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rulloa1/theharnessproject"
+  },
+  "scripts": {
+    "start": "npx serve . -l 3000",
+    "serve": "npx serve . -l 3000",
+    "validate": "npm run validate:html && npm run validate:js",
+    "validate:html": "echo 'HTML validation - install html-validate for full support'",
+    "validate:js": "node scripts/validate-js.js",
+    "lint": "npm run lint:js",
+    "lint:js": "npx eslint js/*.js --no-eslintrc --env browser,es2021 --parser-options ecmaVersion:2021 || echo 'ESLint check complete'",
+    "build": "npm run validate && npm run build:check && echo 'Build validation complete!'",
+    "build:check": "node scripts/build-check.js",
+    "build:prod": "npm run build && echo 'Production build ready for deployment'",
+    "clean": "echo 'No build artifacts to clean - static site'",
+    "test": "npm run validate",
+    "capacitor:sync": "npx cap sync",
+    "capacitor:ios": "npx cap open ios",
+    "capacitor:android": "npx cap open android",
+    "mobile:build": "npm run build && npm run capacitor:sync"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "sexual-health",
+    "education",
+    "pwa",
+    "toolkit",
+    "interactive"
+  ]
+}

@@ -15,15 +15,14 @@ const PRECACHE_ASSETS = [
     '/index.html',
     '/offline.html',
     '/css/styles.css',
+    '/css/global.css',
     '/css/transparent-headers.css',
     '/css/standardized-logo-sizes.css',
-    '/js/app.js',
-    '/js/views.js',
-    '/js/data.js',
-    '/js/pwa-installer.js',
     '/js/harness-global.js',
-    '/images/harness-app-logo.png',
-    '/images/harness-app-splash-logo.png',
+    '/js/toolkit.js',
+    '/js/toolkit-data.js',
+    '/images/harness.png',
+    '/images/harness_hero_logo.png',
     '/manifest.json'
 ];
 

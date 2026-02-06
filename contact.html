@@ -1,389 +1,396 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- HARNESS CSS Files -->
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/layout-fixes.css">
-    <title>Contact Us | The HARNESS Project</title>
-    <meta name="description" content="Get in touch with The HARNESS Project. Questions about our resources, educator materials, or partnership opportunities? We're here to help.">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/harness-project-icon-transparent.png">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/transparent-headers.css">
-    
-    <!-- Scripts -->
-    <!-- Universal Components Loader -->
-    <style>
-        :root {
-            --primary-cyan: #00B0BD;
-            --primary-pink: #DD0E6E;
-            --accent-yellow: #F6CC00;
-            --dark-gray: #333;
-            --text-gray: #666;
-            --light-bg: #f8f9fa;
-        }
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        <!-- HARNESS CSS Files -->
+        <link rel="stylesheet" href="css/global.css" />
+        <link rel="stylesheet" href="css/layout-fixes.css" />
+        <title>Contact Us | The HARNESS Project</title>
+        <meta
+            name="description"
+            content="Get in touch with The HARNESS Project. Questions about our resources, educator materials, or partnership opportunities? We're here to help." />
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-            background: linear-gradient(135deg, #ffffff 0%, #F8F9FA 100%);
-        }
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="images/harness-project-icon-transparent.png" />
 
-        .contact-hero {
-            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-pink));
-            color: white;
-            padding: 80px 20px 60px;
-            text-align: center;
-        }
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="css/transparent-headers.css" />
 
-        .contact-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
+        <!-- Scripts -->
+        <!-- Universal Components Loader -->
+        <style>
+            :root {
+                --primary-cyan: #00b0bd;
+                --primary-pink: #dd0e6e;
+                --accent-yellow: #f6cc00;
+                --dark-gray: #333;
+                --text-gray: #666;
+                --light-bg: #f8f9fa;
+            }
 
-        .contact-hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
 
-        .contact-container {
-            max-width: 1000px;
-            margin: -40px auto 80px;
-            padding: 0 20px;
-        }
+            body {
+                font-family:
+                    "Inter",
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
+                line-height: 1.6;
+                color: var(--dark-gray);
+                background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 60px;
-        }
+            .contact-hero {
+                background: linear-gradient(135deg, var(--primary-cyan), var(--primary-pink));
+                color: white;
+                padding: 80px 20px 60px;
+                text-align: center;
+            }
 
-        .contact-card {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .contact-form h2,
-        .contact-info h2 {
-            color: var(--primary-cyan);
-            margin-bottom: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark-gray);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary-cyan);
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, var(--primary-cyan), var(--primary-pink));
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .contact-info-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: var(--light-bg);
-            border-radius: 10px;
-            border-left: 4px solid var(--primary-cyan);
-        }
-
-        .contact-info-item h3 {
-            color: var(--primary-pink);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .contact-info-item p {
-            color: var(--text-gray);
-            line-height: 1.8;
-        }
-
-        .contact-info-item a {
-            color: var(--primary-cyan);
-            text-decoration: none;
-        }
-
-        .contact-info-item a:hover {
-            text-decoration: underline;
-        }
-
-        .quick-links {
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .quick-links h3 {
-            margin-bottom: 20px;
-            color: var(--dark-gray);
-        }
-
-        .quick-link-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .quick-link-card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            text-decoration: none;
-            color: var(--dark-gray);
-            transition: transform 0.3s;
-        }
-
-        .quick-link-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .quick-link-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .quick-link-card h4 {
-            color: var(--primary-cyan);
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 768px) {
             .contact-hero h1 {
-                font-size: 2rem;
+                font-size: 3rem;
+                margin-bottom: 20px;
+            }
+
+            .contact-hero p {
+                font-size: 1.2rem;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+
+            .contact-container {
+                max-width: 1000px;
+                margin: -40px auto 80px;
+                padding: 0 20px;
             }
 
             .contact-grid {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+                margin-top: 60px;
+            }
+
+            .contact-card {
+                background: white;
+                padding: 40px;
+                border-radius: 15px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            }
+
+            .contact-form h2,
+            .contact-info h2 {
+                color: var(--primary-cyan);
+                margin-bottom: 30px;
+            }
+
+            .form-group {
+                margin-bottom: 25px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 500;
+                color: var(--dark-gray);
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                width: 100%;
+                padding: 12px 15px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                font-size: 1rem;
+                font-family: inherit;
+                transition: border-color 0.3s;
+            }
+
+            .form-group input:focus,
+            .form-group textarea:focus,
+            .form-group select:focus {
+                outline: none;
+                border-color: var(--primary-cyan);
+            }
+
+            .form-group textarea {
+                min-height: 150px;
+                resize: vertical;
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 15px;
+                background: linear-gradient(135deg, var(--primary-cyan), var(--primary-pink));
+                color: white;
+                border: none;
+                border-radius: 8px;
+                font-size: 1.1rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: transform 0.2s;
+            }
+
+            .submit-btn:hover {
+                transform: translateY(-2px);
+            }
+
+            .contact-info-item {
+                margin-bottom: 30px;
+                padding: 20px;
+                background: var(--light-bg);
+                border-radius: 10px;
+                border-left: 4px solid var(--primary-cyan);
+            }
+
+            .contact-info-item h3 {
+                color: var(--primary-pink);
+                margin-bottom: 10px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .contact-info-item p {
+                color: var(--text-gray);
+                line-height: 1.8;
+            }
+
+            .contact-info-item a {
+                color: var(--primary-cyan);
+                text-decoration: none;
+            }
+
+            .contact-info-item a:hover {
+                text-decoration: underline;
+            }
+
+            .quick-links {
+                margin-top: 40px;
+                text-align: center;
+            }
+
+            .quick-links h3 {
+                margin-bottom: 20px;
+                color: var(--dark-gray);
             }
 
             .quick-link-grid {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
             }
-        }
-    </style>
-    <link rel="stylesheet" href="css/standardized-logo-sizes.css">
-    <link rel="stylesheet" href="css/transparent-headers.css">
-</head>
-<body>
 
-<!-- Navigation (will be inserted here) -->
-<div id="navigation-placeholder"></div>
+            .quick-link-card {
+                background: white;
+                padding: 25px;
+                border-radius: 10px;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+                text-decoration: none;
+                color: var(--dark-gray);
+                transition: transform 0.3s;
+            }
 
-<!-- Hero Section -->
-<section class="contact-hero">
-    <h1>Get In Touch</h1>
-    <p>Questions about our resources? Need educator support? Want to collaborate? We'd love to hear from you!</p>
-</section>
+            .quick-link-card:hover {
+                transform: translateY(-5px);
+            }
 
-<!-- Contact Content -->
-<div class="contact-container">
-    <div class="contact-grid">
-        <!-- Contact Form -->
-        <div class="contact-card contact-form">
-            <h2>Send Us a Message</h2>
-            <form id="contactForm" onsubmit="return handleContactSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Name *</label>
-                    <input type="text" id="name" name="name" required>
+            .quick-link-card .icon {
+                font-size: 2.5rem;
+                margin-bottom: 15px;
+            }
+
+            .quick-link-card h4 {
+                color: var(--primary-cyan);
+                margin-bottom: 10px;
+            }
+
+            @media (max-width: 768px) {
+                .contact-hero h1 {
+                    font-size: 2rem;
+                }
+
+                .contact-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .quick-link-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+        <link rel="stylesheet" href="css/standardized-logo-sizes.css" />
+        <link rel="stylesheet" href="css/transparent-headers.css" />
+    </head>
+    <body>
+        <!-- Navigation (will be inserted here) -->
+        <div id="navigation-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <h1>Get In Touch</h1>
+            <p>
+                Questions about our resources? Need educator support? Want to collaborate? We'd love to hear from you!
+            </p>
+        </section>
+
+        <!-- Contact Content -->
+        <div class="contact-container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-card contact-form">
+                    <h2>Send Us a Message</h2>
+                    <form id="contactForm" onsubmit="return handleContactSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="role">I am a... *</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select one</option>
+                                <option value="educator">Educator / Facilitator</option>
+                                <option value="student">Student / Learner</option>
+                                <option value="organization">Organization / Institution</option>
+                                <option value="individual">Individual User</option>
+                                <option value="media">Media / Press</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
+                <!-- Contact Info -->
+                <div class="contact-card contact-info">
+                    <h2>Contact Information</h2>
 
-                <div class="form-group">
-                    <label for="role">I am a... *</label>
-                    <select id="role" name="role" required>
-                        <option value="">Select one</option>
-                        <option value="educator">Educator / Facilitator</option>
-                        <option value="student">Student / Learner</option>
-                        <option value="organization">Organization / Institution</option>
-                        <option value="individual">Individual User</option>
-                        <option value="media">Media / Press</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
+                    <div class="contact-info-item">
+                        <h3>📧 Email</h3>
+                        <p><a href="mailto:info@harnessproject.org">info@harnessproject.org</a></p>
+                        <p>We typically respond within 24-48 hours</p>
+                    </div>
 
-                <div class="form-group">
-                    <label for="subject">Subject *</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
+                    <div class="contact-info-item">
+                        <h3>👨‍🏫 For Educators</h3>
+                        <p>Request access to full curriculum materials, presentations, and ebook</p>
+                        <p><a href="mailto:educators@harnessproject.org">educators@harnessproject.org</a></p>
+                    </div>
 
-                <div class="form-group">
-                    <label for="message">Message *</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
+                    <div class="contact-info-item">
+                        <h3>🤝 Partnerships</h3>
+                        <p>Interested in collaborating or using HARNESS in your organization?</p>
+                        <p><a href="mailto:partnerships@harnessproject.org">partnerships@harnessproject.org</a></p>
+                    </div>
 
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+                    <div class="contact-info-item">
+                        <h3>💰 Purchasing</h3>
+                        <p>Questions about the Visual Toolkit or educator packages?</p>
+                        <p><a href="mailto:sales@harnessproject.org">sales@harnessproject.org</a></p>
+                    </div>
+
+                    <div class="contact-info-item">
+                        <h3>🐛 Technical Support</h3>
+                        <p>Experiencing issues with the app or ebook reader?</p>
+                        <p><a href="mailto:support@harnessproject.org">support@harnessproject.org</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="quick-links">
+                <h3>Looking for something specific?</h3>
+                <div class="quick-link-grid">
+                    <a href="/educator/index.html" class="quick-link-card">
+                        <div class="icon">👨‍🏫</div>
+                        <h4>Educator Hub</h4>
+                        <p>Access all educator resources</p>
+                    </a>
+
+                    <a href="/pricing.html" class="quick-link-card">
+                        <div class="icon">💰</div>
+                        <h4>Pricing</h4>
+                        <p>View toolkit packages</p>
+                    </a>
+
+                    <a href="/blog/index.html" class="quick-link-card">
+                        <div class="icon">📝</div>
+                        <h4>Blog</h4>
+                        <p>Read latest articles</p>
+                    </a>
+
+                    <a href="/about.html" class="quick-link-card">
+                        <div class="icon">ℹ️</div>
+                        <h4>About Us</h4>
+                        <p>Learn about HARNESS</p>
+                    </a>
+                </div>
+            </div>
         </div>
 
-        <!-- Contact Info -->
-        <div class="contact-card contact-info">
-            <h2>Contact Information</h2>
+        <!-- Footer (will be inserted here) -->
+        <div id="footer-placeholder"></div>
 
-            <div class="contact-info-item">
-                <h3>📧 Email</h3>
-                <p><a href="mailto:info@harnessproject.org">info@harnessproject.org</a></p>
-                <p>We typically respond within 24-48 hours</p>
-            </div>
+        <script>
+            // Load navigation
+            fetch("/components/navigation.html")
+                .then((response) => response.text())
+                .then((html) => {
+                    document.getElementById("navigation-placeholder").innerHTML = html;
+                });
 
-            <div class="contact-info-item">
-                <h3>👨‍🏫 For Educators</h3>
-                <p>Request access to full curriculum materials, presentations, and ebook</p>
-                <p><a href="mailto:educators@harnessproject.org">educators@harnessproject.org</a></p>
-            </div>
+            // Load footer
+            fetch("/components/footer.html")
+                .then((response) => response.text())
+                .then((html) => {
+                    document.getElementById("footer-placeholder").innerHTML = html;
+                });
 
-            <div class="contact-info-item">
-                <h3>🤝 Partnerships</h3>
-                <p>Interested in collaborating or using HARNESS in your organization?</p>
-                <p><a href="mailto:partnerships@harnessproject.org">partnerships@harnessproject.org</a></p>
-            </div>
+            // Handle form submission
+            function handleContactSubmit(event) {
+                event.preventDefault();
 
-            <div class="contact-info-item">
-                <h3>💰 Purchasing</h3>
-                <p>Questions about the Visual Toolkit or educator packages?</p>
-                <p><a href="mailto:sales@harnessproject.org">sales@harnessproject.org</a></p>
-            </div>
+                const formData = {
+                    name: document.getElementById("name").value,
+                    email: document.getElementById("email").value,
+                    role: document.getElementById("role").value,
+                    subject: document.getElementById("subject").value,
+                    message: document.getElementById("message").value
+                };
 
-            <div class="contact-info-item">
-                <h3>🐛 Technical Support</h3>
-                <p>Experiencing issues with the app or ebook reader?</p>
-                <p><a href="mailto:support@harnessproject.org">support@harnessproject.org</a></p>
-            </div>
-        </div>
-    </div>
+                // TODO: Implement actual form submission (email service, backend, etc.)
+                // console.log removed
+                alert("Thank you for your message! We'll get back to you within 24-48 hours.");
+                document.getElementById("contactForm").reset();
 
-    <!-- Quick Links -->
-    <div class="quick-links">
-        <h3>Looking for something specific?</h3>
-        <div class="quick-link-grid">
-            <a href="/educator/index.html" class="quick-link-card">
-                <div class="icon">👨‍🏫</div>
-                <h4>Educator Hub</h4>
-                <p>Access all educator resources</p>
-            </a>
-
-            <a href="/pricing.html" class="quick-link-card">
-                <div class="icon">💰</div>
-                <h4>Pricing</h4>
-                <p>View toolkit packages</p>
-            </a>
-
-            <a href="/blog/index.html" class="quick-link-card">
-                <div class="icon">📝</div>
-                <h4>Blog</h4>
-                <p>Read latest articles</p>
-            </a>
-
-            <a href="/about.html" class="quick-link-card">
-                <div class="icon">ℹ️</div>
-                <h4>About Us</h4>
-                <p>Learn about HARNESS</p>
-            </a>
-        </div>
-    </div>
-</div>
-
-<!-- Footer (will be inserted here) -->
-<div id="footer-placeholder"></div>
-
-<script>
-// Load navigation
-fetch('/components/navigation.html')
-    .then(response => response.text())
-    .then(html => {
-        document.getElementById('navigation-placeholder').innerHTML = html;
-    });
-
-// Load footer
-fetch('/components/footer.html')
-    .then(response => response.text())
-    .then(html => {
-        document.getElementById('footer-placeholder').innerHTML = html;
-    });
-
-// Handle form submission
-function handleContactSubmit(event) {
-    event.preventDefault();
-    
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        role: document.getElementById('role').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-
-    // TODO: Implement actual form submission (email service, backend, etc.)
-    // console.log removed
-alert('Thank you for your message! We\'ll get back to you within 24-48 hours.');
-    document.getElementById('contactForm').reset();
-    
-    return false;
-}
-</script>
-
-</body>
+                return false;
+            }
+        </script>
+    </body>
 </html>

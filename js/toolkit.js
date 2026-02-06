@@ -105,10 +105,10 @@ if (closeFooterMenu) {
 
 // Close menus when clicking outside
 document.addEventListener('click', (e) => {
-    if (mobileMenu && !mobileMenu.contains(e.target) && e.target !== hamburger && !hamburger.contains(e.target)) {
+    if (mobileMenu && hamburger && !mobileMenu.contains(e.target) && e.target !== hamburger && !hamburger.contains(e.target)) {
         mobileMenu.classList.remove('active');
     }
-    if (mobileFooterMenu && !mobileFooterMenu.contains(e.target) && e.target !== footerHamburger && !footerHamburger.contains(e.target)) {
+    if (mobileFooterMenu && footerHamburger && !mobileFooterMenu.contains(e.target) && e.target !== footerHamburger && !footerHamburger.contains(e.target)) {
         mobileFooterMenu.classList.remove('active');
     }
 });
@@ -327,7 +327,6 @@ style.textContent = `
         from {
             transform: translateX(100%);
             opacity: 0;
-            transform: translateX(0);
         }
         to {
             transform: translateX(0);
@@ -427,17 +426,19 @@ function getCategoryName(category) {
 // Load gallery with real content
 loadToolkitGallery();
 
-// Update category counts
-Object.keys(categories).forEach(key => {
-    const filterBtn = document.querySelector(`[data-category="${key}"]`);
-    if (filterBtn && key !== 'all') {
-        const count = categories[key].count;
-        const currentText = filterBtn.textContent;
-        if (!currentText.includes('(')) {
-            filterBtn.innerHTML += ` <span style="opacity:0.7; font-size:0.9em;">(${count})</span>`;
+// Update category counts (categories defined in toolkit-data.js)
+if (typeof categories !== 'undefined') {
+    Object.keys(categories).forEach(key => {
+        const filterBtn = document.querySelector(`[data-category="${key}"]`);
+        if (filterBtn && key !== 'all') {
+            const count = categories[key].count;
+            const currentText = filterBtn.textContent;
+            if (!currentText.includes('(')) {
+                filterBtn.innerHTML += ` <span style="opacity:0.7; font-size:0.9em;">(${count})</span>`;
+            }
         }
-    }
-});
+    });
+}
 
 // ===== LIL Z - Universal Chat Companion =====
 // Your expert guide and tour companion across the entire HARNESS Project
