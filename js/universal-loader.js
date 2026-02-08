@@ -65,6 +65,12 @@
 
     // Load Footer
     function loadFooter() {
+        // Skip if footer already exists on the page
+        if (document.querySelector('footer') || document.querySelector('.harness-footer')) {
+            console.log('⏭️ Footer already exists, skipping load');
+            return;
+        }
+
         fetch(pathPrefix + 'components/standard-footer.html')
             .then(response => {
                 if (!response.ok) throw new Error('Footer not found');
