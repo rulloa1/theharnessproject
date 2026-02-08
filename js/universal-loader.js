@@ -35,6 +35,12 @@
 
     // Load Navigation
     function loadNavigation() {
+        // Skip if navigation already exists on the page
+        if (document.querySelector('nav') || document.querySelector('.harness-nav') || document.querySelector('.harness-universal-nav') || document.querySelector('#mainNav') || document.querySelector('#harnessNav')) {
+            console.log('⏭️ Navigation already exists, skipping load');
+            return;
+        }
+
         fetch(pathPrefix + 'components/standard-nav.html')
             .then(response => {
                 if (!response.ok) throw new Error('Navigation not found');
