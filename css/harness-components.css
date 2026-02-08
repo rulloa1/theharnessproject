@@ -413,3 +413,25 @@
         padding: 30px 20px;
     }
 }
+
+/* Specific styling for the CTA button */
+.nav-menu .cta-button {
+    background-color: #00d4ff; /* Bright action color */
+    color: #000000 !important;   /* Dark text for contrast */
+    padding: 10px 22px;
+    border-radius: 50px;       /* Rounded pill shape */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    margin-left: 15px;
+}
+
+.nav-menu .cta-button:hover {
+    background-color: transparent;
+    color: #ffffff !important;
+    border: 2px solid #00d4ff;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    transform: translateY(-2px); /* Slight lift effect */
+}
