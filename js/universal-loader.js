@@ -82,34 +82,55 @@
     function initMobileMenu() {
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
+        const overlay = document.getElementById('mobileOverlay');
 
         if (hamburger && mobileMenu) {
             // Remove any existing event listeners by cloning
             const newHamburger = hamburger.cloneNode(true);
             hamburger.parentNode.replaceChild(newHamburger, hamburger);
 
-            // Add click event listener
+            // Function to close menu
+            function closeMenu() {
+                mobileMenu.classList.remove('active');
+                newHamburger.classList.remove('active');
+                if (overlay) overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            // Function to open menu
+            function openMenu() {
+                mobileMenu.classList.add('active');
+                newHamburger.classList.add('active');
+                if (overlay) overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Add click event listener to hamburger
             newHamburger.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                mobileMenu.classList.toggle('active');
-                newHamburger.classList.toggle('active');
+                if (mobileMenu.classList.contains('active')) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
             });
 
             // Close menu when clicking on a link
             const menuLinks = mobileMenu.querySelectorAll('a');
             menuLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    mobileMenu.classList.remove('active');
-                    newHamburger.classList.remove('active');
-                });
+                link.addEventListener('click', closeMenu);
             });
 
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!mobileMenu.contains(e.target) && !newHamburger.contains(e.target)) {
-                    mobileMenu.classList.remove('active');
-                    newHamburger.classList.remove('active');
+            // Close menu when clicking overlay
+            if (overlay) {
+                overlay.addEventListener('click', closeMenu);
+            }
+
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    closeMenu();
                 }
             });
         }
