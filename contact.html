@@ -359,20 +359,6 @@
         <div id="footer-placeholder"></div>
 
         <script>
-            // Load navigation
-            fetch("/components/navigation.html")
-                .then((response) => response.text())
-                .then((html) => {
-                    document.getElementById("navigation-placeholder").innerHTML = html;
-                });
-
-            // Load footer
-            fetch("/components/footer.html")
-                .then((response) => response.text())
-                .then((html) => {
-                    document.getElementById("footer-placeholder").innerHTML = html;
-                });
-
             // Handle form submission
             function handleContactSubmit(event) {
                 event.preventDefault();
