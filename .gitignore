@@ -1,0 +1,97 @@
+# ===========================================
+# HARNESS Project - Git Ignore Configuration
+# ===========================================
+
+# ============ CREDENTIALS & SECRETS ============
+# CRITICAL: Never commit credentials or API keys
+*.credentials.json
+moltbook_credentials.json
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+secrets/
+credentials/
+
+# ============ DEPENDENCIES ============
+node_modules/
+package-lock.json
+yarn.lock
+.pnp/
+.pnp.js
+
+# ============ BUILD & CACHE ============
+dist/
+build/
+.cache/
+*.cache
+.parcel-cache/
+.next/
+out/
+
+# ============ IDE & EDITORS ============
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# ============ OS GENERATED ============
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ============ LOGS & DEBUG ============
+debug.log
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# ============ TESTING ============
+coverage/
+.nyc_output/
+*.lcov
+test-results/
+playwright-report/
+playwright/.cache/
+
+# ============ MOBILE (CAPACITOR) ============
+ios/
+android/
+.capacitor/
+
+# ============ TEMPORARY FILES ============
+*.tmp
+*.temp
+*.bak
+*.backup
+tmp/
+temp/
+
+# ============ DEBUG/TEST HTML FILES ============
+# Keep these out of production deployments
+*-debug.html
+*-test.html
+*-diagnostic.html
+
+# ============ PYTHON (Utility Scripts) ============
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/

@@ -48,9 +48,9 @@ const LIL_Z_VERSION = {
 LIL_Z_VERSION.checkForUpdates();
 
 // ===== LIL Z AVATAR LIBRARY =====
-// Multiple expressive bitmoji avatars for different contexts
+// Using harness.png as avatar until custom avatars are created
 const LIL_Z_AVATARS = {
-    // Core avatars - used for different contexts
+    // Core avatars - placeholder paths (will fallback to main)
     cool: 'images/avatars/lil-z-cool.png',           // Confident vibes (with sunglasses)
     excited: 'images/avatars/lil-z-excited.png',     // Welcoming energy (arms wide)
     hello: 'images/avatars/lil-z-hello.png',         // International greeting
@@ -61,8 +61,8 @@ const LIL_Z_AVATARS = {
     highfive: 'images/avatars/lil-z-highfive.png',   // Celebrating wins
     support: 'images/avatars/lil-z-support.png',     // Caring and empathetic
 
-    // Fallback if specific avatars aren't uploaded yet
-    main: 'images/lil-z-avatar.png',                 // Default friendly face
+    // Fallback to existing harness logo
+    main: 'images/harness.png',                      // Default HARNESS logo
 
     // Get avatar based on context
     getAvatar: function (context = 'default') {

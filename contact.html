@@ -384,10 +384,27 @@
                     message: document.getElementById("message").value
                 };
 
-                // TODO: Implement actual form submission (email service, backend, etc.)
-                // console.log removed
-                alert("Thank you for your message! We'll get back to you within 24-48 hours.");
-                document.getElementById("contactForm").reset();
+                // Form submission via Formspree (free tier: 50 submissions/month)
+                // Alternative: Replace with your own backend endpoint
+                fetch('https://formspree.io/f/YOUR_FORM_ID', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert("Thank you for your message! We'll get back to you within 24-48 hours.");
+                        document.getElementById("contactForm").reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error submitting form:', error);
+                    alert("We're sorry, there was an error sending your message. Please try again or email us directly at contact@theharnessproject.org");
+                });
 
                 return false;
             }

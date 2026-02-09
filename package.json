@@ -22,6 +22,8 @@
     "build:prod": "npm run build && echo 'Production build ready for deployment'",
     "clean": "echo 'No build artifacts to clean - static site'",
     "test": "npm run validate",
+    "icons:generate": "node scripts/generate-pwa-icons.js",
+    "icons:manual": "echo 'Open scripts/generate-icons-simple.html in your browser'",
     "capacitor:sync": "npx cap sync",
     "capacitor:ios": "npx cap open ios",
     "capacitor:android": "npx cap open android",
