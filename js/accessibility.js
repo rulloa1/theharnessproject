@@ -208,10 +208,6 @@ function announceToScreenReader(message) {
     
     if (liveRegion) {
         liveRegion.textContent = message;
-    }
-}
-    if (liveRegion) {
-        liveRegion.textContent = message;
         setTimeout(() => {
             liveRegion.textContent = '';
         }, 1000);
