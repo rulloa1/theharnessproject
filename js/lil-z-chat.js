@@ -62,7 +62,7 @@ const LIL_Z_AVATARS = {
     support: 'images/avatars/lil-z-support.png',     // Caring and empathetic
 
     // Fallback to existing harness logo
-    main: 'images/harness.png',                      // Default HARNESS logo
+    main: 'https://www.genspark.ai/api/files/s/j2wOdpNK',                      // Default HARNESS logo
 
     // Get avatar based on context
     getAvatar: function (context = 'default') {

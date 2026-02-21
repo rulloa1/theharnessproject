@@ -25,21 +25,28 @@
     const pathPrefix = getPathPrefix();
 
     // Load Navigation
-    function loadNavigation() {
-        fetch(pathPrefix + 'components/standard-nav.html')
-            .then(response => {
-                if (!response.ok) throw new Error('Navigation not found');
-                return response.text();
-            })
-            .then(html => {
-                // Adjust paths in the HTML based on current page depth
-                const adjustedHtml = html.replace(/\.\.\//g, pathPrefix);
+function loadNavigation() {
+    fetch(pathPrefix + 'components/standard-nav.html')
+        .then(response => {
+            if (!response.ok) throw new Error('Navigation not found');
+            return response.text();
+        })
+        .then(html => {
+            const navContainer = document.querySelector('.nav-container');
+            const adjustedHtml = html.replace(/\.\.\//g, pathPrefix);
 
-                // Insert at the beginning of body
+            if (navContainer) {
+                // If a legacy container exists, clear it and inject the new nav
+                navContainer.innerHTML = adjustedHtml;
+                console.log('✅ Legacy navigation container updated.');
+            } else {
+                // Otherwise, insert the new navigation at the beginning of the body
                 document.body.insertAdjacentHTML('afterbegin', adjustedHtml);
+                console.log('✅ New navigation container created.');
+            }
 
-                console.log('✅ Navigation loaded');
-            })
+            console.log('✅ Navigation loaded');
+        })
             .catch(error => {
                 console.warn('⚠️ Could not load navigation:', error);
             });

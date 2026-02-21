@@ -179,25 +179,37 @@ function enhanceFocusIndicators() {
 // ===== ARIA LIVE REGIONS =====
 function addARIALiveRegions() {
     // Add live region for dynamic content announcements
-    if (!document.getElementById('aria-live-region')) {
-        const liveRegion = document.createElement('div');
+    let liveRegion = document.getElementById('aria-live-region');
+    if (!liveRegion) {
+        liveRegion = document.createElement('div');
         liveRegion.id = 'aria-live-region';
         liveRegion.setAttribute('aria-live', 'polite');
         liveRegion.setAttribute('aria-atomic', 'true');
         liveRegion.className = 'sr-only';
-        liveRegion.style.position = 'absolute';
-        liveRegion.style.left = '-10000px';
-        liveRegion.style.width = '1px';
-        liveRegion.style.height = '1px';
-        liveRegion.style.overflow = 'hidden';
-
         document.body.appendChild(liveRegion);
     }
+    
+    // Ensure styles are applied
+    liveRegion.style.position = 'absolute';
+    liveRegion.style.left = '-10000px';
+    liveRegion.style.width = '1px';
+    liveRegion.style.height = '1px';
+    liveRegion.style.overflow = 'hidden';
 }
 
 // Announce message to screen readers
 function announceToScreenReader(message) {
-    const liveRegion = document.getElementById('aria-live-region');
+    let liveRegion = document.getElementById('aria-live-region');
+    // If the live region doesn't exist, create it.
+    if (!liveRegion) {
+        addARIALiveRegions();
+        liveRegion = document.getElementById('aria-live-region');
+    }
+    
+    if (liveRegion) {
+        liveRegion.textContent = message;
+    }
+}
     if (liveRegion) {
         liveRegion.textContent = message;
         setTimeout(() => {

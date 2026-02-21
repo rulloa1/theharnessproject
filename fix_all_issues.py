@@ -60,7 +60,7 @@ def fix_html_file(filepath):
 
 def create_missing_directories():
     """Create missing directories"""
-    project_root = Path('/home/ubuntu/theharnessproject')
+    project_root = Path('.')
     
     # Create js directory (even though scripts are inline, for future use)
     js_dir = project_root / 'js'
@@ -80,7 +80,7 @@ def create_missing_directories():
 
 def main():
     """Run all fixes"""
-    project_root = Path('/home/ubuntu/theharnessproject')
+    project_root = Path('.')
     
     print("="*70)
     print("FIXING WEBSITE ISSUES")

@@ -74,24 +74,26 @@
 }
 
 body {
-    font-family: 'Bree Serif', serif;
-    color: var(--gray-dark);
-    /* Default used in toolkit.html */
+    font-family: 'Inter', sans-serif; /* A modern, readable sans-serif font */
+    color: var(--color-text);
     line-height: 1.6;
-    overflow-x: hidden;
-    background: linear-gradient(180deg, #FFFFFF 0%, #F5F7FA 40%, #E8ECEF 100%);
-    background-attachment: fixed;
-    min-height: 100vh;
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Common Element Styles */
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Bree Serif', serif;
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif; /* A stylish, geometric font for headings */
+    font-weight: 700; /* Bold headings for clear hierarchy */
     line-height: 1.2;
-    font-weight: 400;
+    color: var(--harness-teal);
+    margin-bottom: var(--spacing-md);
+}
+
+ul, ol {
+    list-style-position: inside;
+    padding-left: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
 }
 
 /* ===== NAVIGATION & IMAGE BALANCE FIXES ===== */
