@@ -106,9 +106,6 @@
 
     // Add meta tag if it doesn't exist
     function addMetaTag(attributes) {
-        const checkAttr = attributes.name ? 'name' : 'property';
-        const checkValue = attributes.name || attributes.property;
-
         if (!metaExists(attributes.name, attributes.property)) {
             const meta = document.createElement('meta');
             Object.keys(attributes).forEach(key => {

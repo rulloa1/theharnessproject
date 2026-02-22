@@ -16,7 +16,7 @@
     "validate:html": "echo 'HTML validation - install html-validate for full support'",
     "validate:js": "node scripts/validate-js.js",
     "lint": "npm run lint:js",
-    "lint:js": "npx eslint js/*.js --no-eslintrc --env browser,es2021 --parser-options ecmaVersion:2021 || echo 'ESLint check complete'",
+    "lint:js": "npx eslint js/*.js || echo 'ESLint check complete'",
     "build": "npm run validate && npm run build:check && echo 'Build validation complete!'",
     "build:check": "node scripts/build-check.js",
     "build:prod": "npm run build && echo 'Production build ready for deployment'",

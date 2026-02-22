@@ -13,7 +13,7 @@ function populateToolkitGalleries() {
     const freeSamplesGrid = document.getElementById('freeSamplesGrid');
     const premiumToolkitGrid = document.getElementById('premiumToolkitGrid');
 
-    if (!toolkitResources) {
+    if (typeof toolkitResources === 'undefined' || !toolkitResources) {
         console.error('Toolkit data not loaded!');
         return;
     }
@@ -115,7 +115,6 @@ document.addEventListener('click', (e) => {
 
 // ===== FILTER FUNCTIONALITY =====
 const filterButtons = document.querySelectorAll('.filter-btn');
-const galleryItems = document.querySelectorAll('.gallery-item');
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -127,6 +126,9 @@ filterButtons.forEach(button => {
 
         // Get the selected category
         const category = button.getAttribute('data-category');
+
+        // Re-query gallery items to include dynamically created ones
+        const galleryItems = document.querySelectorAll('.gallery-item');
 
         // Filter gallery items
         galleryItems.forEach(item => {
@@ -176,7 +178,7 @@ previewModal?.addEventListener('click', (e) => {
 
 // Close modal with ESC key
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && previewModal.classList.contains('active')) {
+    if (e.key === 'Escape' && previewModal?.classList.contains('active')) {
         closePreviewModal();
     }
 });
@@ -760,4 +762,5 @@ const LIL_Z_KNOWLEDGE = {
                 answer: 'Protect your liver! 🩺💊<br><br><strong>Hepatitis B:</strong><br>• Transmitted: Sex, blood, needles, childbirth<br>• Vaccine available! (3-dose series)<br>• Chronic infection can cause liver disease/cancer<br>• Treatment: Antivirals for chronic cases<br><br><strong>Hepatitis C:</strong><br>• Transmitted: Blood, needles (less common through sex)<br>• NO vaccine yet<br>• Curable with 8-12 weeks of pills (95%+ cure rate!)<br>• Test if you\'ve shared needles, gotten tattoos with unsterile equipment<br><br><strong>Action steps:</strong><br>1) Get vaccinated for Hep B!<br>2) Get tested for Hep C (one-time screening for all adults)<br>3) Don\'t share needles, razors, toothbrushes<br><br>Your liver will thank you! 💚✅'
             }
         ]
-    },
+    }
+};
