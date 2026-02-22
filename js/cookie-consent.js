@@ -139,10 +139,8 @@
                 <div id="cookie-consent-text">
                     <h3>🍪 We Use Cookies</h3>
                     <p>
-                        We use cookies to enhance your experience and understand how you use our site. 
-                        By clicking "Accept", you consent to our use of cookies. 
-                        <a href="legal/cookies.html" target="_blank">Learn more</a> | 
-                        <a href="legal/privacy.html" target="_blank">Privacy Policy</a>
+                        We use cookies to enhance your experience and understand how you use our site.
+                        By clicking "Accept", you consent to our use of cookies.
                     </p>
                 </div>
                 <div id="cookie-consent-buttons">

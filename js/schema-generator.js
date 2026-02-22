@@ -169,7 +169,6 @@ function initSchemaMarkup() {
         insertSchema(faqSchema, 'schema-faq');
     }
 
-    console.log('[SEO] ✅ Schema.org structured data inserted');
 }
 
 // ===== GENERATE BREADCRUMBS FROM CURRENT PATH =====

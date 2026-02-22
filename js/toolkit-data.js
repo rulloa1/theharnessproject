@@ -189,24 +189,6 @@ const toolkitResources = {
             description: "Road map visual showing barrier options as routes: external/internal condoms, toys with alternatives, detour for safe play, restricted entry zones.",
             format: "Visual Roadmap",
             printable: true
-        },
-        {
-            id: 21,
-            title: "The Rope Analogy",
-            category: "guides",
-            image: "toolkit/images/19-rope-analogy.jpg",
-            description: "Visual metaphor showing how multiple protection methods work together like strands in a rope. No single method is enough alone - layered protection creates strength.",
-            format: "Infographic (4:3)",
-            printable: true
-        },
-        {
-            id: 22,
-            title: "PEP Emergency Guide",
-            category: "medical",
-            image: "toolkit/images/16-pep-emergency-guide.jpg",
-            description: "URGENT: Post-Exposure Prophylaxis guide. 72-hour window after exposure. Includes when to use, where to go, and what to expect.",
-            format: "Emergency Guide",
-            printable: true
         }
     ]
 };
@@ -216,7 +198,7 @@ const categories = {
     all: {
         name: "All Resources",
         icon: "fa-th",
-        count: 22
+        count: 20
     },
     agreements: {
         name: "Agreements & Templates",
@@ -241,7 +223,7 @@ const categories = {
     guides: {
         name: "SafER Sex Guides",
         icon: "fa-book",
-        count: 5
+        count: 4
     },
     communication: {
         name: "Communication Scripts",
@@ -261,7 +243,7 @@ const categories = {
     medical: {
         name: "Medical Prevention",
         icon: "fa-medkit",
-        count: 2
+        count: 1
     }
 };
 
