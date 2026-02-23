@@ -4,7 +4,12 @@
       "Bash(wc:*)",
       "Bash(node --version:*)",
       "Bash(npm --version:*)",
-      "Bash(git --version:*)"
+      "Bash(git --version:*)",
+      "Bash(cd /c/Users/roryu/theharnessproject-1 && npx eslint --version 2>&1)",
+      "Bash(cd:*)",
+      "Bash(cd /c/Users/roryu/theharnessproject-1 && npm start 2>&1)",
+      "Bash(cd /c/Users/roryu/theharnessproject-1 && npx serve . -l 3000 2>&1)",
+      "Bash(cd /c/Users/roryu/theharnessproject-1 && npm run build 2>&1)"
     ]
   }
 }

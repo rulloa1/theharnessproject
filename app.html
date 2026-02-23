@@ -8208,58 +8208,9 @@ This ensures visual consistency and professional appearance across all pages.
                 }
             }
 
-            /* Page Indicator */
-            .page-indicator {
-                position: fixed;
-                top: 20px;
-                left: 20px;
-                background: linear-gradient(135deg, rgba(0, 189, 189, 0.95) 0%, rgba(246, 204, 0, 0.95) 100%);
-                color: white;
-                padding: 15px 30px;
-                border-radius: 50px;
-                font-size: 1em;
-                font-weight: 600;
-                font-family: "Bree Serif", serif;
-                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-                z-index: 9999;
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                animation: slideInLeft 0.8s ease-out;
-                border: 2px solid rgba(255, 255, 255, 0.3);
-                letter-spacing: 0.5px;
-            }
-
-            .page-indicator::before {
-                content: "📱";
-                margin-right: 8px;
-                font-size: 1.2em;
-            }
-
-            @keyframes slideInLeft {
-                0% {
-                    opacity: 0;
-                    transform: translateX(-100px);
-                }
-                100% {
-                    opacity: 1;
-                    transform: translateX(0);
-                }
-            }
-
-            @media (max-width: 768px) {
-                .page-indicator {
-                    top: 10px;
-                    left: 10px;
-                    padding: 10px 20px;
-                    font-size: 0.85em;
-                }
-            }
         </style>
     </head>
     <body>
-        <!-- Page Indicator -->
-        <div class="page-indicator">HARNESS App</div>
-
         <!-- Splash Screen / Landing Page -->
         <div id="splash-screen" class="splash-screen active">
             <div class="splash-content">
