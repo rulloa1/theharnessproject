@@ -401,6 +401,24 @@ section,
     border-radius: 2px;
 }
 
+
+
+/* Prevent global nav rules from breaking desktop injected nav */
+.main-header .nav-menu {
+    position: static !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    width: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.main-header .nav-menu a {
+    display: inline-flex;
+    align-items: center;
+}
+
 @media (max-width: 900px) {
     .hamburger {
         display: flex;
