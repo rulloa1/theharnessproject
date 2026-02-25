@@ -26,7 +26,7 @@
 
     // Load Navigation
 function loadNavigation() {
-    fetch(pathPrefix + 'components/standard-nav.html')
+    return fetch(pathPrefix + 'components/standard-nav.html')
         .then(response => {
             if (!response.ok) throw new Error('Navigation not found');
             return response.text();
@@ -119,15 +119,13 @@ function loadNavigation() {
         }
     }
 
-    // Call setupMobileMenu after navigation is loaded
+    // Call setupMobileMenu after navigation is loaded (nav fetch must complete first)
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
-            loadNavigation();
+            loadNavigation().then(setupMobileMenu);
             loadFooter();
-            setupMobileMenu();
         });
     } else {
-        loadNavigation();
+        loadNavigation().then(setupMobileMenu);
         loadFooter();
-        setupMobileMenu();
     }
