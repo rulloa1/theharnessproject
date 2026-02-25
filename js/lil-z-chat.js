@@ -440,5 +440,5 @@ if (typeof createModal === 'undefined') {
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', addLilZFloatingButton);
 } else {
-    addLilZFloatingButton();
+    // addLilZFloatingButton();
 }

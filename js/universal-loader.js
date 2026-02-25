@@ -73,23 +73,61 @@ function loadNavigation() {
             });
     }
 
-    // Load both when DOM is ready
+    // Global toggle function for mobile menu
+    function toggleMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenu) {
+            mobileMenu.classList.toggle('active');
+        }
+    }
+
+    // Add event listeners for the new hamburger menu functionality
+    function setupMobileMenu() {
+        const hamburgerBtn = document.getElementById('hamburgerMenuBtn');
+        const mobileNavSidebar = document.getElementById('mobileNavSidebar');
+        const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+        const mobileNavClose = document.getElementById('mobileNavClose');
+        const navMenuLinks = document.querySelector('.mobile-nav-links');
+
+        if (hamburgerBtn && mobileNavSidebar && mobileNavOverlay && mobileNavClose && navMenuLinks) {
+            hamburgerBtn.addEventListener('click', () => {
+                mobileNavSidebar.classList.toggle('active');
+                mobileNavOverlay.classList.toggle('active');
+                hamburgerBtn.classList.toggle('active');
+            });
+
+            mobileNavClose.addEventListener('click', () => {
+                mobileNavSidebar.classList.remove('active');
+                mobileNavOverlay.classList.remove('active');
+                hamburgerBtn.classList.remove('active');
+            });
+
+            mobileNavOverlay.addEventListener('click', () => {
+                mobileNavSidebar.classList.remove('active');
+                mobileNavOverlay.classList.remove('active');
+                hamburgerBtn.classList.remove('active');
+            });
+
+            // Close mobile menu when a link is clicked
+            navMenuLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNavSidebar.classList.remove('active');
+                    mobileNavOverlay.classList.remove('active');
+                    hamburgerBtn.classList.remove('active');
+                });
+            });
+        }
+    }
+
+    // Call setupMobileMenu after navigation is loaded
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', function () {
             loadNavigation();
             loadFooter();
+            setupMobileMenu();
         });
     } else {
         loadNavigation();
         loadFooter();
+        setupMobileMenu();
     }
-
-})();
-
-// Global toggle function for mobile menu
-function toggleMenu() {
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (mobileMenu) {
-        mobileMenu.classList.toggle('active');
-    }
-}

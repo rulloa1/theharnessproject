@@ -1,20 +1,38 @@
 <header class="main-header">
-      <div class="header-container">
-        <a href="../index.html" class="logo">The Harness Project</a>
-    
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="hamburger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-    
+    <div class="nav-container">
+        <a href="/index.html" class="logo">The HARNESS Project</a>
+
+        <button class="hamburger-menu-btn" id="hamburgerMenuBtn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <nav class="nav-menu">
-          <a href="../index.html">Home</a>
-          <a href="../about.html">About</a>
-          <a href="../curriculum/CURRICULUM_INDEX.html">Curriculum</a>
-          <a href="../toolkit.html">Toolkit</a>
-          <a href="../app.html" class="cta-button">App</a>
+            <a href="/index.html">Home</a>
+            <a href="/about.html">About</a>
+            <a href="/curriculum/CURRICULUM-INDEX.html">Curriculum</a>
+            <a href="/toolkit.html">Toolkit</a>
+            <a href="/app.html" class="cta-button">Try App (FREE)</a>
         </nav>
-      </div>
-    </header>
+
+        <!-- Mobile Navigation Sidebar -->
+        <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+        <div class="mobile-nav-sidebar" id="mobileNavSidebar">
+            <div class="mobile-nav-header">
+                <a href="/index.html" class="mobile-nav-logo">
+                    <img src="/images/harness_logo_transparent_small.png" alt="The HARNESS Project" class="nav-logo-img">
+                </a>
+                <button class="mobile-nav-close" id="mobileNavClose">&times;</button>
+            </div>
+            <div class="mobile-nav-links">
+                <a href="/index.html">Home</a>
+                <a href="/about.html">About</a>
+                <a href="/curriculum/CURRICULUM-INDEX.html">Curriculum</a>
+                <a href="/toolkit.html">Toolkit</a>
+                <a href="/app.html">Try App (FREE)</a>
+                <button class="support-btn-mobile">Support Us</button>
+            </div>
+        </div>
+    </div>
+</header>
