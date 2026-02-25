@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Chandler — Precision Engineered Spaces</title>
+    <meta name="description"
+        content="Strategic construction executive with 37+ years delivering precision-engineered spaces across the US and internationally.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='18' fill='%23fff'>MC</text></svg>">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Michael Chandler — Precision Engineered Spaces">
+    <meta property="og:description"
+        content="37+ years delivering multimillion-dollar developments for high-net-worth clients across 12 US states and 4 countries.">
+    <meta property="og:url" content="https://mcdesign.bio">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/rulloa1/constructiondesignnew/main/src/assets/projects/miami-beach-cover.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Michael Chandler — Precision Engineered Spaces">
+    <meta name="twitter:description"
+        content="37+ years delivering multimillion-dollar developments for high-net-worth clients.">
+    <meta name="twitter:image"
+        content="https://raw.githubusercontent.com/rulloa1/constructiondesignnew/main/src/assets/projects/miami-beach-cover.webp">
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter (body) + Playfair Display (headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="index.css">
+
+    <style>
+        /* ─── Loading Screen ─────────────────────────────────── */
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: #0d0d0d;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        #loader.done {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+            letter-spacing: 0.25em;
+            color: #fff;
+        }
+
+        .loader-track {
+            width: min(280px, 55vw);
+            height: 1px;
+            background: rgba(255, 255, 255, 0.12);
+            overflow: hidden;
+        }
+
+        .loader-fill {
+            height: 100%;
+            width: 0%;
+            background: #fff;
+            transition: width 0.15s linear;
+        }
+
+        .loader-pct {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        body.loading {
+            overflow: hidden;
+        }
+    </style>
+
+    <!-- Block scroll immediately, before JS runs -->
+    <script>document.documentElement.classList.add('loading-init');</script>
+</head>
+
+<body class="loading">
+
+    <!-- ═══ LOADING SCREEN ══════════════════════════════════════ -->
+    <div id="loader">
+        <div class="loader-logo brand-logo">
+            <div class="brand-mc"><span class="m-char">M</span>
+                <div class="divider"></div><span>C</span>
+            </div>
+            <div class="brand-name">Michael Chandler</div>
+        </div>
+        <div class="loader-track">
+            <div class="loader-fill" id="loader-fill"></div>
+        </div>
+        <div class="loader-pct" id="loader-pct">0%</div>
+    </div>
+
+    <!-- ═══ SCROLL PROGRESS BAR ════════════════════════════════ -->
+    <div id="scroll-progress"></div>
+
+    <!-- ═══ NAVIGATION ══════════════════════════════════════════ -->
+    <nav id="main-nav">
+        <a href="#" class="nav-logo brand-logo">
+            <div class="brand-mc"><span class="m-char">M</span>
+                <div class="divider"></div><span>C</span>
+            </div>
+            <div class="brand-name">Michael Chandler</div>
+        </a>
+        <div class="nav-links">
+            <a href="#portfolio">Work</a>
+            <a href="#about">Studio</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile nav drawer -->
+    <div id="mobile-menu" aria-hidden="true">
+        <a href="#portfolio" class="mobile-nav-link">Work</a>
+        <a href="#about" class="mobile-nav-link">Studio</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+    </div>
+    <div id="mobile-menu-overlay"></div>
+
+    <!-- ═══ CANVAS HERO: Pinned 400vh ══════════════════════════ -->
+    <div id="CanvasSection">
+        <div class="canvas-container">
+            <canvas id="hero-canvas"></canvas>
+
+            <!-- Overlay 1 · 0% · Center Hero -->
+            <div id="section-0" class="overlay-text">
+                <div class="glass hero-glass-large">
+                    <p class="section-label">Est. 1987 · 37+ Years</p>
+                    <h1 class="hero-title-main">
+                        Michael Chandler.<br>Precision Engineered Spaces.
+                    </h1>
+                    <p class="hero-copy-main">
+                        Delivering multimillion-dollar developments for high-net-worth clients across 12 US states and 4
+                        countries.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Overlay 2 · 33% · Bottom Left -->
+            <div id="section-1" class="overlay-text">
+                <div class="glass hero-glass-small">
+                    <h2 class="hero-title-sub">
+                        Structural Integrity.
+                    </h2>
+                    <p class="hero-copy-sub">The Physics of Form.</p>
+                </div>
+            </div>
+
+            <!-- Overlay 3 · 66% · Bottom Right -->
+            <div id="section-2" class="overlay-text">
+                <div class="glass hero-glass-small">
+                    <h2 class="hero-title-sub">
+                        Modern Architecture.
+                    </h2>
+                    <p class="hero-copy-sub">Built for Legacy.</p>
+                </div>
+            </div>
+
+            <!-- Side Navigation Dots -->
+            <div class="side-nav">
+                <div class="nav-dot active" data-index="0"></div>
+                <div class="nav-dot" data-index="1"></div>
+                <div class="nav-dot" data-index="2"></div>
+            </div>
+
+            <!-- Scroll Down Cue -->
+            <div id="scroll-cue">
+                <span>Scroll</span>
+                <div class="cue-dot"></div>
+            </div>
+
+            <!-- Refined Scroll Line -->
+            <div id="scroll-line-container">
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ STATS STRIP ════════════════════════════════════════ -->
+    <div class="stats-strip" id="stats-strip">
+        <div class="stat-cell">
+            <div class="stat-num" data-target="37" data-suffix="+">0+</div>
+            <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-cell">
+            <div class="stat-num" data-target="500" data-prefix="$" data-suffix="M+">$0M+</div>
+            <div class="stat-label">Portfolio Value</div>
+        </div>
+        <div class="stat-cell">
+            <div class="stat-num" data-target="12">0</div>
+            <div class="stat-label">US States</div>
+        </div>
+        <div class="stat-cell">
+            <div class="stat-num" data-target="4">0</div>
+            <div class="stat-label">Countries</div>
+        </div>
+    </div>
+
+    <!-- ═══ PORTFOLIO SECTION ═══════════════════════════════════ -->
+    <section id="portfolio" class="section-portfolio">
+        <p class="section-label">Selected Work</p>
+        <h2 class="portfolio-title">
+            Landmark Projects. Enduring Standards.
+        </h2>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar" id="filterBar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="residential">Residential</button>
+            <button class="filter-btn" data-filter="hospitality">Hospitality</button>
+            <button class="filter-btn" data-filter="civil">Civil</button>
+        </div>
+
+        <div class="project-grid" id="projectGrid">
+
+            <!-- Card 1 · Miami Beach -->
+            <article class="project-card project-item" data-category="residential" data-slug="miami-beach">
+                <img src="projects/miami-beach-cover.webp" alt="Miami Beach Condo Renovation" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Design / Build · Miami Beach</p>
+                    <p class="project-title">S. Florida High Rise Luxe Condo</p>
+                    <p class="project-subtitle">Bespoke millwork, smart home, Italian marble renovation</p>
+                    <div class="project-meta"><span>4,200 sq ft</span><span>4 bed · 4 bath</span><span>5 months</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 · High Alpine Ranch -->
+            <article class="project-card project-item" data-category="residential" data-slug="alpine-ranch">
+                <img src="projects/unnamed (11).jpg" alt="High Alpine Mountain Ranch" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Residential · Montana</p>
+                    <p class="project-title">High Alpine Mtn. Ranch Retreat</p>
+                    <p class="project-subtitle">Custom Bronze Italian windows, vaulted ceilings, radiant heat</p>
+                    <div class="project-meta"><span>2,300 sq ft</span><span>24 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 3 · Syracuse House -->
+            <article class="project-card project-item" data-category="residential" data-slug="syracuse">
+                <img src="projects/syracuse-cover.webp" alt="Syracuse House Utah" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Design / Build · N. Utah</p>
+                    <p class="project-title">Syracuse House</p>
+                    <p class="project-subtitle">N. Utah Craftsman Estate — 400 tons decorative stone, equestrian</p>
+                    <div class="project-meta"><span>6,200 sq ft</span><span>18 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 4 · Montana Condo -->
+            <article class="project-card project-item" data-category="residential" data-slug="montana">
+                <img src="projects/montana-cover.webp" alt="Montana Mountain Condo" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Residential · Montana</p>
+                    <p class="project-title">Mtn. Mid-Rise Luxe Condo</p>
+                    <p class="project-subtitle">Calacatta marble, spa baths, hand-applied finishes</p>
+                    <div class="project-meta"><span>2,800 sq ft</span><span>8 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 5 · Pool Club → Featured wide -->
+            <article class="project-card featured project-item" data-category="hospitality" data-slug="pool-club">
+                <img src="projects/pool-design-cover.webp" alt="Ultra Luxe Private Club Resort Pool" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Hospitality · SE Texas</p>
+                    <p class="project-title">Ultra Luxe Private Club</p>
+                    <p class="project-subtitle">189,000-gallon free-form pool, swim-up bar, resort amenity</p>
+                    <div class="project-meta"><span>189,000 gal</span><span>18 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 6 · South Coast Renovation -->
+            <article class="project-card project-item" data-category="residential" data-slug="southcoast">
+                <img src="projects/unnamed (8).jpg" alt="South Coast Renovation" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Design / Build · Big Sur</p>
+                    <p class="project-title">South Coast Renovation</p>
+                    <p class="project-subtitle">Complete structural transformation, panoramic ocean views</p>
+                    <div class="project-meta"><span>3,800 sq ft</span><span>16 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 7 · Carmel Valley New -->
+            <article class="project-card project-item" data-category="residential" data-slug="carmel-valley">
+                <img src="projects/carmel-valley-cover.webp" alt="Carmel Valley New" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Design / Build · Carmel Valley</p>
+                    <p class="project-title">Carmel Valley New</p>
+                    <p class="project-subtitle">Exposed steel beams, glass walls, native habitat restoration</p>
+                    <div class="project-meta"><span>4,800 sq ft</span><span>20 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 8 · North Florida -->
+            <article class="project-card project-item" data-category="residential" data-slug="north-florida">
+                <img src="projects/unnamed (16).jpg" alt="North Florida Renovation" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Residential · N. Florida</p>
+                    <p class="project-title">North Florida Renovation</p>
+                    <p class="project-subtitle">1,200 sq ft addition, impact windows, estate management</p>
+                    <div class="project-meta"><span>3,600 sq ft</span><span>10 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 9 · Abaco Boat House -->
+            <article class="project-card project-item" data-category="residential" data-slug="abaco-boathouse">
+                <img src="projects/unnamed (17).jpg" alt="Abaco Luxe Boat House" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Residential · Bahamas</p>
+                    <p class="project-title">Abaco Luxe Boat House</p>
+                    <p class="project-subtitle">Hurricane-resistant waterfront structure, mahogany millwork</p>
+                    <div class="project-meta"><span>1,800 sq ft</span><span>6 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 10 · Carmel Forest → Featured -->
+            <article class="project-card featured project-item" data-category="residential" data-slug="carmel-forest">
+                <img src="projects/unnamed (18).jpg" alt="Carmel Forest to Ocean View" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Residential · CarmelByTheSea</p>
+                    <p class="project-title">Carmel Forest to Ocean View</p>
+                    <p class="project-subtitle">Custom addition harmonizing with the stunning coastal environment</p>
+                    <div class="project-meta"><span>Custom Addition</span><span>Refined Craft</span></div>
+                </div>
+            </article>
+
+            <!-- Card 11 · Big Sur Civil -->
+            <article class="project-card project-item" data-category="civil" data-slug="big-sur-civil">
+                <img src="projects/unnamed (19).jpg" alt="Coastal Mountain Residence" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Civil · Big Sur</p>
+                    <p class="project-title">Coastal Mountain Residence</p>
+                    <p class="project-subtitle">Retaining walls, earthwork, and custom garage workshop</p>
+                    <div class="project-meta"><span>1.2 Acres</span><span>11 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 12 · Carmel Knolls -->
+            <article class="project-card project-item" data-category="civil" data-slug="carmel-knolls">
+                <img src="projects/unnamed (20).jpg" alt="Carmel Knolls" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Civil · Carmel</p>
+                    <p class="project-title">Carmel Knolls Transformation</p>
+                    <p class="project-subtitle">Complete foundation repair, new roofline, landscape renovation</p>
+                    <div class="project-meta"><span>2,200 sq ft</span><span>12 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 13 · Coastal Restoration -->
+            <article class="project-card project-item" data-category="civil" data-slug="coastal-erosion">
+                <img src="projects/unnamed.jpg" alt="Coastal Restoration" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Civil · Monterey</p>
+                    <p class="project-title">Coastal Erosion Restoration</p>
+                    <p class="project-subtitle">Engineered retaining walls to stabilize oceanfront site</p>
+                    <div class="project-meta"><span>2,500 cu yds</span><span>9 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 14 · Infrastructure -->
+            <article class="project-card project-item" data-category="civil" data-slug="infrastructure">
+                <img src="projects/unnamed (3).jpg" alt="Civil Engineering Portfolio" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Civil · Multi-State</p>
+                    <p class="project-title">Infrastructure Engineering</p>
+                    <p class="project-subtitle">Mass earthwork, slope stabilization across five states</p>
+                    <div class="project-meta"><span>50,000+ cu yds</span><span>2015 - 2024</span></div>
+                </div>
+            </article>
+
+            <!-- Card 15 · Beachfront Estate → Featured -->
+            <article class="project-card featured project-item" data-category="residential"
+                data-slug="beachfront-estate">
+                <img src="projects/unnamed (10).jpg" alt="Bahamas Beachfront Estate" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Residential · Bahamas</p>
+                    <p class="project-title">Abaco Beachfront Estate</p>
+                    <p class="project-subtitle">Category 5 resistant, solar backup, infinity pool oasis</p>
+                    <div class="project-meta"><span>6,800 sq ft</span><span>2.5 Acres</span></div>
+                </div>
+            </article>
+
+            <!-- Card 16 · Community Development -->
+            <article class="project-card project-item" data-category="civil" data-slug="community-dev">
+                <img src="projects/1500x1000.webp" alt="Master Planned Development SE Texas" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Civil · SE Texas</p>
+                    <p class="project-title">Master Planned Development</p>
+                    <p class="project-subtitle">Infrastructure for 120+ sites, community amenities</p>
+                    <div class="project-meta"><span>45 Acres</span><span>36 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 17 · Pacific Grove -->
+            <article class="project-card project-item" data-category="residential" data-slug="pacific-grove">
+                <img src="projects/1500x1000 (1).webp" alt="Pacific Grove Historic Neighborhood" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Design / Build · Pacific Grove</p>
+                    <p class="project-title">Historic District New Build</p>
+                    <p class="project-subtitle">Contemporary comfort within a traditional shingle shell</p>
+                    <div class="project-meta"><span>2,600 sq ft</span><span>14 months</span></div>
+                </div>
+            </article>
+
+            <!-- Card 18 · Hillside Cleanup -->
+            <article class="project-card project-item" data-category="civil" data-slug="hillside-restoration">
+                <img src="projects/1500x1000 (2).webp" alt="Land Reclamation" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Civil · Central Texas</p>
+                    <p class="project-title">Hillside Land Reclamation</p>
+                    <p class="project-subtitle">Post-storm structural survey and erosion control mitigation</p>
+                    <div class="project-meta"><span>Hillside</span><span>Emergency Mitigation</span></div>
+                </div>
+            </article>
+
+            <!-- Card 19 · Laguna Grande → Featured -->
+            <article class="project-card featured project-item" data-category="hospitality" data-slug="regional-land">
+                <img src="projects/seaside-commercial.jpg" alt="Laguna Grande Commercial" loading="lazy">
+                <div class="project-overlay">
+                    <p class="project-tag">Design / Build · Seaside</p>
+                    <p class="project-title">Laguna Grande Commercial</p>
+                    <p class="project-subtitle">12,000 sq ft Spanish Revival landmark complex</p>
+                    <div class="project-meta"><span>12,000 sq ft</span><span>22 months</span></div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ═══ THE STUDIO (ABOUT) ════════════════════════════════════ -->
+    <section id="about" class="section-about">
+        <div class="studio-container">
+            <div class="dossier-layout">
+                <!-- Left: Dossier Sidebar (Portrait + Vertical Stats) -->
+                <aside class="dossier-sidebar">
+                    <div class="dossier-visual-core">
+                        <div class="dossier-portrait-frame">
+                            <div class="dossier-overlay"></div>
+                            <img src="projects/michael-chandler.jpg" alt="Michael Chandler - Executive Dossier"
+                                class="dossier-portrait">
+                        </div>
+
+                        <!-- Vertical Stats Strip Integrated into Sidebar -->
+                        <div class="dossier-stats-vertical">
+                            <div class="dossier-stat">
+                                <span class="d-stat-val">37+</span>
+                                <span class="d-stat-lbl">Years Exp</span>
+                            </div>
+                            <div class="dossier-stat">
+                                <span class="d-stat-val">$500M+</span>
+                                <span class="d-stat-lbl">Capital Managed</span>
+                            </div>
+                            <div class="dossier-stat">
+                                <span class="d-stat-val">12</span>
+                                <span class="d-stat-lbl">US States</span>
+                            </div>
+                            <div class="dossier-stat">
+                                <span class="d-stat-val">04</span>
+                                <span class="d-stat-lbl">Nations</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dossier-credentials">
+                        <div class="d-cred-item">
+                            <span class="d-cred-icon">📜</span>
+                            <div class="d-cred-text">
+                                <strong>B.Arch</strong>
+                                <span>University of Texas</span>
+                            </div>
+                        </div>
+                        <div class="d-cred-item">
+                            <span class="d-cred-icon">🌍</span>
+                            <div class="d-cred-text">
+                                <strong>Bi-Lingual</strong>
+                                <span>Spanish / English</span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Right: Content Narrative -->
+                <main class="dossier-content">
+                    <header class="dossier-header">
+                        <p class="section-label">The Studio</p>
+                        <h2 class="dossier-title">
+                            Executive Leadership.<br>
+                            <span class="accent">Architectural Precision.</span>
+                        </h2>
+                    </header>
+
+                    <div class="dossier-narrative">
+                        <blockquote class="dossier-quote">
+                            "I bridge the gap between architectural vision and operational reality, ensuring every
+                            project surpasses expectations through relentless precision."
+                        </blockquote>
+
+                        <div class="dossier-bio">
+                            <p class="about-copy">
+                                Michael Chandler is a veteran of the luxury construction and project management
+                                industry, celebrated for his ability to navigate complex, multi-site developments with
+                                the finesse of a master builder and the strategy of an executive.
+                            </p>
+                            <p class="about-copy">
+                                His dual expertise in architecture and large-scale development allows him to manage the
+                                most ambitious projects from ground-breaking to final white-glove turnover. Native-level
+                                fluency in Spanish enables seamless communication with international stakeholders.
+                            </p>
+                        </div>
+
+                        <!-- Service Pillars Integrated Into Flow -->
+                        <div class="dossier-pillars">
+                            <div class="d-pillar">
+                                <h4 class="d-pillar-title">Owner Representation</h4>
+                                <p class="d-pillar-desc">Strategic capital protection. Acting as your eyes and ears
+                                    on-site to ensure contractor accountability.</p>
+                            </div>
+                            <div class="d-pillar">
+                                <h4 class="d-pillar-title">Project Engineering</h4>
+                                <p class="d-pillar-desc">Logistical excellence from mass earthwork to bespoke millwork
+                                    for the world’s most complex residences.</p>
+                            </div>
+                            <div class="d-pillar">
+                                <h4 class="d-pillar-title">Asset Management</h4>
+                                <p class="d-pillar-desc">Multi-state portfolio oversight and strategic long-term
+                                    stewardship for high-yield luxury assets.</p>
+                            </div>
+                        </div>
+
+                        <footer class="dossier-footer">
+                            <a href="#contact" class="studio-cta">
+                                Direct Engagement
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </footer>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CONTACT FORM ════════════════════════════════════════ -->
+    <section id="contact" class="section-contact">
+        <div class="contact-block" id="contactBlock">
+            <p class="section-label">Get in Touch</p>
+            <h2 class="contact-title">
+                Let's Build.
+            </h2>
+            <p class="contact-copy">
+                Available for owner representation, design-build, and project management engagements. Let's discuss what
+                you're building.
+            </p>
+            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <input class="form-input" type="text" name="name" placeholder="Full Name" aria-label="Full Name"
+                        required>
+                </div>
+                <div class="form-group">
+                    <input class="form-input" type="email" name="email" placeholder="Email Address"
+                        aria-label="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-input" type="text" name="project_type"
+                        placeholder="Project Type (Residential, Hospitality, Civil…)" aria-label="Project Type">
+                </div>
+                <div class="form-group">
+                    <textarea class="form-input" name="message" rows="5" placeholder="Tell us about your project…"
+                        aria-label="Project Description"></textarea>
+                </div>
+                <button class="btn-submit" type="submit" id="form-submit-btn">Send Message</button>
+            </form>
+            <!-- Success state (hidden until form submits) -->
+            <div id="form-success" style="display:none; text-align:center; padding: 3rem 0;">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                    style="margin:0 auto 1.25rem; display:block;">
+                    <circle cx="20" cy="20" r="19" stroke="#111" stroke-width="1.5" />
+                    <path d="M12 20l6 6 10-12" stroke="#111" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <p style="font-family:'Playfair Display',serif; font-size:1.5rem; margin:0 0 0.5rem;">Message Sent.</p>
+                <p style="color:#777; font-size:0.9rem; font-weight:300; margin:0;">Thank you — Michael will be in touch
+                    shortly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+    <footer>
+        <div class="footer-inner">
+            <!-- Col 1: Brand -->
+            <div class="footer-col footer-col-brand">
+                <a href="#" class="foot-logo brand-logo">
+                    <div class="brand-mc"><span class="m-char">M</span>
+                        <div class="divider"></div><span>C</span>
+                    </div>
+                    <div class="brand-name">Michael Chandler</div>
+                </a>
+                <p class="footer-tagline">Precision Engineered Spaces.<br>Est. 1987.</p>
+            </div>
+
+            <!-- Col 2: Navigation -->
+            <div class="footer-col">
+                <p class="footer-col-label">Navigate</p>
+                <nav class="footer-nav">
+                    <a href="#portfolio">Selected Work</a>
+                    <a href="#about">The Studio</a>
+                    <a href="#contact">Get in Touch</a>
+                    <a href="https://mcdesign.bio" target="_blank" rel="noopener">mcdesign.bio ↗</a>
+                </nav>
+            </div>
+
+            <!-- Col 3: Contact -->
+            <div class="footer-col">
+                <p class="footer-col-label">Contact</p>
+                <nav class="footer-nav">
+                    <a href="mailto:michael@mcdesign.bio">michael@mcdesign.bio</a>
+                    <a href="https://linkedin.com/in/michaelchandler" target="_blank" rel="noopener">LinkedIn ↗</a>
+                </nav>
+                <p class="footer-availability">Currently accepting new engagements.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Michael Chandler Fine Construction & Design. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ═══ GSAP + ScrollTrigger via CDN ═══════════════════════ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // ─── Register Plugin ──────────────────────────────────────
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /* ═══ CANVAS SCROLL ANIMATION ══════════════════════════ */
+            const canvas = document.getElementById('hero-canvas');
+            const ctx = canvas.getContext('2d');
+
+            // 294 frames: ezgif-frame-001.jpg … ezgif-frame-294.jpg
+            const FRAME_COUNT = 294;
+            const framePath = i => `ezgif-frame-${String(i + 1).padStart(3, '0')}.jpg`;
+
+            // Tween target — GSAP mutates this object
+            const state = { frame: 0 };
+
+            // Pre-loaded Image objects
+            const images = [];
+            let loadedCount = 0;
+            let loaderDismissed = false; // guard — stop onload from hijacking render after start
+
+
+            /**
+             * Resize canvas to fill viewport and re-render.
+             * Must be called before GSAP sets up ScrollTrigger,
+             * otherwise ScrollTrigger uses incorrect scroll distances.
+             */
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+                render();
+            }
+
+            /**
+             * Draw current frame with object-fit: cover semantics.
+             */
+            function render() {
+                const idx = Math.round(state.frame);
+                const img = images[idx];
+                if (!img || !img.complete || img.naturalWidth === 0) return;
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                const cw = canvas.width, ch = canvas.height;
+                const iw = img.naturalWidth, ih = img.naturalHeight;
+                const cRatio = cw / ch;
+                const iRatio = iw / ih;
+
+                let dw, dh, dx, dy;
+                if (cRatio > iRatio) {
+                    dw = cw; dh = cw / iRatio;
+                    dx = 0; dy = (ch - dh) / 2;
+                } else {
+                    dh = ch; dw = ch * iRatio;
+                    dx = (cw - dw) / 2; dy = 0;
+                }
+                ctx.drawImage(img, dx, dy, dw, dh);
+            }
+
+            // Loader elements
+            const loaderEl = document.getElementById('loader');
+            const loaderFill = document.getElementById('loader-fill');
+            const loaderPct = document.getElementById('loader-pct');
+
+            function updateLoader(count) {
+                const pct = Math.round((count / FRAME_COUNT) * 100);
+                loaderFill.style.width = pct + '%';
+                loaderPct.textContent = pct + '%';
+            }
+
+            function dismissLoader() {
+                loaderDismissed = true;
+                document.body.classList.remove('loading');
+                loaderEl.classList.add('done');
+                // Kick ScrollTrigger once the page is scrollable
+                setTimeout(() => ScrollTrigger.refresh(), 50);
+            }
+
+            // Preload all frames; update loader on each load
+            for (let i = 0; i < FRAME_COUNT; i++) {
+                const img = new Image();
+                img.src = framePath(i);
+                img.onload = () => {
+                    loadedCount++;
+                    updateLoader(loadedCount);
+                    // Show very first frame while rest load, but never hijack after scroll starts
+                    if (!loaderDismissed) {
+                        if (loadedCount === 1) resizeCanvas();
+                        if (loadedCount === FRAME_COUNT) dismissLoader();
+                    }
+                };
+                img.onerror = () => {
+                    loadedCount++;
+                    updateLoader(loadedCount);
+                    if (loadedCount === FRAME_COUNT) dismissLoader();
+                };
+                images.push(img);
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas(); // initial sizing
+
+            /* ═══ GSAP MASTER TIMELINE ═════════════════════════════ */
+            /*
+             * Pin #CanvasSection for 400% viewport height.
+             * scrub: 1.5 → smooth, cinematic feel.
+             * Timeline positions are normalised 0→1 ratios.
+             */
+            /* ═══ 2. Active Dot Sync ═══ */
+            const dots = document.querySelectorAll('.nav-dot');
+            function updateDots(progress) {
+                let activeIndex = 0;
+                // Intro: 0-30%, Structural: 30-60%, Modern: 60-100%
+                if (progress > 0.3 && progress < 0.6) activeIndex = 1;
+                else if (progress >= 0.6) activeIndex = 2;
+
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === activeIndex);
+                });
+            }
+
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#CanvasSection',
+                    start: 'top top',
+                    end: '+=400%',
+                    pin: true,
+                    scrub: 1.5,
+                    onUpdate: (self) => {
+                        state.frame = self.progress * (FRAME_COUNT - 1);
+                        render();
+                        updateDots(self.progress);
+                    }
+                }
+            });
+
+            // ① Frame scrub — full 0→293 across the pinned scroll
+            tl.to(state, {
+                frame: FRAME_COUNT - 1,
+                ease: 'none',
+            }, 0);
+
+            // ② Text overlays — fade in with upward drift, fade out cleanly
+            //    Timeline ratios: 0.0 | 0.12 | 0.28 | 0.45 | 0.61 | 0.85
+
+            // Section 0 — starts hidden, fades in early, then fades out
+            gsap.set('#section-0', { opacity: 0, y: 30 });
+            tl.to('#section-0', { opacity: 1, y: 0, duration: 0.12, ease: 'power2.out' }, 0.05);
+            tl.to('#section-0', { opacity: 0, y: -20, duration: 0.12, ease: 'power2.inOut' }, 0.22);
+
+            // Section 1 — fades in ~28%, out ~45%
+            tl.fromTo('#section-1',
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.12, ease: 'power2.out' },
+                0.28
+            );
+            tl.to('#section-1', { opacity: 0, y: -20, duration: 0.12, ease: 'power2.inOut' }, 0.45);
+
+            // Section 2 — fades in ~61%, out ~85%
+            tl.fromTo('#section-2',
+                { opacity: 0, y: 30 },
+                { opacity: 1, y: 0, duration: 0.12, ease: 'power2.out' },
+                0.61
+            );
+            tl.to('#section-2', { opacity: 0, y: -20, duration: 0.12, ease: 'power2.inOut' }, 0.85);
+
+
+            /* ═══ HERO FADE-OUTS (Sync with Narrative) ══════════════ */
+            ScrollTrigger.create({
+                trigger: '#CanvasSection',
+                start: 'top top',
+                end: '+=10%',
+                onLeave: () => gsap.to('#scroll-line-container', { opacity: 0, duration: 0.4 }),
+                onEnterBack: () => gsap.to('#scroll-line-container', { opacity: 1, duration: 0.4 }),
+            });
+
+
+            /* ═══ PORTFOLIO CARDS STAGGER ══════════════════════════ */
+            gsap.fromTo('.project-item',
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.7,
+                    ease: 'power3.out',
+                    stagger: 0.12,
+                    scrollTrigger: {
+                        trigger: '#projectGrid',
+                        start: 'top 82%',
+                        toggleActions: 'play none none none',
+                    }
+                }
+            );
+
+            /* ═══ CONTACT FORM FADE-IN ══════════════════════════════ */
+            gsap.fromTo('#contactBlock',
+                { opacity: 0, y: 40 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: '#contactBlock',
+                        start: 'top 80%',
+                        toggleActions: 'play none none none',
+                    }
+                }
+            );
+
+            /* ═══ 1. SCROLL PROGRESS BAR ════════════════════════════ */
+            const progressBar = document.getElementById('scroll-progress');
+            ScrollTrigger.create({
+                trigger: '#CanvasSection',
+                start: 'top top',
+                end: '+=400%',
+                onUpdate: (self) => {
+                    progressBar.style.width = (self.progress * 100) + '%';
+                }
+            });
+
+
+            /* ═══ 3. NAV BACKDROP ON SCROLL ════════════════════════ */
+            const mainNav = document.getElementById('main-nav');
+            // The canvas section ends after pinning ~400vh; detect when user is past it
+            ScrollTrigger.create({
+                trigger: '#stats-strip',
+                start: 'top 80px',
+                onEnter: () => mainNav.classList.add('scrolled'),
+                onLeaveBack: () => mainNav.classList.remove('scrolled'),
+            });
+
+            /* ═══ 4. COUNTING STATS ═════════════════════════════════ */
+            const statNums = document.querySelectorAll('.stat-num[data-target]');
+
+            function animateCounter(el) {
+                const target = parseInt(el.dataset.target, 10);
+                const prefix = el.dataset.prefix || '';
+                const suffix = el.dataset.suffix || '';
+                const duration = 1400;
+                const start = performance.now();
+
+                function step(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // ease out cubic
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    el.textContent = prefix + Math.round(eased * target) + suffix;
+                    if (progress < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
+
+            ScrollTrigger.create({
+                trigger: '#stats-strip',
+                start: 'top 85%',
+                once: true,
+                onEnter: () => statNums.forEach(animateCounter),
+            });
+
+            /* ═══ 5. ABOUT CARDS STAGGER ════════════════════════════ */
+            gsap.fromTo('.about-card',
+                { opacity: 0, y: 30, scale: 0.97 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 0.6,
+                    ease: 'power3.out',
+                    stagger: 0.1,
+                    scrollTrigger: {
+                        trigger: '#about-cards',
+                        start: 'top 80%',
+                        toggleActions: 'play none none none',
+                    }
+                }
+            );
+
+            /* ═══ CATEGORY FILTER ═══════════════════════════════════ */
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card[data-category]');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.dataset.filter;
+
+                    projectCards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.classList.remove('hidden');
+                            gsap.fromTo(card, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' });
+                        } else {
+                            gsap.to(card, {
+                                opacity: 0, y: 10, duration: 0.25, ease: 'power2.in',
+                                onComplete: () => card.classList.add('hidden')
+                            });
+                        }
+                    });
+
+                    // Refresh ScrollTrigger layout after filter
+                    setTimeout(() => ScrollTrigger.refresh(), 350);
+                });
+            });
+
+        }); // end DOMContentLoaded
+
+        /* ═══ CONTACT FORM SUBMISSION ══════════════════════════ */
+        const contactForm = document.getElementById('contact-form');
+        const formSuccess = document.getElementById('form-success');
+        const submitBtn = document.getElementById('form-submit-btn');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                submitBtn.textContent = 'Sending…';
+                submitBtn.disabled = true;
+
+                try {
+                    const res = await fetch(contactForm.action, {
+                        method: 'POST',
+                        body: new FormData(contactForm),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (res.ok) {
+                        contactForm.style.display = 'none';
+                        formSuccess.style.display = 'block';
+                        gsap.fromTo(formSuccess, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' });
+                    } else {
+                        submitBtn.textContent = 'Try Again';
+                        submitBtn.disabled = false;
+                        alert('Something went wrong. Please email michael@mcdesign.bio directly.');
+                    }
+                } catch {
+                    submitBtn.textContent = 'Try Again';
+                    submitBtn.disabled = false;
+                    alert('Network error. Please email michael@mcdesign.bio directly.');
+                }
+            });
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           PROJECT STORIES DATA
+        ══════════════════════════════════════════════════════════ */
+        const projectStories = {
+            "miami-beach": {
+                images: ["projects/miami-beach-cover.webp", "projects/unnamed (1).jpg", "projects/unnamed (2).jpg"],
+                description: "Over a 5 month time, the newest Smart-Home Technologies were obtained and installed, with most components not even available to the public in this Country yet. Custom scalloped Solid Wood Paneling, made from some very special and rare South American wood, was sourced from a millwork company with a tragic cancelled order. Hand-picked old-world style craftsmen and modern technologists worked in perfect harmony to deliver this one-of-a-kind ocean-side residence, on time and on budget.",
+                stats: { "Condo Size": "4,200 sq ft", "Bedrooms": "4", "Baths": "4", "Timeline": "5 Months" },
+                services: "Contractor ID, Negotiation, Project Management, Owner Representation, Property Management, International Procurement"
+            },
+            "alpine-ranch": {
+                images: ["projects/unnamed (11).jpg", "projects/unnamed (12).jpg"],
+                description: "Nestled in the high-alpine region of Montana, this 2,300 sq ft luxury ranch was brought to life over 24 months. We merged modern mountain architecture with rustic charm, using custom Bronze windows crafted in Italy, high-volume vaulted ceilings, and natural stone masonry. A mix of radiant floor heating and custom forced air systems ensure that comfort and elegance are felt in every corner.",
+                stats: { "SQFT": "2,300", "Timeline": "24 Months", "Features": "Custom Italian Bronze Windows" },
+                services: "Owner Representation, Design Oversight, Contractor Procurement, Contract Negotiation, Project Management"
+            },
+            "syracuse": {
+                images: ["projects/syracuse-cover.webp", "projects/syracuse-4.webp", "projects/syracuse-8.webp", "projects/syracuse-9.webp", "projects/syracuse-24.webp", "projects/syracuse-45.webp", "projects/syracuse-46.webp"],
+                description: "This 6,200 sq ft craftsman-style estate is a testament to our integrated design-build approach. Over 18 months, we orchestrated the creation of it not just a home, but a complete two-acre landscape. The project features a separate 6-car garage/workshop for antique restoration and a two-horse stall barn, rounding out the perfect equestrian property.",
+                stats: { "SQFT": "6,200", "Stone Used": "400+ Tons", "Lot Size": "2 Acres", "Timeline": "18 Months" },
+                services: "Owner Representation, Project Management, Property Management"
+            },
+            "montana": {
+                images: ["projects/montana-cover.webp", "projects/montana-1.webp", "projects/montana-2.webp", "projects/montana-3.webp", "projects/montana-4.webp", "projects/montana-5.webp", "projects/montana-6.webp", "projects/montana-7.webp", "projects/montana-8.webp", "projects/montana-9.webp", "projects/montana-10.webp", "projects/montana-11.webp"],
+                description: "In just eight months, this new build 2,800 sq ft condo was completed as a sophisticated mountain retreat. We selected a palette of Calacatta marble, warm wood accents, and special hand-applied wall/ceiling finishes. Fine marbles were installed as full slabs for floor-to-ceiling wall finishes, perfectly balancing modern living with the tranquility of a mountain setting.",
+                stats: { "SQFT": "2,800", "Timeline": "8 Months", "Finishes": "Calacatta Slab Walls" },
+                services: "Owner Representation, Project Management, Property Management"
+            },
+            "pool-club": {
+                images: ["projects/pool-design-cover.webp", "projects/pool-design-1.webp", "projects/pool-design-2.webp", "projects/pool-design-11.webp", "projects/pool-design-12.webp", "projects/ultra lux pool.jpg"],
+                description: "We orchestrated the creation of a 189,000 gallon ultra-luxury private club amenity. The centerpiece is a beautiful free-form pool with a swim-up bar, complemented by a 1,200 sq ft pool house with 10' high solid mahogany wood walls and doors. The interior design, inspired by 1950s New York smoking clubs, features imported travertine and custom stonework.",
+                stats: { "Pool Size": "189,000 Gallons", "Project Area": "3 Acres", "Timeline": "18 Months" },
+                services: "Owner Representation, Daily Project Management, Co-Design of Elements, Property Management"
+            },
+            "southcoast": {
+                images: ["projects/unnamed (8).jpg", "projects/unnamed (9).jpg"],
+                description: "This 3,800 sq ft residence was completely reimagined through our design-build process. Over 16 months, we opened up the home to panoramic ocean views with new floor-to-ceiling windows and custom skylights. We undertook a complete structural renovation, culminating in a home that is as solid as it is beautiful, a true sanctuary on the Big Sur coast.",
+                stats: { "SQFT": "3,800", "Timeline": "16 Months", "Renovation": "Complete Structural" },
+                services: "Owner Representative, Designer, Int. Designer, Builder, Property Manager"
+            },
+            "carmel-valley": {
+                images: ["projects/carmel-valley-cover.webp", "projects/unnamed (4).jpg"],
+                description: "In the heart of Carmel Valley, we crafted a 4,800 sq ft custom residence that is a dialogue between architecture and nature. This 20-month design-build project features exposed steel beams and floor-to-ceiling glass walls that frame the oak-studded landscape. We integrated the home with its surroundings through extensive site work and native habitat restoration.",
+                stats: { "SQFT": "4,800", "Timeline": "20 Months", "Structure": "Exposed Steel & Glass" },
+                services: "Designer, Builder, Project Manager, Civil Engineering Contractor"
+            },
+            "north-florida": {
+                images: ["projects/unnamed (16).jpg", "projects/1500x1000.webp"],
+                description: "We revitalized this 3,600 sq ft home with a 1,200 sq ft addition over a 10-month period. Our comprehensive approach included a new roof, impact windows, and updated electrical and plumbing systems. Our estate management services ensured a seamless coordination of all trades, resulting in a home that is fortified and meticulously detailed.",
+                stats: { "Original SQFT": "3,600", "Addition": "1,200 sq ft", "Timeline": "10 Months" },
+                services: "Residential Construction, Estate Management"
+            },
+            "abaco-boathouse": {
+                images: ["projects/unnamed (17).jpg", "projects/1500x1000 (1).webp"],
+                description: "On the pristine shores of the Abaco Islands, we constructed an 1,800 sq ft luxury boat house in just six months for U.S. owners. Built to withstand the Caribbean climate, this waterfront structure features hurricane-resistant construction and premium marine-grade finishes. Custom mahogany millwork and covered dock access provide a touch of elegance.",
+                stats: { "SQFT": "1,800", "Location": "Abaco, Bahamas", "Timeline": "6 Months" },
+                services: "Project Manager in a Foreign Country for U.S. Owners"
+            },
+            "carmel-forest": {
+                images: ["projects/unnamed (18).jpg", "projects/1500x1000 (2).webp"],
+                description: "This project is a celebration of its stunning location, a coastal home that harmonizes with the natural beauty of the Carmel coastline. Our focus was on refined craftsmanship and thoughtful design, creating a space that feels both luxurious and deeply connected to its environment. The result is a serene retreat that is more than a structure.",
+                stats: { "Type": "Custom Addition", "Location": "Carmel By the Sea", "Focus": "Refined Craftsmanship" },
+                services: "Designer, Builder, Project Manager"
+            },
+            "big-sur-civil": {
+                images: ["projects/unnamed (19).jpg", "projects/1500x1000.webp"],
+                description: "Over 11 months, we reshaped a 1.2-acre mountain site in Big Sur, a project that required both heavy machinery and a delicate touch. We moved over 3,000 cubic yards of earth, constructed 320 linear feet of retaining walls, and built a 900 sq ft custom garage and workshop. Our work focused on erosion control and drainage systems preservation.",
+                stats: { "Earth Moved": "3,000 cu yds", "Retaining Walls": "320 ln ft", "Site Size": "1.2 Acres" },
+                services: "Owner Representative, Designer, Builder, Project Manager, Permit Procurement"
+            },
+            "carmel-knolls": {
+                images: ["projects/carmel-2-cover.webp", "projects/carmel-2-1.webp", "projects/carmel-2-2.webp", "projects/carmel-2-3.webp", "projects/carmel-2-4.webp", "projects/carmel-2-5.webp"],
+                description: "This was more than a remodel; it was a complete transformation of a 2,200 sq ft house from the ground up — 'more than lipstick on an old lady'. The project included a new roofline, foundation repairs, 18 energy-efficient windows, 1,400 sq ft of new composite decking, and 200 linear feet of retaining walls.",
+                stats: { "SQFT": "2,200", "Decking": "1,400 sq ft", "Timeline": "12 Months" },
+                services: "Designer, Int. Designer, Builder, Project Manager, Permit Procurement"
+            },
+            "coastal-erosion": {
+                images: ["projects/unnamed.jpg", "projects/1500x1000 (2).webp"],
+                description: "Facing severe coastal erosion, this project involved the complex installation of structural reinforcements and landscape stabilization over 14 months. We integrated natural reef barriers with advanced geotechnical engineering to protect the property for generations. Sustainable shoreline planting and native materials were used throughout.",
+                stats: { "Timeline": "14 Months", "Project Type": "Environmental Restoration", "Focus": "Structural Stabilization" },
+                services: "Civil Engineering, Landscape Architecture, Environmental Consultant Coordination"
+            },
+            "carmel-point": {
+                images: ["projects/unnamed (3).jpg", "projects/1500x1000.webp"],
+                description: "A masterclass in modern coastal architecture, this Carmel Point residence was meticulously built over 24 months. Exposed board-form concrete, reclaimed cedar, and expansive glass come together in a structure that feels forged from the landscape itself. Every interior detail was custom-designed and fabricated in our local workshops.",
+                stats: { "Timeline": "24 Months", "Materials": "Board-form Concrete, Cedar", "Design": "Custom Fabrication" },
+                services: "Architecture Support, General Contracting, Custom Millwork"
+            },
+            "woodside": {
+                images: ["projects/unnamed (10).jpg", "projects/1500x1000 (1).webp"],
+                description: "Set among the redwoods of Woodside, this 5,500 sq ft estate was completed in 18 months. We focused on a 'forest-first' design philosophy, preserving significant heritage trees while creating a contemporary living space. The project features automated climate systems, a hidden home theater, and a professional-grade chef's kitchen.",
+                stats: { "SQFT": "5,500", "Timeline": "18 Months", "Heritage Trees": "12 Preserved" },
+                services: "Project Management, Owner Representation, Smart Home Integration"
+            },
+            "monterey-marine": {
+                images: ["projects/1500x1000 (2).webp", "projects/unnamed (16).jpg"],
+                description: "This unique marine restoration project involved the complete structural overhaul of a historic pier-side building. Over 12 months, we implemented marine-grade structural and aesthetic upgrades, preserving the original character while introducing modern sustainability standards. This site now serves as a premier research facility for local marine life.",
+                stats: { "Timeline": "12 Months", "Facility": "Marine Research", "Upgrades": "Historic Preservation" },
+                services: "Specialized Marine Construction, Project Management, Historic Consultant Liaison"
+            },
+            "pebble-beach": {
+                images: ["projects/seaside-commercial.jpg", "projects/1500x1000.webp"],
+                description: "Located on the legendary Pebble Beach coast, this project was a full-scale renovation and expansion. Over 22 months, we added 2,400 sq ft of living space, a custom wine cellar, and a signature outdoor entertaining pavilion. The home now captures unblocked views of the 18th hole, blending world-class luxury with iconic scenery.",
+                stats: { "New SQFT": "2,400 Addition", "Timeline": "22 Months", "Special Features": "Subterranean Wine Cellar" },
+                services: "Design-Build Coordination, Permitting Management, Interior Construction"
+            },
+            "napa-valley": {
+                images: ["projects/studio-office.jpg", "projects/1500x1000 (1).webp"],
+                description: "This 7-acre Napa Valley vineyard estate was developed over 30 months from initial site planning to final landscape. We managed the construction of the primary residence, a separate tasting room, and a state-of-the-art agricultural facility. Sustainable water management and solar energy integration make this a model for modern rural luxury.",
+                stats: { "Lot Size": "7 Acres", "Timeline": "30 Months", "Sustainability": "Energy Self-Sufficient" },
+                services: "Comprehensive Site Development, Estate Management, Agricultural Liaison"
+            },
+            "palm-beach-luxe": {
+                images: ["projects/1500x1000.webp", "projects/1500x1000 (2).webp"],
+                description: "A complete 'studs-out' renovation of a historic Palm Beach mansion. Over 24 months, we restored original plaster moldings while integrating ultra-high-end modern appliances and systems. The highlight is a custom-designed rear loggia that serves as a seamless extension of the indoor living space into the tropical gardens.",
+                stats: { "Timeline": "24 Months", "Focus": "Historic Restoration", "Highlight": "Custom Outdoor Loggia" },
+                services: "Project Management, Historic Restoration Specialist, Interior Finishing Oversight"
+            }
+        };
+
+        /* ══════════════════════════════════════════════════════════
+           CARD STRUCTURE UPGRADE
+        ══════════════════════════════════════════════════════════ */
+        function upgradePortfolioCards() {
+            document.querySelectorAll('.project-card').forEach(card => {
+                const overlay = card.querySelector('.project-overlay');
+                if (!overlay) return;
+
+                const tagEl = overlay.querySelector('.project-tag');
+                const titleEl = overlay.querySelector('.project-title');
+                const tagText = tagEl ? tagEl.textContent.trim() : '';
+                const titleText = titleEl ? titleEl.textContent.trim() : '';
+
+                const parts = tagText.split('·');
+                const category = parts[0] ? parts[0].trim() : tagText;
+                const location = parts[1] ? parts[1].trim() : '';
+
+                if (location && !card.querySelector('.project-badge')) {
+                    const badge = document.createElement('div');
+                    badge.className = 'project-badge';
+                    badge.textContent = location;
+                    card.appendChild(badge);
+                }
+
+                overlay.innerHTML = `
+                    <div class="project-card-footer">
+                        <div>
+                            <span class="project-tag">${category}</span>
+                            <p class="project-title">${titleText}</p>
+                        </div>
+                        <button class="project-arrow" aria-label="Open gallery">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+                            </svg>
+                        </button>
+                    </div>`;
+
+                const arrow = overlay.querySelector('.project-arrow');
+                const slug = card.dataset.slug;
+                const story = projectStories[slug];
+                const galleryFilenames = story ? story.images : [];
+                const galleryUrls = galleryFilenames.map(f => f);
+
+                if (arrow && galleryUrls.length) {
+                    arrow.addEventListener('click', e => {
+                        e.stopPropagation();
+                        openLightbox(slug, titleText);
+                    });
+                }
+
+                card.style.cursor = 'pointer';
+                card.onclick = (e) => {
+                    if (e.target.closest('a, button')) return;
+                    openLightbox(slug, titleText);
+                };
+            });
+        }
+
+        window.addEventListener('load', upgradePortfolioCards);
+    </script>
+
+    <!-- ═══ LIGHTBOX MODAL ════════════════════════════════════ -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-close">&times;</div>
+        <div class="lightbox-content story-mode">
+            <div class="lightbox-gallery">
+                <img id="lightbox-img" src="" alt="Project Gallery">
+                <div class="lightbox-nav">
+                    <button id="prev-img">←</button>
+                    <button id="next-img">→</button>
+                </div>
+                <div id="lightbox-caption"></div>
+            </div>
+            <div id="lightbox-info" class="lightbox-info">
+                <!-- Rich project data injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* ═══ LIGHTBOX LOGIC ══════════════════════════════════════ */
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const closeBtn = document.querySelector('.lightbox-close');
+        const prevBtn = document.getElementById('prev-img');
+        const nextBtn = document.getElementById('next-img');
+
+        let currentGallery = [];
+        let currentIndex = 0;
+        let activeStory = null;
+
+        function openLightbox(slug, title) {
+            activeStory = projectStories[slug];
+            if (!activeStory) return;
+
+            currentGallery = activeStory.images;
+            currentIndex = 0;
+
+            const infoPanel = document.getElementById('lightbox-info');
+            const statsHtml = Object.entries(activeStory.stats)
+                .map(([key, val]) => `<div class="story-stat"><span class="stat-label">${key}</span><span class="stat-value">${val}</span></div>`)
+                .join('');
+
+            infoPanel.innerHTML = `
+                <h3 class="story-title">${title}</h3>
+                <p class="story-desc">${activeStory.description}</p>
+                <div class="story-stats-grid">${statsHtml}</div>
+                <div class="story-services">
+                    <span class="stat-label">Services Provided</span>
+                    <p class="services-list">${activeStory.services}</p>
+                </div>
+            `;
+
+            updateLightbox(title);
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateLightbox(title) {
+            lightboxImg.src = currentGallery[currentIndex];
+            lightboxCaption.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
+        }
+
+        closeBtn.onclick = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        prevBtn.onclick = (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            updateLightbox();
+        };
+
+        nextBtn.onclick = (e) => {
+            e.stopPropagation();
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            updateLightbox();
+        };
+
+        lightbox.onclick = (e) => {
+            if (e.target === lightbox) closeBtn.onclick();
+        };
+
+        /* ═══ MOBILE MENU ════════════════════════════════════════ */
+        (function () {
+            const hamburger = document.getElementById('nav-hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('mobile-menu-overlay');
+
+            function openMenu() {
+                hamburger.classList.add('open');
+                hamburger.setAttribute('aria-expanded', 'true');
+                mobileMenu.classList.add('open');
+                mobileMenu.setAttribute('aria-hidden', 'false');
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                mobileMenu.classList.remove('open');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.contains('open') ? closeMenu() : openMenu();
+            });
+
+            // Close on overlay click
+            overlay.addEventListener('click', closeMenu);
+
+            // Close when a link is tapped
+            mobileMenu.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape') closeMenu();
+            });
+        })();
+
+        // Allow clicking the card image to open the lightbox
+        document.querySelectorAll('.project-card').forEach(card => {
+            const slug = card.dataset.slug;
+            const titleEl = card.querySelector('.project-title');
+            const title = titleEl ? titleEl.textContent.trim() : '';
+            const gallery = projectStories[slug] ? projectStories[slug].images : [];
+            const imgEl = card.querySelector('img');
+            if (imgEl && gallery.length) {
+                imgEl.style.cursor = 'pointer';
+                imgEl.addEventListener('click', () => openLightbox(gallery, title));
+            }
+        });
+    </script>
+</body>
+
+</html>

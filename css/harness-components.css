@@ -195,6 +195,24 @@
     }
 }
 
+/* Footer links */
+.footer-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--color-teal, #00BDBD);
+}
+
 /* HARNESS Universal Footer */
 .harness-universal-footer {
     background: #2c3e50;

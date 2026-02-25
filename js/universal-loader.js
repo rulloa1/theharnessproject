@@ -36,19 +36,13 @@ function loadNavigation() {
             const adjustedHtml = html.replace(/\.\.\//g, pathPrefix);
 
             if (navContainer) {
-                // If a legacy container exists, clear it and inject the new nav
                 navContainer.innerHTML = adjustedHtml;
-                console.log('✅ Legacy navigation container updated.');
             } else {
-                // Otherwise, insert the new navigation at the beginning of the body
                 document.body.insertAdjacentHTML('afterbegin', adjustedHtml);
-                console.log('✅ New navigation container created.');
             }
-
-            console.log('✅ Navigation loaded');
         })
             .catch(error => {
-                console.warn('⚠️ Could not load navigation:', error);
+                HARNESSLogger.warn('Could not load navigation:', error);
             });
     }
 
@@ -63,22 +57,11 @@ function loadNavigation() {
                 // Adjust paths in the HTML based on current page depth
                 const adjustedHtml = html.replace(/\.\.\//g, pathPrefix);
 
-                // Insert at the end of body
                 document.body.insertAdjacentHTML('beforeend', adjustedHtml);
-
-                console.log('✅ Footer loaded');
             })
             .catch(error => {
-                console.warn('⚠️ Could not load footer:', error);
+                HARNESSLogger.warn('Could not load footer:', error);
             });
-    }
-
-    // Global toggle function for mobile menu
-    function toggleMenu() {
-        const mobileMenu = document.getElementById('mobileMenu');
-        if (mobileMenu) {
-            mobileMenu.classList.toggle('active');
-        }
     }
 
     // Add event listeners for the new hamburger menu functionality
@@ -116,6 +99,17 @@ function loadNavigation() {
                     hamburgerBtn.classList.remove('active');
                 });
             });
+
+            // Wire up Support Us button
+            const supportBtn = navMenuLinks.querySelector('.support-btn-mobile');
+            if (supportBtn) {
+                supportBtn.addEventListener('click', () => {
+                    mobileNavSidebar.classList.remove('active');
+                    mobileNavOverlay.classList.remove('active');
+                    hamburgerBtn.classList.remove('active');
+                    window.location.href = '/about.html#support';
+                });
+            }
         }
     }
 
