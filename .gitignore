@@ -77,6 +77,12 @@ android/
 *.tmp
 *.temp
 *.bak
+temp_*.html
+temp_*.py
+dump.py
+
+# ============ UNRELATED PROJECTS ============
+mcdesign_project/
 *.backup
 tmp/
 temp/
