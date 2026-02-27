@@ -14,7 +14,7 @@ The HARNESS Project is a sexual health education platform ("Fearless. Protected.
 npm start                # Local dev server at http://localhost:3000 (uses npx serve)
 npm run validate         # Validate HTML + JS (scripts/validate-js.js)
 npm run validate:js      # JS validation only
-npm run lint             # ESLint on js/*.js (no config file, uses CLI flags)
+npm run lint             # ESLint on js/*.js (config in eslint.config.js)
 npm run build            # Validate + build check (scripts/build-check.js)
 npm run build:prod       # Full production build validation
 npm run mobile:build     # Build + Capacitor sync
@@ -58,6 +58,10 @@ Both auto-detect page depth for correct relative paths (`./`, `../`, `../../`).
 - Typography: Inter (body), Poppins (headings), Bree Serif (loaded via `css/fonts.css` for special use). All imported from Google Fonts + local base64 fallback for Bree Serif.
 
 **Logger** (`js/logger.js`): Use `HARNESSLogger.log/error/warn/info/debug()`. Auto-suppresses non-error logs in production (detected by hostname !== localhost). `error()` always logs, even in production.
+
+**Other JS files:** `js/accessibility.js` — keyboard nav + ARIA enhancements; `js/cookie-consent.js` — GDPR banner; `js/lazy-loading.js` — IntersectionObserver image lazy loading; `js/seo-optimizer.js` / `js/schema-generator.js` — SEO metadata and JSON-LD injection; `js/harness-landing.js` — landing page animations.
+
+**CSS layering:** `css/global.css` defines CSS variables and base resets; `css/styles.css` is a legacy stylesheet (mostly superseded by component-specific CSS files). Prefer component-specific CSS (e.g. `css/toolkit.css`, `css/daily-affirmations.css`) over adding to global files.
 
 ## Branding Colors
 
