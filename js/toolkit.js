@@ -14,7 +14,7 @@ function populateToolkitGalleries() {
     const premiumToolkitGrid = document.getElementById('premiumToolkitGrid');
 
     if (typeof toolkitResources === 'undefined' || !toolkitResources) {
-        console.error('Toolkit data not loaded!');
+        HARNESSLogger.error('Toolkit data not loaded!');
         return;
     }
 
@@ -467,12 +467,12 @@ const LIL_Z_VERSION = {
         const nextReview = new Date(this.guidelinesVersion.nextReview);
 
         if (today >= nextReview) {
-            console.warn('[LIL Z] ⚠️ Guidelines review is due! Check for updates at:');
-            console.warn('• CDC PrEP: https://www.cdc.gov/hiv/risk/prep/');
-            console.warn('• CDC PEP: https://www.cdc.gov/hiv/risk/pep/');
-            console.warn('• CDC Doxy-PEP: https://www.cdc.gov/std/doxypep/');
-            console.warn('• CDC Testing: https://www.cdc.gov/hiv/testing/');
-            console.warn('• CDC STI Treatment: https://www.cdc.gov/std/treatment-guidelines/');
+            HARNESSLogger.warn('[LIL Z] ⚠️ Guidelines review is due! Check for updates at:');
+            HARNESSLogger.warn('• CDC PrEP: https://www.cdc.gov/hiv/risk/prep/');
+            HARNESSLogger.warn('• CDC PEP: https://www.cdc.gov/hiv/risk/pep/');
+            HARNESSLogger.warn('• CDC Doxy-PEP: https://www.cdc.gov/std/doxypep/');
+            HARNESSLogger.warn('• CDC Testing: https://www.cdc.gov/hiv/testing/');
+            HARNESSLogger.warn('• CDC STI Treatment: https://www.cdc.gov/std/treatment-guidelines/');
             return false; // Needs update
         }
         return true; // Up to date

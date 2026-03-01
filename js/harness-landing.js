@@ -393,11 +393,11 @@
     }
 
     // ========== CONSOLE EASTER EGG ========== //
-    console.log('%c🛡️ The HARNESS Project',
+    HARNESSLogger.log('%c🛡️ The HARNESS Project',
         'font-size: 24px; font-weight: bold; background: linear-gradient(135deg, #00BDBD, #F6CC00, #DD0E6E); -webkit-background-clip: text; color: transparent;');
-    console.log('%cEmpowering Sexual Health Education Since 2024',
+    HARNESSLogger.log('%cEmpowering Sexual Health Education Since 2024',
         'font-size: 14px; color: #666;');
-    console.log('%c💡 Interested in our code? We\'re hiring! Visit theharnessproject.org/careers',
+    HARNESSLogger.log('%c💡 Interested in our code? We\'re hiring! Visit theharnessproject.org/careers',
         'font-size: 12px; color: #00BDBD;');
 
 })();

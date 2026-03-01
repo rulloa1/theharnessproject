@@ -169,6 +169,7 @@ function initSchemaMarkup() {
         insertSchema(faqSchema, 'schema-faq');
     }
 
+    HARNESSLogger.log('[SEO] ✅ Schema.org structured data inserted');
 }
 
 // ===== GENERATE BREADCRUMBS FROM CURRENT PATH =====

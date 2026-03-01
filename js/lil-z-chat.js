@@ -25,12 +25,12 @@ const LIL_Z_VERSION = {
         const nextReview = new Date(this.guidelinesVersion.nextReview);
 
         if (today >= nextReview) {
-            console.warn('[LIL Z] ⚠️ Guidelines review is due! Check for updates at:');
-            console.warn('• CDC PrEP: https://www.cdc.gov/hiv/risk/prep/');
-            console.warn('• CDC PEP: https://www.cdc.gov/hiv/risk/pep/');
-            console.warn('• CDC Doxy-PEP: https://www.cdc.gov/std/doxypep/');
-            console.warn('• CDC Testing: https://www.cdc.gov/hiv/testing/');
-            console.warn('• CDC STI Treatment: https://www.cdc.gov/std/treatment-guidelines/');
+            HARNESSLogger.warn('[LIL Z] ⚠️ Guidelines review is due! Check for updates at:');
+            HARNESSLogger.warn('• CDC PrEP: https://www.cdc.gov/hiv/risk/prep/');
+            HARNESSLogger.warn('• CDC PEP: https://www.cdc.gov/hiv/risk/pep/');
+            HARNESSLogger.warn('• CDC Doxy-PEP: https://www.cdc.gov/std/doxypep/');
+            HARNESSLogger.warn('• CDC Testing: https://www.cdc.gov/hiv/testing/');
+            HARNESSLogger.warn('• CDC STI Treatment: https://www.cdc.gov/std/treatment-guidelines/');
             return false; // Needs update
         }
         return true; // Up to date
@@ -48,21 +48,23 @@ const LIL_Z_VERSION = {
 LIL_Z_VERSION.checkForUpdates();
 
 // ===== LIL Z AVATAR LIBRARY =====
-// Using harness.png as avatar until custom avatars are created
 const LIL_Z_AVATARS = {
-    // Core avatars - placeholder paths (will fallback to main)
+    // Core avatars - local copies
     cool: 'images/avatars/lil-z-cool.png',           // Confident vibes (with sunglasses)
     excited: 'images/avatars/lil-z-excited.png',     // Welcoming energy (arms wide)
     hello: 'images/avatars/lil-z-hello.png',         // International greeting
     portrait: 'images/avatars/lil-z-portrait.png',   // Friendly face
     headshot: 'images/avatars/lil-z-headshot.png',   // Professional educator
     help: 'images/avatars/lil-z-help.png',           // Ready to assist (with tools)
-    presenting: 'images/avatars/lil-z-presenting.png', // Explaining concepts
+    presenting: 'images/avatars/lil-z-help.png',     // Explaining concepts (same as help)
     highfive: 'images/avatars/lil-z-highfive.png',   // Celebrating wins
     support: 'images/avatars/lil-z-support.png',     // Caring and empathetic
 
-    // Fallback to existing harness logo
-    main: 'https://www.genspark.ai/api/files/s/j2wOdpNK',                      // Default HARNESS logo
+    // Main avatar
+    main: 'images/lil-z-avatar.png',                 // Default Lil Z avatar
+
+    // Fallback if all else fails
+    fallback: 'images/harness.png',                  // Default HARNESS logo
 
     // Get avatar based on context
     getAvatar: function (context = 'default') {
@@ -271,7 +273,7 @@ function getDefaultResponse() {
 // ===== LIL Z CHAT INTERFACE =====
 function openLilZChat(context = 'general') {
     if (typeof createModal !== 'function') {
-        console.error('🐾 Lil Z Error: createModal function not found!');
+        HARNESSLogger.error('🐾 Lil Z Error: createModal function not found!');
         alert('Lil Z is still loading... Please wait a moment.');
         return;
     }

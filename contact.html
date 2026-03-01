@@ -13,13 +13,13 @@
             content="Get in touch with The HARNESS Project. Questions about our resources, educator materials, or partnership opportunities? We're here to help." />
 
         <!-- Favicon -->
-        <link rel="icon" type="image/png" href="images/harness-project-icon-transparent.png" />
+        <link rel="icon" type="image/png" href="images/harness.png" />
 
         <!-- Stylesheets -->
         <link rel="stylesheet" href="css/transparent-headers.css" />
 
         <!-- Scripts -->
-        <!-- Universal Components Loader -->
+        <script src="js/harness-global.js" defer></script>
         <style>
             :root {
                 --primary-cyan: #00b0bd;
@@ -230,7 +230,12 @@
         </style>
         <link rel="stylesheet" href="css/standardized-logo-sizes.css" />
         <link rel="stylesheet" href="css/transparent-headers.css" />
-    </head>
+    
+    <!-- Evaluation Improvements - Added Jan 25, 2026 -->
+    <script src="./js/accessibility.js" defer></script>
+    <script src="./js/schema-generator.js" defer></script>
+    <script src="./js/lazy-loading.js" defer></script>
+</head>
     <body>
         <!-- Navigation (will be inserted here) -->
         <div id="navigation-placeholder"></div>
@@ -354,24 +359,7 @@
             </div>
         </div>
 
-        <!-- Footer (will be inserted here) -->
-        <div id="footer-placeholder"></div>
-
         <script>
-            // Load navigation
-            fetch("/components/navigation.html")
-                .then((response) => response.text())
-                .then((html) => {
-                    document.getElementById("navigation-placeholder").innerHTML = html;
-                });
-
-            // Load footer
-            fetch("/components/footer.html")
-                .then((response) => response.text())
-                .then((html) => {
-                    document.getElementById("footer-placeholder").innerHTML = html;
-                });
-
             // Handle form submission
             function handleContactSubmit(event) {
                 event.preventDefault();
@@ -384,8 +372,24 @@
                     message: document.getElementById("message").value
                 };
 
-                // Form submission via Formspree (free tier: 50 submissions/month)
-                // Alternative: Replace with your own backend endpoint
+                // Simulate form submission for demo purposes
+                console.log('Form data:', formData);
+                
+                // Simulate network delay
+                const submitBtn = document.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = 'Sending...';
+                submitBtn.disabled = true;
+
+                setTimeout(() => {
+                    alert("Thank you for your message! We'll get back to you within 24-48 hours.");
+                    document.getElementById("contactForm").reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                }, 1000);
+
+                /* 
+                // Original Formspree implementation - Enable when you have a Form ID
                 fetch('https://formspree.io/f/YOUR_FORM_ID', {
                     method: 'POST',
                     headers: {
@@ -405,6 +409,7 @@
                     console.error('Error submitting form:', error);
                     alert("We're sorry, there was an error sending your message. Please try again or email us directly at contact@theharnessproject.org");
                 });
+                */
 
                 return false;
             }

@@ -8209,8 +8209,14 @@ This ensures visual consistency and professional appearance across all pages.
             }
 
         </style>
-    </head>
+    
+    <!-- Evaluation Improvements - Added Jan 25, 2026 -->
+    <script src="./js/accessibility.js" defer></script>
+    <script src="./js/schema-generator.js" defer></script>
+    <script src="./js/lazy-loading.js" defer></script>
+</head>
     <body>
+
         <!-- Splash Screen / Landing Page -->
         <div id="splash-screen" class="splash-screen active">
             <div class="splash-content">
@@ -8331,13 +8337,7 @@ This ensures visual consistency and professional appearance across all pages.
                         <span></span>
                     </div>
                 </div>
-                <nav class="header-nav" id="headerNav">
-                    <a href="index.html">🏠 Home</a>
-                    <a href="educator/index.html">📚 Educator Hub</a>
-                    <a href="index.html#ebook">📖 Ebook</a>
-                    <a href="index.html#curriculum">🎓 Curriculum</a>
-                    <a href="index.html#workshops">👥 Workshops</a>
-                </nav>
+                
             </header>
 
             <!-- Content Area -->
@@ -8346,32 +8346,7 @@ This ensures visual consistency and professional appearance across all pages.
             </main>
 
             <!-- Bottom Navigation -->
-            <nav class="bottom-nav">
-                <button class="nav-item active" data-view="home" onclick="navigateTo('home')">
-                    <span class="nav-icon">🏠</span>
-                    <span class="nav-label">Home</span>
-                </button>
-                <button class="nav-item" data-view="fearless-quick-start" onclick="navigateTo('fearless-quick-start')">
-                    <span class="nav-icon">🚀</span>
-                    <span class="nav-label">Quick Start</span>
-                </button>
-                <button class="nav-item" data-view="match" onclick="navigateTo('match')">
-                    <span class="nav-icon">🗺️</span>
-                    <span class="nav-label">MATCH Map</span>
-                </button>
-                <button class="nav-item" data-view="agreements" onclick="navigateTo('agreements')">
-                    <span class="nav-icon">🛡️</span>
-                    <span class="nav-label">Agreements</span>
-                </button>
-                <button class="nav-item" data-view="library" onclick="navigateTo('library')">
-                    <span class="nav-icon">📚</span>
-                    <span class="nav-label">Library</span>
-                </button>
-                <button class="nav-item" data-view="profile" onclick="navigateTo('profile')">
-                    <span class="nav-icon">⚙️</span>
-                    <span class="nav-label">Me</span>
-                </button>
-            </nav>
+            
         </div>
 
         <!-- Service Worker Registration -->

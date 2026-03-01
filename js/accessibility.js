@@ -218,14 +218,14 @@ function announceToScreenReader(message) {
 function checkImageAltText() {
     const imagesWithoutAlt = document.querySelectorAll('img:not([alt])');
     if (imagesWithoutAlt.length > 0) {
-        console.warn(`[ACCESSIBILITY] ${imagesWithoutAlt.length} images missing alt text:`, imagesWithoutAlt);
+        HARNESSLogger.warn(`[ACCESSIBILITY] ${imagesWithoutAlt.length} images missing alt text:`, imagesWithoutAlt);
 
         // Add placeholder alt text
         imagesWithoutAlt.forEach(img => {
             const src = img.getAttribute('src') || '';
             const filename = src.split('/').pop().split('.')[0];
             img.setAttribute('alt', filename.replace(/-/g, ' '));
-            console.log(`Added placeholder alt text to: ${src}`);
+            HARNESSLogger.log(`Added placeholder alt text to: ${src}`);
         });
     }
 }
@@ -247,9 +247,9 @@ function checkHeadingHierarchy() {
     });
 
     if (issues.length > 0) {
-        console.warn('[ACCESSIBILITY] Heading hierarchy issues:', issues);
+        HARNESSLogger.warn('[ACCESSIBILITY] Heading hierarchy issues:', issues);
     } else {
-        console.log('[ACCESSIBILITY] ✅ Heading hierarchy is correct');
+        HARNESSLogger.log('[ACCESSIBILITY] ✅ Heading hierarchy is correct');
     }
 }
 
@@ -263,7 +263,7 @@ function initAccessibilityEnhancements() {
     checkImageAltText();
     checkHeadingHierarchy();
 
-    console.log('[ACCESSIBILITY] ✅ All accessibility enhancements initialized');
+    HARNESSLogger.log('[ACCESSIBILITY] ✅ All accessibility enhancements initialized');
 }
 
 // Auto-initialize on DOMContentLoaded

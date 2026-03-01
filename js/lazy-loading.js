@@ -37,13 +37,13 @@
 
             // Ensure alt attribute exists for accessibility
             if (!img.hasAttribute('alt') || img.getAttribute('alt') === '') {
-                console.warn('Image missing alt text:', img.src);
+                HARNESSLogger.warn('Image missing alt text:', img.src);
                 // Add placeholder alt text
                 img.setAttribute('alt', 'HARNESS Project image');
             }
         });
 
-        console.log(`✅ Lazy loading initialized: ${lazyImagesCount} images will lazy load, ${images.length - lazyImagesCount} will load eagerly`);
+        HARNESSLogger.log(`✅ Lazy loading initialized: ${lazyImagesCount} images will lazy load, ${images.length - lazyImagesCount} will load eagerly`);
     }
 
     /**
@@ -79,7 +79,7 @@
             subtree: true
         });
 
-        console.log('✅ Dynamic image observer activated');
+        HARNESSLogger.log('✅ Dynamic image observer activated');
     }
 
     /**

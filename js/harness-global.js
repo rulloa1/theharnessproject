@@ -59,10 +59,6 @@
 
     // Smart logo detection based on current page context
     function getContextualLogo(pathPrefix) {
-        // Fallback to available image since specific logos are missing
-        return `${pathPrefix}images/harness.png`;
-        
-        /* Original logic preserved for when images are restored
         const path = window.location.pathname.toLowerCase();
 
         // App pages → harness-app-logo.png
@@ -87,14 +83,13 @@
 
         // Default/Main site → harness-logo-nav.png
         return `${pathPrefix}images/harness-logo-nav.png`;
-        */
     }
 
     // === NAVIGATION COMPONENT ===
     function ensureNavigation() {
         // Check if navigation already exists
         if (document.querySelector('nav') || document.querySelector('.harness-nav')) {
-            console.log('[HARNESS] Navigation already exists');
+            HARNESSLogger.log('[HARNESS] Navigation already exists');
             return;
         }
 
@@ -154,10 +149,19 @@
         // Initialize navigation JavaScript
         initNavigationJS();
 
-        console.log('[HARNESS] Navigation injected | Path:', pathPrefix, '| Logo:', logoPath);
+        HARNESSLogger.log('[HARNESS] Navigation injected | Path:', pathPrefix, '| Logo:', logoPath);
     }
 
     function initNavigationJS() {
+        // Highlight active link
+        const currentUrl = window.location.href.split('#')[0];
+        const navLinks = document.querySelectorAll('.nav-links a, .mobile-nav-links a');
+        navLinks.forEach(link => {
+            if (link.href === currentUrl) {
+                link.classList.add('active');
+            }
+        });
+
         const hamburger = document.getElementById('harnessHamburger');
         const sidebar = document.getElementById('harnessNavSidebar');
         const overlay = document.getElementById('harnessNavOverlay');
@@ -270,7 +274,7 @@
     function ensureFooter() {
         // Check if footer already exists
         if (document.querySelector('footer') || document.querySelector('.harness-footer')) {
-            console.log('[HARNESS] Footer already exists');
+            HARNESSLogger.log('[HARNESS] Footer already exists');
             return;
         }
 
@@ -307,7 +311,7 @@
 </footer>`;
 
         document.body.insertAdjacentHTML('beforeend', footerHTML);
-        console.log('[HARNESS] Footer injected');
+        HARNESSLogger.log('[HARNESS] Footer injected');
     }
 
 })();

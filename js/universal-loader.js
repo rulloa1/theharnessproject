@@ -39,10 +39,12 @@ function loadNavigation() {
                 navContainer.innerHTML = adjustedHtml;
             } else {
                 document.body.insertAdjacentHTML('afterbegin', adjustedHtml);
+
+                HARNESSLogger.log('✅ Navigation loaded');
             }
         })
             .catch(error => {
-                HARNESSLogger.warn('Could not load navigation:', error);
+                HARNESSLogger.warn('⚠️ Could not load navigation:', error);
             });
     }
 
@@ -58,9 +60,11 @@ function loadNavigation() {
                 const adjustedHtml = html.replace(/\.\.\//g, pathPrefix);
 
                 document.body.insertAdjacentHTML('beforeend', adjustedHtml);
+
+                HARNESSLogger.log('✅ Footer loaded');
             })
             .catch(error => {
-                HARNESSLogger.warn('Could not load footer:', error);
+                HARNESSLogger.warn('⚠️ Could not load footer:', error);
             });
     }
 

@@ -168,7 +168,7 @@
         hideBanner();
 
         // Enable analytics or other tracking here if needed
-        console.log('Cookie consent accepted');
+        HARNESSLogger.log('Cookie consent accepted');
     }
 
     function declineCookies() {
@@ -177,7 +177,7 @@
         hideBanner();
 
         // Disable analytics or other tracking here
-        console.log('Cookie consent declined');
+        HARNESSLogger.log('Cookie consent declined');
     }
 
     function hideBanner() {

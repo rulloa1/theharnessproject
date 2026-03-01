@@ -275,7 +275,7 @@
             document.documentElement.setAttribute('lang', 'en');
         }
 
-        console.log('[HARNESS SEO] Meta tags injected for:', getCurrentPath());
+        HARNESSLogger.log('[HARNESS SEO] Meta tags injected for:', getCurrentPath());
     }
 
     // Add structured data (Schema.org JSON-LD)
@@ -318,7 +318,7 @@
         script.textContent = JSON.stringify(structuredData, null, 2);
         document.head.appendChild(script);
 
-        console.log('[HARNESS SEO] Structured data added');
+        HARNESSLogger.log('[HARNESS SEO] Structured data added');
     }
 
     // Initialize SEO
