@@ -1,0 +1,4 @@
+[build]
+  # Static site - no build command needed
+  command = "echo 'Static site ready'"
+  publish = "."
